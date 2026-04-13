@@ -3,42 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>대시보드</title>
+<title>My Dashboard</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px}
-.header{text-align:center;margin-bottom:48px}
-.header h1{font-size:2rem;font-weight:800;color:#f8fafc;margin-bottom:8px}
-.header h1 span{color:#3b82f6}
-.header p{font-size:0.95rem;color:#64748b}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%;max-width:680px}
-@media(max-width:600px){.cards{grid-template-columns:1fr}}
-.card{background:#1e293b;border:1px solid #334155;border-radius:16px;padding:32px 28px;text-decoration:none;color:inherit;transition:all 0.2s;display:flex;flex-direction:column;gap:12px}
-.card:hover{border-color:#3b82f6;background:#1e3a5f;transform:translateY(-2px)}
-.card-icon{font-size:2rem}
-.card-title{font-size:1.1rem;font-weight:700;color:#f1f5f9}
-.card-desc{font-size:0.85rem;color:#64748b;line-height:1.5}
-.card-arrow{font-size:0.8rem;color:#3b82f6;margin-top:auto;padding-top:8px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+
+/* Top Nav */
+.top-nav{position:sticky;top:0;z-index:100;background:rgba(15,23,42,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #1e293b;padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.top-nav h1{font-size:1.1rem;font-weight:800;color:#f8fafc}
+.top-nav h1 span{color:#3b82f6}
+.nav-date{font-size:0.78rem;color:#64748b}
+
+/* Main */
+.container{max-width:960px;margin:0 auto;padding:32px 20px 60px}
+
+/* Section */
+.section{margin-bottom:40px}
+.section-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#64748b;margin-bottom:14px;padding-left:4px}
+
+/* Project Cards Grid */
+.project-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:16px}
+
+/* Project Card */
+.project-card{background:#1e293b;border:1px solid #334155;border-radius:14px;padding:24px;text-decoration:none;color:inherit;transition:all 0.2s;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+.project-card:hover{border-color:#3b82f6;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0}
+
+/* Card color accents */
+.project-card.blue::before{background:linear-gradient(90deg,#3b82f6,#60a5fa)}
+.project-card.purple::before{background:linear-gradient(90deg,#8b5cf6,#a78bfa)}
+.project-card.green::before{background:linear-gradient(90deg,#22c55e,#4ade80)}
+.project-card.orange::before{background:linear-gradient(90deg,#f97316,#fb923c)}
+.project-card.pink::before{background:linear-gradient(90deg,#ec4899,#f472b6)}
+.project-card.teal::before{background:linear-gradient(90deg,#14b8a6,#2dd4bf)}
+
+.card-top{display:flex;align-items:center;gap:12px}
+.card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.card-icon.blue{background:rgba(59,130,246,0.15)}
+.card-icon.purple{background:rgba(139,92,246,0.15)}
+.card-icon.green{background:rgba(34,197,94,0.15)}
+.card-icon.orange{background:rgba(249,115,22,0.15)}
+.card-icon.pink{background:rgba(236,72,153,0.15)}
+.card-icon.teal{background:rgba(20,184,166,0.15)}
+
+.card-info{flex:1;min-width:0}
+.card-title{font-size:1rem;font-weight:700;color:#f1f5f9}
+.card-status{font-size:0.72rem;margin-top:3px;display:flex;align-items:center;gap:5px}
+.status-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.status-dot.active{background:#4ade80}
+.status-dot.building{background:#fbbf24}
+.status-dot.planned{background:#64748b}
+
+.card-desc{font-size:0.82rem;color:#94a3b8;line-height:1.55}
+
+.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.card-tag{font-size:0.65rem;padding:3px 9px;background:rgba(255,255,255,0.05);border:1px solid #334155;border-radius:20px;color:#94a3b8}
+
+.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px}
+.card-arrow{font-size:0.78rem;color:#3b82f6;font-weight:600}
+.card-progress{display:flex;align-items:center;gap:6px;font-size:0.72rem;color:#64748b}
+.mini-bar{width:48px;height:4px;background:#334155;border-radius:2px;overflow:hidden}
+.mini-fill{height:100%;border-radius:2px}
+
+/* Add Project Card */
+.add-card{background:transparent;border:2px dashed #334155;border-radius:14px;padding:32px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:default;transition:all 0.2s;min-height:180px}
+.add-card:hover{border-color:#475569}
+.add-icon{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#475569}
+.add-text{font-size:0.85rem;color:#475569;font-weight:600}
+.add-sub{font-size:0.72rem;color:#334155}
+
+/* Quick Stats */
+.quick-stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px}
+.qs{background:#1e293b;border:1px solid #334155;border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:10px;flex:1;min-width:140px}
+.qs-num{font-size:1.3rem;font-weight:800;color:#f8fafc}
+.qs-label{font-size:0.72rem;color:#64748b;line-height:1.3}
+
+/* Mobile */
+@media(max-width:640px){
+  .container{padding:20px 16px 40px}
+  .project-grid{grid-template-columns:1fr}
+  .quick-stats{flex-direction:column}
+  .qs{min-width:auto}
+  .top-nav{padding:12px 16px}
+  .top-nav h1{font-size:1rem}
+}
 </style>
 </head>
 <body>
-<div class="header">
+
+<div class="top-nav">
   <h1><span>My</span> Dashboard</h1>
-  <p>관리 도구 모음</p>
+  <span class="nav-date" id="nav-date"></span>
 </div>
-<div class="cards">
-  <a href="project-dashboard.html" class="card">
-    <div class="card-icon">📋</div>
-    <div class="card-title">프로젝트 관리</div>
-    <div class="card-desc">프로젝트 진행 상황, 일정, 통계를 한눈에 확인</div>
-    <div class="card-arrow">바로가기 →</div>
-  </a>
-  <a href="blog-upload-dashboard.html" class="card">
-    <div class="card-icon">✍️</div>
-    <div class="card-title">블로그 업로드</div>
-    <div class="card-desc">네이버 블로그 포스트 업로드 현황 및 관리</div>
-    <div class="card-arrow">바로가기 →</div>
-  </a>
+
+<div class="container">
+
+  <!-- Quick Stats -->
+  <div class="quick-stats">
+    <div class="qs">
+      <div class="qs-num" id="qs-projects">2</div>
+      <div class="qs-label">활성<br>프로젝트</div>
+    </div>
+    <div class="qs">
+      <div class="qs-num" id="qs-pages">106</div>
+      <div class="qs-label">전체<br>페이지</div>
+    </div>
+    <div class="qs">
+      <div class="qs-num" id="qs-tasks">10</div>
+      <div class="qs-label">남은<br>작업</div>
+    </div>
+    <div class="qs">
+      <div class="qs-num" id="qs-adsense">대기</div>
+      <div class="qs-label">애드센스<br>승인</div>
+    </div>
+  </div>
+
+  <!-- Active Projects -->
+  <div class="section">
+    <div class="section-label">활성 프로젝트</div>
+    <div class="project-grid">
+
+      <a href="project-dashboard.html" class="project-card blue">
+        <div class="card-top">
+          <div class="card-icon blue">💰</div>
+          <div class="card-info">
+            <div class="card-title">월급연구소</div>
+            <div class="card-status"><span class="status-dot active"></span> 운영 중</div>
+          </div>
+        </div>
+        <div class="card-desc">salarykorea.site — 연봉 실수령액, 세금 계산기 등 106개 페이지 운영</div>
+        <div class="card-tags">
+          <span class="card-tag">SEO</span>
+          <span class="card-tag">애드센스</span>
+          <span class="card-tag">106 pages</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-arrow">관리하기 →</span>
+          <div class="card-progress">
+            62%
+            <div class="mini-bar"><div class="mini-fill" style="width:62%;background:linear-gradient(90deg,#3b82f6,#60a5fa)"></div></div>
+          </div>
+        </div>
+      </a>
+
+      <a href="blog-upload-dashboard.html" class="project-card purple">
+        <div class="card-top">
+          <div class="card-icon purple">✍️</div>
+          <div class="card-info">
+            <div class="card-title">블로그 관리</div>
+            <div class="card-status"><span class="status-dot active"></span> 업로드 진행 중</div>
+          </div>
+        </div>
+        <div class="card-desc">네이버 블로그 포스트 65개 작성 및 업로드 현황 관리</div>
+        <div class="card-tags">
+          <span class="card-tag">네이버</span>
+          <span class="card-tag">10/65 업로드</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-arrow">관리하기 →</span>
+          <div class="card-progress">
+            15%
+            <div class="mini-bar"><div class="mini-fill" style="width:15%;background:linear-gradient(90deg,#8b5cf6,#a78bfa)"></div></div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="project-card green" style="pointer-events:auto;opacity:0.7">
+        <div class="card-top">
+          <div class="card-icon green">🏠</div>
+          <div class="card-info">
+            <div class="card-title">부동산연구소</div>
+            <div class="card-status"><span class="status-dot building"></span> 구축 중</div>
+          </div>
+        </div>
+        <div class="card-desc">부동산 세금·대출 계산기 사이트 — 5페이지 완성, 도메인 미구매</div>
+        <div class="card-tags">
+          <span class="card-tag">부동산</span>
+          <span class="card-tag">5 pages</span>
+          <span class="card-tag">도메인 필요</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-arrow">준비 중 →</span>
+          <div class="card-progress">
+            30%
+            <div class="mini-bar"><div class="mini-fill" style="width:30%;background:linear-gradient(90deg,#22c55e,#4ade80)"></div></div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Add New Project Placeholder -->
+      <div class="add-card">
+        <div class="add-icon">+</div>
+        <div class="add-text">새 프로젝트 추가</div>
+        <div class="add-sub">준비되면 여기에 추가됩니다</div>
+      </div>
+
+    </div>
+  </div>
+
 </div>
+
+<script>
+// Date display
+var now = new Date();
+var days = ['일','월','화','수','목','금','토'];
+document.getElementById('nav-date').textContent =
+  now.getFullYear() + '.' + String(now.getMonth()+1).padStart(2,'0') + '.' + String(now.getDate()).padStart(2,'0') + ' (' + days[now.getDay()] + ')';
+</script>
 </body>
 </html>
