@@ -28,7 +28,7 @@
     {"id": "t18", "text": "Selenium 네이버 업로더 디버깅", "done": false, "tag": "도구", "tagColor": "#3b0764"},
     {"id": "t19", "text": "제휴 마케팅 플랫폼 가입 (리더스CPA, 링크프라이스)", "done": false, "tag": "수익화", "tagColor": "#450a0a"},
     {"id": "t20", "text": "2번째 수익 사이트 기획 및 구축", "done": true, "tag": "전략", "tagColor": "#450a0a"},
-    {"id": "t21", "text": "프리미엄 콘텐츠 기획 (PDF 가이드 등)", "done": false, "tag": "수익화", "tagColor": "#450a0a"},
+    {"id": "t21", "text": "프리미엄 콘텐츠 PDF 3종 전략안 작성 (docs/premium-pdf/) → 본문 집필 대기", "done": false, "tag": "수익화", "tagColor": "#450a0a"},
     {"id": "t22", "text": "연말정산 계산기 (year-end-tax.html) 추가", "done": true, "tag": "사이트", "tagColor": "#1e3a5f"},
     {"id": "t23", "text": "부동산연구소 사이트 초기 구축 (5페이지)", "done": true, "tag": "전략", "tagColor": "#450a0a"},
     {"id": "t24", "text": "부동산 사이트 — 취득세 계산기 (acquisition-tax.html) 제작", "done": false, "tag": "부동산", "tagColor": "#134e4a"},
