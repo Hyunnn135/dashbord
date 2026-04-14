@@ -17,22 +17,42 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
 .nav-link:hover{background:#f1f5f9;color:#334155;text-decoration:none}
 .nav-link.active{background:#3b82f6;border-color:#3b82f6;color:#fff}
 
-.container{max-width:960px;margin:0 auto;padding:28px 20px 60px}
+.container{max-width:1040px;margin:0 auto;padding:28px 20px 60px}
 .page-title{font-size:1.4rem;font-weight:800;color:#1e293b;margin-bottom:4px}
-.page-sub{font-size:0.82rem;color:#94a3b8;margin-bottom:24px}
+.page-sub{font-size:0.82rem;color:#94a3b8;margin-bottom:20px}
+
+/* Filter bar */
+.filter-bar{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:10px 12px;margin-bottom:16px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.filter-label{font-size:0.68rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin-right:4px;padding:0 6px}
+.filter-btn{padding:6px 12px;background:transparent;border:1px solid transparent;border-radius:8px;color:#64748b;font-size:0.78rem;font-weight:600;cursor:pointer;transition:all 0.15s;display:inline-flex;align-items:center;gap:6px}
+.filter-btn:hover{background:#f1f5f9;color:#334155}
+.filter-btn.active{background:#3b82f6;border-color:#3b82f6;color:#fff}
+.filter-btn .count{font-size:0.68rem;opacity:0.7;font-weight:700}
+.filter-btn.active .count{opacity:0.9}
 
 /* Layout */
-.devlog-layout{display:grid;grid-template-columns:280px 1fr;gap:20px;align-items:start}
-.devlog-side{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:16px;position:sticky;top:72px;max-height:calc(100vh - 92px);overflow-y:auto}
-.side-title{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#94a3b8;margin-bottom:12px;padding:0 4px}
-.side-list{display:flex;flex-direction:column;gap:4px}
-.side-item{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:10px;text-decoration:none;color:inherit;cursor:pointer;transition:background 0.15s;border:1px solid transparent}
+.devlog-layout{display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:start}
+.devlog-side{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:14px;position:sticky;top:72px;max-height:calc(100vh - 92px);overflow-y:auto}
+.side-empty{padding:18px 10px;color:#94a3b8;font-size:0.8rem;text-align:center}
+
+/* Date groups */
+.date-group{margin-bottom:16px}
+.date-group:last-child{margin-bottom:0}
+.date-header{display:flex;align-items:center;justify-content:space-between;padding:6px 8px 8px;border-bottom:1px solid #f1f5f9;margin-bottom:6px;position:sticky;top:0;background:#fff;z-index:2}
+.date-header-left{display:flex;align-items:baseline;gap:8px}
+.date-text{font-size:0.78rem;font-weight:800;color:#1e293b;letter-spacing:0.3px}
+.date-weekday{font-size:0.66rem;color:#94a3b8;font-weight:600}
+.date-count{font-size:0.6rem;color:#94a3b8;font-weight:700;background:#f1f5f9;padding:1px 7px;border-radius:20px}
+
+/* Entries */
+.side-list{display:flex;flex-direction:column;gap:3px}
+.side-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;text-decoration:none;color:inherit;cursor:pointer;transition:background 0.12s;border:1px solid transparent}
 .side-item:hover{background:#f8fafc}
 .side-item.active{background:#eff6ff;border-color:#bfdbfe}
-.side-date{font-size:0.68rem;color:#94a3b8;font-weight:600;letter-spacing:0.3px}
-.side-title-text{font-size:0.82rem;color:#1e293b;font-weight:600;line-height:1.4}
-.side-meta{display:flex;align-items:center;gap:6px;margin-top:3px}
-.side-tag{font-size:0.6rem;padding:2px 7px;border-radius:12px;font-weight:600}
+.session-badge{font-size:0.64rem;font-weight:800;color:#64748b;background:#f1f5f9;min-width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:0.3px}
+.side-item.active .session-badge{background:#bfdbfe;color:#1d4ed8}
+.side-title-text{font-size:0.82rem;color:#1e293b;font-weight:600;line-height:1.4;flex:1;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.side-tag{font-size:0.58rem;padding:2px 6px;border-radius:10px;font-weight:700;flex-shrink:0}
 .side-tag.maxout{background:rgba(249,115,22,0.1);color:#ea580c}
 .side-tag.nudge{background:rgba(20,184,166,0.1);color:#0d9488}
 .side-tag.masterboard{background:rgba(139,92,246,0.1);color:#7c3aed}
@@ -66,7 +86,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
 .md th{background:#f8fafc;font-weight:700;color:#1e293b}
 .md img{max-width:100%;border-radius:8px;margin:10px 0}
 
-.content-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px}
+.content-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px;padding-bottom:12px;border-bottom:1px solid #f1f5f9}
+.content-meta{display:flex;align-items:center;gap:8px;font-size:0.72rem;color:#94a3b8}
+.content-meta .c-date{font-weight:700;color:#64748b}
+.content-meta .c-sep{color:#cbd5e1}
+.content-meta .c-tag{font-size:0.62rem;padding:2px 8px;border-radius:20px;font-weight:700}
 .raw-link{font-size:0.72rem;color:#64748b;text-decoration:none;padding:5px 10px;background:#f1f5f9;border-radius:6px;border:1px solid #e2e8f0}
 .raw-link:hover{background:#e2e8f0;color:#334155}
 
@@ -75,6 +99,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
   .devlog-layout{grid-template-columns:1fr}
   .devlog-side{position:static;max-height:none}
   .devlog-content{padding:22px 20px}
+  .date-header{position:static}
 }
 @media(max-width:640px){
   .top-nav{padding:0 16px;height:48px}
@@ -83,6 +108,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
   .nav-links{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .nav-links::-webkit-scrollbar{display:none}
   .container{padding:20px 16px 40px}
+  .filter-bar{padding:8px;overflow-x:auto;flex-wrap:nowrap}
+  .filter-btn{white-space:nowrap}
 }
 </style>
 </head>
@@ -104,11 +131,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
   <h1 class="page-title">📝 개발일지</h1>
   <p class="page-sub">각 프로젝트의 작업 로그와 결정 사항 기록. 최신순으로 정렬되어 있습니다.</p>
 
+  <div class="filter-bar" id="filter-bar">
+    <span class="filter-label">필터</span>
+    <!-- filter buttons injected by JS -->
+  </div>
+
   <div class="devlog-layout">
     <aside class="devlog-side">
-      <div class="side-title">📚 전체 일지</div>
-      <div class="side-list" id="side-list">
-        <div style="padding:10px;color:#94a3b8;font-size:0.8rem">로딩 중…</div>
+      <div id="side-root">
+        <div class="side-empty">로딩 중…</div>
       </div>
     </aside>
 
@@ -123,71 +154,175 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
 (function(){
-  const sideList = document.getElementById('side-list');
+  const filterBar = document.getElementById('filter-bar');
+  const sideRoot = document.getElementById('side-root');
   const body = document.getElementById('devlog-body');
 
   const PROJECT_LABEL = { maxout:'맥스아웃', nudge:'넛지', masterboard:'마스터보드', salarykorea:'월급연구소', realestate:'부동산연구소' };
+  const PROJECT_ORDER = ['masterboard','maxout','nudge','salarykorea','realestate'];
   const KNOWN_TAGS = Object.keys(PROJECT_LABEL);
 
   function tagClass(slug){ return KNOWN_TAGS.includes(slug) ? slug : 'default'; }
   function labelFor(slug){ return PROJECT_LABEL[slug] || slug; }
 
-  function getFileFromQuery(){
-    const p = new URLSearchParams(location.search);
-    return p.get('file');
+  function getFileFromQuery(){ return new URLSearchParams(location.search).get('file'); }
+
+  function weekdayOf(dateStr){
+    // dateStr: YYYY-MM-DD
+    try {
+      const d = new Date(dateStr + 'T00:00:00');
+      return ['일','월','화','수','목','금','토'][d.getDay()];
+    } catch(e){ return ''; }
+  }
+
+  // Compute session number per (date+project). If multiple entries share date+project,
+  // assign #1, #2, #3 in chronological order (oldest first). Otherwise no badge.
+  function assignSessions(items){
+    // Group by date+project
+    const groups = {};
+    items.forEach(it => {
+      const key = (it.date || '') + '|' + ((it.project || 'default').toLowerCase());
+      (groups[key] = groups[key] || []).push(it);
+    });
+    Object.values(groups).forEach(arr => {
+      if (arr.length < 2) return;
+      // arr currently in manifest order (newest first). Reverse to chronological (oldest first).
+      const chrono = arr.slice().reverse();
+      chrono.forEach((it, idx) => { it._session = idx + 1; });
+    });
+  }
+
+  function renderFilters(items, activeFilter){
+    const counts = { all: items.length };
+    items.forEach(it => {
+      const p = (it.project || 'default').toLowerCase();
+      counts[p] = (counts[p] || 0) + 1;
+    });
+    const filters = [{ key:'all', label:'전체' }]
+      .concat(PROJECT_ORDER.filter(p => counts[p]).map(p => ({ key:p, label:labelFor(p) })));
+    filterBar.innerHTML = '<span class="filter-label">필터</span>' + filters.map(f => {
+      const isActive = f.key === activeFilter;
+      return `<button class="filter-btn${isActive ? ' active' : ''}" data-filter="${f.key}">
+        ${f.label}<span class="count">${counts[f.key] || 0}</span>
+      </button>`;
+    }).join('');
+    filterBar.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentFilter = btn.dataset.filter;
+        try { localStorage.setItem('mb_devlog_filter', currentFilter); } catch(_){}
+        renderAll();
+      });
+    });
   }
 
   function renderSide(items, activeFile){
-    sideList.innerHTML = items.map(it => {
-      const slug = (it.project || 'default').toLowerCase();
-      const isActive = it.file === activeFile;
-      return `<a class="side-item${isActive ? ' active' : ''}" href="devlog.html?file=${encodeURIComponent(it.file)}">
-        <span class="side-date">${it.date || ''}</span>
-        <span class="side-title-text">${it.title || it.file}</span>
-        <span class="side-meta"><span class="side-tag ${tagClass(slug)}">${labelFor(slug)}</span></span>
-      </a>`;
+    if (items.length === 0) {
+      sideRoot.innerHTML = '<div class="side-empty">이 필터에 해당하는 글이 없습니다.</div>';
+      return;
+    }
+    // Group by date (items already newest first)
+    const byDate = [];
+    const seen = {};
+    items.forEach(it => {
+      const d = it.date || '';
+      if (!seen[d]) { seen[d] = { date:d, items:[] }; byDate.push(seen[d]); }
+      seen[d].items.push(it);
+    });
+
+    sideRoot.innerHTML = byDate.map(grp => {
+      const wk = weekdayOf(grp.date);
+      const header = `<div class="date-header">
+        <div class="date-header-left">
+          <span class="date-text">${grp.date}</span>
+          <span class="date-weekday">${wk ? '('+wk+')' : ''}</span>
+        </div>
+        <span class="date-count">${grp.items.length}건</span>
+      </div>`;
+      const entries = grp.items.map(it => {
+        const slug = (it.project || 'default').toLowerCase();
+        const isActive = it.file === activeFile;
+        const badge = it._session ? `<span class="session-badge">#${it._session}</span>` : '<span class="session-badge" style="opacity:0.4">·</span>';
+        return `<a class="side-item${isActive ? ' active' : ''}" href="devlog.html?file=${encodeURIComponent(it.file)}">
+          ${badge}
+          <span class="side-title-text">${it.title || it.file}</span>
+          <span class="side-tag ${tagClass(slug)}">${labelFor(slug)}</span>
+        </a>`;
+      }).join('');
+      return `<div class="date-group">${header}<div class="side-list">${entries}</div></div>`;
     }).join('');
   }
 
   function renderMarkdown(text, meta){
-    // Sanitize — marked has built-in option; we trust our own content
     const html = marked.parse(text, { breaks: false, gfm: true });
     const rawHref = 'devlog/' + meta.file;
+    const slug = (meta.project || 'default').toLowerCase();
+    const wk = weekdayOf(meta.date);
+    const sessionStr = meta._session ? ` · 세션 #${meta._session}` : '';
     body.innerHTML = `
       <div class="content-header">
-        <div></div>
+        <div class="content-meta">
+          <span class="c-date">${meta.date || ''}${wk ? ' ('+wk+')' : ''}${sessionStr}</span>
+          <span class="c-sep">·</span>
+          <span class="c-tag side-tag ${tagClass(slug)}">${labelFor(slug)}</span>
+        </div>
         <a class="raw-link" href="${rawHref}" target="_blank" rel="noopener">원문 보기 (raw) ↗</a>
       </div>
       <div class="md">${html}</div>
     `;
-    // Scroll top of content on mobile
-    body.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function showEmpty(msg){
     body.innerHTML = `<div class="devlog-empty">${msg || '왼쪽 목록에서 개발일지를 선택하세요.'}</div>`;
   }
 
+  let allItems = [];
+  let currentFilter = 'all';
+  let activeFile = null;
+
+  function filteredItems(){
+    if (currentFilter === 'all') return allItems;
+    return allItems.filter(it => (it.project || 'default').toLowerCase() === currentFilter);
+  }
+
+  function renderAll(){
+    const items = filteredItems();
+    renderFilters(allItems, currentFilter);
+    renderSide(items, activeFile);
+  }
+
   fetch('devlog/index.json', { cache: 'no-cache' })
     .then(r => r.ok ? r.json() : Promise.reject(new Error('manifest missing')))
     .then(items => {
       if (!Array.isArray(items) || items.length === 0) {
-        sideList.innerHTML = '<div style="padding:10px;color:#94a3b8;font-size:0.8rem">등록된 devlog가 없습니다.</div>';
+        filterBar.innerHTML = '<span class="filter-label">필터</span>';
+        sideRoot.innerHTML = '<div class="side-empty">등록된 devlog가 없습니다.</div>';
         showEmpty('아직 등록된 개발일지가 없습니다.');
         return;
       }
-      let activeFile = getFileFromQuery();
-      if (!activeFile) activeFile = items[0].file;
-      const meta = items.find(i => i.file === activeFile) || items[0];
-      renderSide(items, meta.file);
+      allItems = items;
+      assignSessions(allItems);
 
+      try { currentFilter = localStorage.getItem('mb_devlog_filter') || 'all'; } catch(_){ currentFilter = 'all'; }
+      // If the stored filter has no items, reset
+      if (currentFilter !== 'all' && !allItems.some(it => (it.project||'').toLowerCase() === currentFilter)) {
+        currentFilter = 'all';
+      }
+
+      const qFile = getFileFromQuery();
+      const chosen = qFile ? allItems.find(i => i.file === qFile) : null;
+      activeFile = chosen ? chosen.file : (filteredItems()[0] ? filteredItems()[0].file : allItems[0].file);
+
+      renderAll();
+
+      const meta = allItems.find(i => i.file === activeFile) || allItems[0];
       fetch('devlog/' + meta.file, { cache: 'no-cache' })
         .then(r => r.ok ? r.text() : Promise.reject(new Error('file missing')))
         .then(text => renderMarkdown(text, meta))
-        .catch(() => showEmpty('선택한 개발일지를 불러올 수 없습니다. 파일이 저장소에 있는지 확인해 주세요.'));
+        .catch(() => showEmpty('선택한 개발일지를 불러올 수 없습니다.'));
     })
     .catch(() => {
-      sideList.innerHTML = '<div style="padding:10px;color:#ef4444;font-size:0.8rem">index.json 로드 실패</div>';
+      filterBar.innerHTML = '<span class="filter-label">필터</span>';
+      sideRoot.innerHTML = '<div class="side-empty" style="color:#ef4444">index.json 로드 실패</div>';
       showEmpty('devlog 인덱스를 불러올 수 없습니다.');
     });
 })();

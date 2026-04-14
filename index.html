@@ -118,13 +118,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
 .tl-meta{font-size:0.7rem;color:#94a3b8;margin-top:3px}
 
 /* Devlog Preview */
-.devlog-preview{display:flex;flex-direction:column;gap:10px}
+.devlog-preview{display:flex;flex-direction:column;gap:12px}
 .devlog-loading{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;color:#94a3b8;font-size:0.82rem}
-.devlog-item{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 20px;text-decoration:none;color:inherit;display:flex;align-items:center;gap:14px;transition:all 0.15s}
-.devlog-item:hover{border-color:#3b82f6;box-shadow:0 4px 12px rgba(0,0,0,0.05);transform:translateY(-1px)}
-.devlog-date{font-size:0.7rem;font-weight:700;color:#94a3b8;letter-spacing:0.3px;min-width:84px;flex-shrink:0}
-.devlog-title{font-size:0.88rem;font-weight:600;color:#1e293b;line-height:1.45;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.devlog-tag{font-size:0.62rem;padding:2px 8px;border-radius:20px;font-weight:600;flex-shrink:0}
+.devlog-day{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px 18px;transition:all 0.15s}
+.devlog-day:hover{box-shadow:0 4px 12px rgba(0,0,0,0.04)}
+.devlog-day-header{display:flex;align-items:baseline;justify-content:space-between;padding-bottom:8px;margin-bottom:6px;border-bottom:1px solid #f1f5f9}
+.devlog-day-date{font-size:0.78rem;font-weight:800;color:#1e293b;letter-spacing:0.3px}
+.devlog-day-weekday{font-size:0.66rem;color:#94a3b8;font-weight:600;margin-left:4px}
+.devlog-day-count{font-size:0.62rem;color:#64748b;font-weight:700;background:#f1f5f9;padding:2px 8px;border-radius:20px}
+.devlog-day-list{display:flex;flex-direction:column;gap:2px}
+.devlog-item{display:flex;align-items:center;gap:10px;padding:8px 8px;border-radius:8px;text-decoration:none;color:inherit;transition:background 0.12s}
+.devlog-item:hover{background:#f8fafc}
+.devlog-session{font-size:0.64rem;font-weight:800;color:#64748b;background:#f1f5f9;min-width:22px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:0.3px}
+.devlog-session.blank{opacity:0.35}
+.devlog-title{font-size:0.86rem;font-weight:600;color:#1e293b;line-height:1.4;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.devlog-tag{font-size:0.6rem;padding:2px 8px;border-radius:12px;font-weight:700;flex-shrink:0}
 .devlog-tag.maxout{background:rgba(249,115,22,0.1);color:#ea580c}
 .devlog-tag.nudge{background:rgba(20,184,166,0.1);color:#0d9488}
 .devlog-tag.masterboard{background:rgba(139,92,246,0.1);color:#7c3aed}
@@ -142,8 +150,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
   .project-grid{grid-template-columns:1fr}
   .quick-stats{flex-direction:column}
   .qs{min-width:auto}
-  .devlog-item{flex-wrap:wrap;gap:8px;padding:14px 16px}
-  .devlog-title{white-space:normal;min-width:100%;order:2}
+  .devlog-day{padding:12px 14px}
+  .devlog-item{gap:8px;padding:7px 4px}
+  .devlog-title{font-size:0.82rem}
   .drag-hint{display:none}
 }
 </style>
@@ -493,19 +502,33 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
   applyStoredOrder();
 })();
 
-/* ===== Recent Devlog Preview ===== */
+/* ===== Recent Devlog Preview — grouped by date ===== */
 (function(){
   const host = document.getElementById('devlog-preview');
   if (!host) return;
 
-  function projectTagFromSlug(slug){
-    const known = ['maxout','nudge','masterboard','salarykorea','realestate'];
-    return known.includes(slug) ? slug : 'default';
+  const PROJECT_LABEL = { maxout:'맥스아웃', nudge:'넛지', masterboard:'마스터보드', salarykorea:'월급연구소', realestate:'부동산연구소' };
+  const KNOWN = Object.keys(PROJECT_LABEL);
+
+  function tagClass(slug){ return KNOWN.includes(slug) ? slug : 'default'; }
+  function labelFor(slug){ return PROJECT_LABEL[slug] || slug; }
+
+  function weekdayOf(dateStr){
+    try { return ['일','월','화','수','목','금','토'][new Date(dateStr + 'T00:00:00').getDay()]; }
+    catch(e){ return ''; }
   }
 
-  function labelForProject(slug){
-    const map = { maxout:'맥스아웃', nudge:'넛지', masterboard:'마스터보드', salarykorea:'월급연구소', realestate:'부동산연구소' };
-    return map[slug] || slug;
+  function assignSessions(items){
+    const groups = {};
+    items.forEach(it => {
+      const key = (it.date || '') + '|' + ((it.project || 'default').toLowerCase());
+      (groups[key] = groups[key] || []).push(it);
+    });
+    Object.values(groups).forEach(arr => {
+      if (arr.length < 2) return;
+      // manifest is newest first — reverse for chronological numbering
+      arr.slice().reverse().forEach((it, idx) => { it._session = idx + 1; });
+    });
   }
 
   fetch('devlog/index.json', { cache: 'no-cache' })
@@ -515,20 +538,42 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
         host.innerHTML = '<div class="devlog-loading">아직 작성된 devlog가 없습니다.</div>';
         return;
       }
-      // items assumed sorted newest first in manifest; take first 3
-      const recent = items.slice(0, 3);
-      host.innerHTML = recent.map(it => {
-        const slug = (it.project || 'default').toLowerCase();
-        const tagClass = projectTagFromSlug(slug);
-        const label = labelForProject(slug);
-        const title = it.title || it.file || '제목 없음';
-        const date = it.date || '';
-        const href = 'devlog.html?file=' + encodeURIComponent(it.file);
-        return `<a class="devlog-item" href="${href}">
-          <span class="devlog-date">${date}</span>
-          <span class="devlog-title">${title}</span>
-          <span class="devlog-tag ${tagClass}">${label}</span>
-        </a>`;
+      assignSessions(items);
+
+      // Group by date, take top 2 most recent dates
+      const byDate = [];
+      const seen = {};
+      items.forEach(it => {
+        const d = it.date || '';
+        if (!seen[d]) { seen[d] = { date:d, items:[] }; byDate.push(seen[d]); }
+        seen[d].items.push(it);
+      });
+      const topDates = byDate.slice(0, 2);
+
+      host.innerHTML = topDates.map(grp => {
+        const wk = weekdayOf(grp.date);
+        const rows = grp.items.map(it => {
+          const slug = (it.project || 'default').toLowerCase();
+          const href = 'devlog.html?file=' + encodeURIComponent(it.file);
+          const badge = it._session
+            ? `<span class="devlog-session">#${it._session}</span>`
+            : `<span class="devlog-session blank">·</span>`;
+          return `<a class="devlog-item" href="${href}">
+            ${badge}
+            <span class="devlog-title">${it.title || it.file}</span>
+            <span class="devlog-tag ${tagClass(slug)}">${labelFor(slug)}</span>
+          </a>`;
+        }).join('');
+        return `<div class="devlog-day">
+          <div class="devlog-day-header">
+            <div>
+              <span class="devlog-day-date">${grp.date}</span>
+              <span class="devlog-day-weekday">${wk ? '('+wk+')' : ''}</span>
+            </div>
+            <span class="devlog-day-count">${grp.items.length}건</span>
+          </div>
+          <div class="devlog-day-list">${rows}</div>
+        </div>`;
       }).join('');
     })
     .catch(() => {
