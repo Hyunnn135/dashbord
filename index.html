@@ -51,6 +51,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
 .card-icon.purple{background:rgba(139,92,246,0.1)}
 .card-icon.green{background:rgba(34,197,94,0.1)}
 .card-icon.orange{background:rgba(249,115,22,0.1)}
+.card-icon.teal{background:rgba(20,184,166,0.1)}
 .card-info{flex:1;min-width:0}
 .card-title{font-size:1rem;font-weight:700;color:#1e293b}
 .card-status{font-size:0.72rem;margin-top:3px;display:flex;align-items:center;gap:5px;color:#64748b}
@@ -88,6 +89,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
 .tl-item.purple::before{border-color:#8b5cf6}
 .tl-item.green::before{border-color:#22c55e}
 .tl-item.orange::before{border-color:#f97316}
+.tl-item.teal::before{border-color:#14b8a6}
 .tl-item.gray::before{border-color:#94a3b8}
 .tl-date{font-size:0.7rem;color:#94a3b8;font-weight:700;letter-spacing:0.4px;margin-bottom:4px}
 .tl-content{font-size:0.86rem;color:#334155;line-height:1.55}
@@ -97,6 +99,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
 .tl-tag.purple{background:rgba(139,92,246,0.1);color:#7c3aed}
 .tl-tag.green{background:rgba(34,197,94,0.1);color:#16a34a}
 .tl-tag.orange{background:rgba(249,115,22,0.1);color:#ea580c}
+.tl-tag.teal{background:rgba(20,184,166,0.1);color:#0d9488}
 .tl-tag.gray{background:#f1f5f9;color:#64748b}
 .tl-meta{font-size:0.7rem;color:#94a3b8;margin-top:3px}
 
@@ -131,7 +134,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
   <!-- Quick Stats -->
   <div class="quick-stats">
     <div class="qs">
-      <div class="qs-num" id="qs-projects">3</div>
+      <div class="qs-num" id="qs-projects">5</div>
       <div class="qs-label">활성<br>프로젝트</div>
     </div>
     <div class="qs">
@@ -244,6 +247,30 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
         </div>
       </a>
 
+      <a href="#" class="project-card teal" style="pointer-events:auto;opacity:0.85">
+        <div class="card-top">
+          <div class="card-icon teal">🫱</div>
+          <div class="card-info">
+            <div class="card-title">Nudge (넛지)</div>
+            <div class="card-status"><span class="status-dot building"></span> 기획 완료</div>
+          </div>
+        </div>
+        <div class="card-desc">위젯 탭 1회 = 운동 1회 기록. 초미니멀 운동 카운터 iOS/watchOS 앱 — SwiftUI + WidgetKit</div>
+        <div class="card-tags">
+          <span class="card-tag">SwiftUI</span>
+          <span class="card-tag">Widget</span>
+          <span class="card-tag">iOS 17+</span>
+          <span class="card-tag">Phase 0</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-arrow">개발 준비 중 →</span>
+          <div class="card-progress">
+            5%
+            <div class="mini-bar"><div class="mini-fill" style="width:5%;background:linear-gradient(90deg,#14b8a6,#2dd4bf)"></div></div>
+          </div>
+        </div>
+      </a>
+
       <!-- Add New Project Placeholder -->
       <div class="add-card">
         <div class="add-icon">+</div>
@@ -263,6 +290,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
         <div class="timeline-sub">개발 일지(devlog) 기반 · 최신순</div>
       </div>
       <div class="timeline">
+
+        <div class="tl-item teal">
+          <div class="tl-date">2026-04-14</div>
+          <div class="tl-content">
+            <strong>Nudge (넛지) 앱 기획 시작</strong> — 위젯 탭 1회 = 운동 1회 기록. 푸시업/풀업/스쿼트 초미니멀 카운터 (iOS + watchOS). 맥스아웃과 정반대 페르소나
+            <span class="tl-tag teal">기획</span>
+          </div>
+          <div class="tl-meta">Nudge · Phase 0</div>
+        </div>
 
         <div class="tl-item gray">
           <div class="tl-date">2026-04-14</div>
