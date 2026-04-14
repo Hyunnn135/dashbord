@@ -8,99 +8,598 @@ window.PROJECT_DATA = {
     "adsense": "대기 중"
   },
   "tasks": [
-    {"id": "t1", "text": "사이트 68개 HTML 페이지 제작", "done": true, "tag": "사이트", "tagColor": "#1e3a5f"},
-    {"id": "t2", "text": "OG 이미지 한국어 버전 교체", "done": true, "tag": "사이트", "tagColor": "#1e3a5f"},
-    {"id": "t3", "text": "네비게이션 메뉴 업데이트 (3개 신규 페이지)", "done": true, "tag": "사이트", "tagColor": "#1e3a5f"},
-    {"id": "t4", "text": "블로그 포스트 #001~#028 생성", "done": true, "tag": "블로그", "tagColor": "#422006"},
-    {"id": "t5", "text": "블로그 포스트 #061~#065 생성", "done": true, "tag": "블로그", "tagColor": "#422006"},
-    {"id": "t6", "text": "블로그 #001~#010 네이버 업로드 완료", "done": true, "tag": "블로그", "tagColor": "#422006"},
-    {"id": "t7", "text": "블로그 업로드 마스터보드 HTML 제작", "done": true, "tag": "도구", "tagColor": "#3b0764"},
-    {"id": "t8", "text": "블로그 이모지 제거 + 리치텍스트 복사 적용", "done": true, "tag": "블로그", "tagColor": "#422006"},
-    {"id": "t9", "text": "내부 링크 강화 — 30개 페이지에 관련 콘텐츠 추가", "done": true, "tag": "SEO", "tagColor": "#14532d"},
-    {"id": "t10", "text": "FAQ 스키마 — 11개 계산기 페이지에 추가", "done": true, "tag": "SEO", "tagColor": "#14532d"},
-    {"id": "t11", "text": "구글 색인 요청 — 104개 URL 전체", "done": true, "tag": "SEO", "tagColor": "#14532d"},
-    {"id": "t12", "text": "구글 색인 자동화 스크립트 구축", "done": true, "tag": "도구", "tagColor": "#3b0764"},
-    {"id": "t13", "text": "수익화 단기/중기/장기 로드맵 수립", "done": true, "tag": "전략", "tagColor": "#450a0a"},
-    {"id": "t14", "text": "블로그 포스트 #029~#060 생성 (32개)", "done": false, "tag": "블로그", "tagColor": "#422006"},
-    {"id": "t15", "text": "블로그 #011~#028 네이버 업로드 (매일 1개)", "done": false, "tag": "블로그", "tagColor": "#422006"},
-    {"id": "t16", "text": "애드센스 승인 획득", "done": false, "tag": "수익화", "tagColor": "#450a0a"},
-    {"id": "t17", "text": "구글 색인 현황 확인 (4/15)", "done": false, "tag": "SEO", "tagColor": "#14532d"},
-    {"id": "t18", "text": "Selenium 네이버 업로더 디버깅", "done": false, "tag": "도구", "tagColor": "#3b0764"},
-    {"id": "t19", "text": "제휴 마케팅 플랫폼 가입 (리더스CPA, 링크프라이스)", "done": false, "tag": "수익화", "tagColor": "#450a0a"},
-    {"id": "t20", "text": "2번째 수익 사이트 기획 및 구축", "done": true, "tag": "전략", "tagColor": "#450a0a"},
-    {"id": "t21", "text": "프리미엄 콘텐츠 PDF 3종 전략안 작성 (docs/premium-pdf/) → 본문 집필 대기", "done": false, "tag": "수익화", "tagColor": "#450a0a"},
-    {"id": "t22", "text": "연말정산 계산기 (year-end-tax.html) 추가", "done": true, "tag": "사이트", "tagColor": "#1e3a5f"},
-    {"id": "t23", "text": "부동산연구소 사이트 초기 구축 (5페이지)", "done": true, "tag": "전략", "tagColor": "#450a0a"},
-    {"id": "t24", "text": "부동산 사이트 — 취득세 계산기 (acquisition-tax.html) 제작", "done": false, "tag": "부동산", "tagColor": "#134e4a"},
-    {"id": "t25", "text": "부동산 사이트 — 전세가율 계산기 (rent-ratio.html) 제작", "done": false, "tag": "부동산", "tagColor": "#134e4a"},
-    {"id": "t26", "text": "부동산 사이트 도메인 구매 및 배포", "done": false, "tag": "부동산", "tagColor": "#134e4a"},
-    {"id": "t27", "text": "AI 내성 재포지셔닝 전략 수립 (docs/ai-resistance/)", "done": true, "tag": "전략", "tagColor": "#450a0a"},
-    {"id": "t28", "text": "공통 컴포넌트 구현 (trust-layer.js + common.css 확장)", "done": true, "tag": "수익화", "tagColor": "#450a0a"},
-    {"id": "t29", "text": "파일럿 페이지 income-tax.html 에 AI 내성 3축 적용 완료", "done": true, "tag": "수익화", "tagColor": "#450a0a"},
-    {"id": "t32", "text": "income-tax 파일럿 PDF 결과물 풀패키지 강화 (부호버그 수정 + 캡처 헤더/메타/푸터 + Trust Badge 재구성 + 단일 긴 PDF 페이지)", "done": true, "tag": "수익화", "tagColor": "#450a0a"},
-    {"id": "t33", "text": "계산기 3개 페이지 롤아웃 (freelancer-tax · year-end-tax · medical-tax) — AI 내성 레이어 + 캡처 풀패키지 + TrustLayer.bind + captureMeta", "done": true, "tag": "수익화", "tagColor": "#450a0a"},
-    {"id": "t30", "text": "메인 계산기 14개 페이지 롤아웃 (AI 내성 레이어) — 4/14 진행 중 (4/14 완료: income-tax + freelancer-tax + year-end-tax + medical-tax)", "done": false, "tag": "수익화", "tagColor": "#450a0a"},
-    {"id": "t34", "text": "남은 10개 계산기 페이지 롤아웃 (gift-tax · acquisition-tax · monthly-salary · salary-table · retirement · insurance · silbi · holiday-pay · unemployment · minimum-wage)", "done": false, "tag": "수익화", "tagColor": "#450a0a"},
-    {"id": "t31", "text": "PDF 기획안 v2 리라이트 (긴 글 → 워크시트/템플릿 중심)", "done": false, "tag": "수익화", "tagColor": "#450a0a"},
-    {"id": "w1", "text": "맥스아웃 앱 기획안 작성 (APP_PLAN.md)", "done": true, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w2", "text": "기술 스택 확정 (SwiftUI + CloudKit)", "done": true, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w3", "text": "핵심 기능 설계 (슈퍼세트, 스마트 과부하, 전환 기록, 자동 카운팅)", "done": true, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w4", "text": "프로젝트 관리 체계 구축 (마스터보드, devlog, PROJECT_CONTEXT)", "done": true, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w5", "text": "[Phase 1] Xcode 프로젝트 셋업 (iOS + watchOS)", "done": false, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w6", "text": "[Phase 1] SwiftData 모델 정의", "done": false, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w7", "text": "[Phase 1] 기본 화면 구조 (탭 네비게이션)", "done": false, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w8", "text": "[Phase 1] 홈 화면 + 캘린더 뷰", "done": false, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w9", "text": "[Phase 1] 세트 구성 설정 화면", "done": false, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w10", "text": "[Phase 2] 대형 카운터 UI (iPhone + Apple Watch)", "done": false, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w11", "text": "[Phase 2] 슈퍼세트 진행 로직", "done": false, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w12", "text": "[Phase 2] 탭 인터랙션 (1탭 전환 / 더블탭 정지+실패)", "done": false, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w13", "text": "[Phase 2] 휴식 타이머 + 스마트 과부하 계산", "done": false, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w14", "text": "[Phase 3] Apple Watch 모션 감지 카운팅", "done": false, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w15", "text": "[Phase 3] 음성 인식 / 카메라 포즈 감지", "done": false, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w16", "text": "[Phase 3] iPhone ↔ Watch 실시간 동기화", "done": false, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w17", "text": "[Phase 4] 통계 차트 + 캘린더 뷰", "done": false, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w18", "text": "[Phase 4] CloudKit 동기화", "done": false, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "w19", "text": "[Phase 4] UI 폴리싱 & TestFlight 배포", "done": false, "tag": "맥스아웃", "tagColor": "#7c2d12"},
-    {"id": "n1", "text": "Nudge 앱 이름 확정 + 기획안(APP_PLAN.md) 작성", "done": true, "tag": "Nudge", "tagColor": "#0d9488"},
-    {"id": "n2", "text": "Nudge 프로젝트 관리 체계 구축 (PROJECT_CONTEXT, PROGRESS, 마스터보드 연동)", "done": true, "tag": "Nudge", "tagColor": "#0d9488"},
-    {"id": "n3", "text": "Nudge 아이콘 & 컬러 컨셉 스케치", "done": false, "tag": "Nudge", "tagColor": "#0d9488"},
-    {"id": "n4", "text": "[Phase 1] Xcode 프로젝트 셋업 (iOS 앱 + Widget Extension + watchOS)", "done": false, "tag": "Nudge", "tagColor": "#0d9488"},
-    {"id": "n5", "text": "[Phase 1] App Group 설정 + SwiftData 모델 정의", "done": false, "tag": "Nudge", "tagColor": "#0d9488"},
-    {"id": "n6", "text": "[Phase 1] 활성 운동 선택 화면 + 기본 카운터 UI", "done": false, "tag": "Nudge", "tagColor": "#0d9488"},
-    {"id": "n7", "text": "[Phase 2] Widget Extension + 소형/중형 위젯 디자인", "done": false, "tag": "Nudge", "tagColor": "#0d9488"},
-    {"id": "n8", "text": "[Phase 2] App Intents로 Interactive Widget 구현 (탭=+1)", "done": false, "tag": "Nudge", "tagColor": "#0d9488"},
-    {"id": "n9", "text": "[Phase 3] watchOS 앱 + 컴플리케이션", "done": false, "tag": "Nudge", "tagColor": "#0d9488"},
-    {"id": "n10", "text": "[Phase 3] iPhone ↔ Watch 동기화 검증 (CloudKit vs WatchConnectivity)", "done": false, "tag": "Nudge", "tagColor": "#0d9488"},
-    {"id": "n11", "text": "[Phase 4] 일/주/월/연 통계 화면 (Swift Charts)", "done": false, "tag": "Nudge", "tagColor": "#0d9488"},
-    {"id": "n12", "text": "[Phase 4] 폴리싱 + TestFlight 배포", "done": false, "tag": "Nudge", "tagColor": "#0d9488"}
+    {
+      "id": "t1",
+      "text": "사이트 68개 HTML 페이지 제작",
+      "done": true,
+      "tag": "사이트",
+      "tagColor": "#1e3a5f"
+    },
+    {
+      "id": "t2",
+      "text": "OG 이미지 한국어 버전 교체",
+      "done": true,
+      "tag": "사이트",
+      "tagColor": "#1e3a5f"
+    },
+    {
+      "id": "t3",
+      "text": "네비게이션 메뉴 업데이트 (3개 신규 페이지)",
+      "done": true,
+      "tag": "사이트",
+      "tagColor": "#1e3a5f"
+    },
+    {
+      "id": "t4",
+      "text": "블로그 포스트 #001~#028 생성",
+      "done": true,
+      "tag": "블로그",
+      "tagColor": "#422006"
+    },
+    {
+      "id": "t5",
+      "text": "블로그 포스트 #061~#065 생성",
+      "done": true,
+      "tag": "블로그",
+      "tagColor": "#422006"
+    },
+    {
+      "id": "t6",
+      "text": "블로그 #001~#010 네이버 업로드 완료",
+      "done": true,
+      "tag": "블로그",
+      "tagColor": "#422006"
+    },
+    {
+      "id": "t7",
+      "text": "블로그 업로드 마스터보드 HTML 제작",
+      "done": true,
+      "tag": "도구",
+      "tagColor": "#3b0764"
+    },
+    {
+      "id": "t8",
+      "text": "블로그 이모지 제거 + 리치텍스트 복사 적용",
+      "done": true,
+      "tag": "블로그",
+      "tagColor": "#422006"
+    },
+    {
+      "id": "t9",
+      "text": "내부 링크 강화 — 30개 페이지에 관련 콘텐츠 추가",
+      "done": true,
+      "tag": "SEO",
+      "tagColor": "#14532d"
+    },
+    {
+      "id": "t10",
+      "text": "FAQ 스키마 — 11개 계산기 페이지에 추가",
+      "done": true,
+      "tag": "SEO",
+      "tagColor": "#14532d"
+    },
+    {
+      "id": "t11",
+      "text": "구글 색인 요청 — 104개 URL 전체",
+      "done": true,
+      "tag": "SEO",
+      "tagColor": "#14532d"
+    },
+    {
+      "id": "t12",
+      "text": "구글 색인 자동화 스크립트 구축",
+      "done": true,
+      "tag": "도구",
+      "tagColor": "#3b0764"
+    },
+    {
+      "id": "t13",
+      "text": "수익화 단기/중기/장기 로드맵 수립",
+      "done": true,
+      "tag": "전략",
+      "tagColor": "#450a0a"
+    },
+    {
+      "id": "t14",
+      "text": "블로그 포스트 #029~#060 생성 (32개)",
+      "done": false,
+      "tag": "블로그",
+      "tagColor": "#422006"
+    },
+    {
+      "id": "t15",
+      "text": "블로그 #011~#028 네이버 업로드 (매일 1개)",
+      "done": false,
+      "tag": "블로그",
+      "tagColor": "#422006"
+    },
+    {
+      "id": "t16",
+      "text": "애드센스 승인 획득",
+      "done": false,
+      "tag": "수익화",
+      "tagColor": "#450a0a"
+    },
+    {
+      "id": "t17",
+      "text": "구글 색인 현황 확인 (4/15)",
+      "done": false,
+      "tag": "SEO",
+      "tagColor": "#14532d"
+    },
+    {
+      "id": "t18",
+      "text": "Selenium 네이버 업로더 디버깅",
+      "done": false,
+      "tag": "도구",
+      "tagColor": "#3b0764"
+    },
+    {
+      "id": "t19",
+      "text": "제휴 마케팅 플랫폼 가입 (리더스CPA, 링크프라이스)",
+      "done": false,
+      "tag": "수익화",
+      "tagColor": "#450a0a"
+    },
+    {
+      "id": "t20",
+      "text": "2번째 수익 사이트 기획 및 구축",
+      "done": true,
+      "tag": "전략",
+      "tagColor": "#450a0a"
+    },
+    {
+      "id": "t21",
+      "text": "프리미엄 콘텐츠 PDF 3종 전략안 작성 (docs/premium-pdf/) → 본문 집필 대기",
+      "done": false,
+      "tag": "수익화",
+      "tagColor": "#450a0a"
+    },
+    {
+      "id": "t22",
+      "text": "연말정산 계산기 (year-end-tax.html) 추가",
+      "done": true,
+      "tag": "사이트",
+      "tagColor": "#1e3a5f"
+    },
+    {
+      "id": "t23",
+      "text": "부동산연구소 사이트 초기 구축 (5페이지)",
+      "done": true,
+      "tag": "전략",
+      "tagColor": "#450a0a"
+    },
+    {
+      "id": "t24",
+      "text": "부동산 사이트 — 취득세 계산기 (acquisition-tax.html) 제작",
+      "done": false,
+      "tag": "부동산",
+      "tagColor": "#134e4a"
+    },
+    {
+      "id": "t25",
+      "text": "부동산 사이트 — 전세가율 계산기 (rent-ratio.html) 제작",
+      "done": false,
+      "tag": "부동산",
+      "tagColor": "#134e4a"
+    },
+    {
+      "id": "t26",
+      "text": "부동산 사이트 도메인 구매 및 배포",
+      "done": false,
+      "tag": "부동산",
+      "tagColor": "#134e4a"
+    },
+    {
+      "id": "t27",
+      "text": "AI 내성 재포지셔닝 전략 수립 (docs/ai-resistance/)",
+      "done": true,
+      "tag": "전략",
+      "tagColor": "#450a0a"
+    },
+    {
+      "id": "t28",
+      "text": "공통 컴포넌트 구현 (trust-layer.js + common.css 확장)",
+      "done": true,
+      "tag": "수익화",
+      "tagColor": "#450a0a"
+    },
+    {
+      "id": "t29",
+      "text": "파일럿 페이지 income-tax.html 에 AI 내성 3축 적용 완료",
+      "done": true,
+      "tag": "수익화",
+      "tagColor": "#450a0a"
+    },
+    {
+      "id": "t32",
+      "text": "income-tax 파일럿 PDF 결과물 풀패키지 강화 (부호버그 수정 + 캡처 헤더/메타/푸터 + Trust Badge 재구성 + 단일 긴 PDF 페이지)",
+      "done": true,
+      "tag": "수익화",
+      "tagColor": "#450a0a"
+    },
+    {
+      "id": "t33",
+      "text": "계산기 3개 페이지 롤아웃 (freelancer-tax · year-end-tax · medical-tax) — AI 내성 레이어 + 캡처 풀패키지 + TrustLayer.bind + captureMeta",
+      "done": true,
+      "tag": "수익화",
+      "tagColor": "#450a0a"
+    },
+    {
+      "id": "t30",
+      "text": "메인 계산기 14개 페이지 롤아웃 (AI 내성 레이어) — 4/14 진행 중 (4/14 완료: income-tax + freelancer-tax + year-end-tax + medical-tax)",
+      "done": false,
+      "tag": "수익화",
+      "tagColor": "#450a0a"
+    },
+    {
+      "id": "t34",
+      "text": "남은 10개 계산기 페이지 롤아웃 (gift-tax · acquisition-tax · monthly-salary · salary-table · retirement · insurance · silbi · holiday-pay · unemployment · minimum-wage)",
+      "done": false,
+      "tag": "수익화",
+      "tagColor": "#450a0a"
+    },
+    {
+      "id": "t31",
+      "text": "PDF 기획안 v2 리라이트 (긴 글 → 워크시트/템플릿 중심)",
+      "done": false,
+      "tag": "수익화",
+      "tagColor": "#450a0a"
+    },
+    {
+      "id": "w1",
+      "text": "맥스아웃 앱 기획안 작성 (APP_PLAN.md)",
+      "done": true,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w2",
+      "text": "기술 스택 확정 (SwiftUI + CloudKit)",
+      "done": true,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w3",
+      "text": "핵심 기능 설계 (슈퍼세트, 스마트 과부하, 전환 기록, 자동 카운팅)",
+      "done": true,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w4",
+      "text": "프로젝트 관리 체계 구축 (마스터보드, devlog, PROJECT_CONTEXT)",
+      "done": true,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w5",
+      "text": "[Phase 1] Xcode 프로젝트 셋업 (iOS + watchOS)",
+      "done": false,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w6",
+      "text": "[Phase 1] SwiftData 모델 정의",
+      "done": false,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w7",
+      "text": "[Phase 1] 기본 화면 구조 (탭 네비게이션)",
+      "done": false,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w8",
+      "text": "[Phase 1] 홈 화면 + 캘린더 뷰",
+      "done": false,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w9",
+      "text": "[Phase 1] 세트 구성 설정 화면",
+      "done": false,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w10",
+      "text": "[Phase 2] 대형 카운터 UI (iPhone + Apple Watch)",
+      "done": false,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w11",
+      "text": "[Phase 2] 슈퍼세트 진행 로직",
+      "done": false,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w12",
+      "text": "[Phase 2] 탭 인터랙션 (1탭 전환 / 더블탭 정지+실패)",
+      "done": false,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w13",
+      "text": "[Phase 2] 휴식 타이머 + 스마트 과부하 계산",
+      "done": false,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w14",
+      "text": "[Phase 3] Apple Watch 모션 감지 카운팅",
+      "done": false,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w15",
+      "text": "[Phase 3] 음성 인식 / 카메라 포즈 감지",
+      "done": false,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w16",
+      "text": "[Phase 3] iPhone ↔ Watch 실시간 동기화",
+      "done": false,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w17",
+      "text": "[Phase 4] 통계 차트 + 캘린더 뷰",
+      "done": false,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w18",
+      "text": "[Phase 4] CloudKit 동기화",
+      "done": false,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "w19",
+      "text": "[Phase 4] UI 폴리싱 & TestFlight 배포",
+      "done": false,
+      "tag": "맥스아웃",
+      "tagColor": "#7c2d12"
+    },
+    {
+      "id": "n1",
+      "text": "Nudge 앱 이름 확정 + 기획안(APP_PLAN.md) 작성",
+      "done": true,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n2",
+      "text": "Nudge 프로젝트 관리 체계 구축 (PROJECT_CONTEXT, PROGRESS, 마스터보드 연동)",
+      "done": true,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n3",
+      "text": "Nudge 아이콘 & 컬러 컨셉 스케치 (DESIGN.md + 4종 SVG, A안 가결정)",
+      "done": true,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n4",
+      "text": "[Phase 1] Xcode 프로젝트 셋업 (iOS 앱 + Widget Extension + watchOS)",
+      "done": false,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n5",
+      "text": "[Phase 1] App Group 설정 + SwiftData 모델 정의",
+      "done": false,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n6",
+      "text": "[Phase 1] 활성 운동 선택 화면 + 기본 카운터 UI",
+      "done": false,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n7",
+      "text": "[Phase 2] Widget Extension + 소형/중형 위젯 디자인",
+      "done": false,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n8",
+      "text": "[Phase 2] App Intents로 Interactive Widget 구현 (탭=+1)",
+      "done": false,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n9",
+      "text": "[Phase 3] watchOS 앱 + 컴플리케이션",
+      "done": false,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n10",
+      "text": "[Phase 3] iPhone ↔ Watch 동기화 검증 (CloudKit vs WatchConnectivity)",
+      "done": false,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n11",
+      "text": "[Phase 4] 일/주/월/연 통계 화면 (Swift Charts)",
+      "done": false,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n12",
+      "text": "[Phase 4] 폴리싱 + TestFlight 배포",
+      "done": false,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    }
   ],
   "schedule": [
-    {"date": "2026-04-12", "text": "내부 링크 30페이지 + FAQ 스키마 11페이지 추가, 배포 완료", "status": "done"},
-    {"date": "2026-04-12", "text": "구글 Indexing API로 104개 URL 색인 요청", "status": "done"},
-    {"date": "2026-04-13", "text": "블로그 #006 예약 발행", "status": "done"},
-    {"date": "2026-04-14", "text": "블로그 #007 예약 발행", "status": "done"},
-    {"date": "2026-04-14", "text": "income-tax 파일럿 PDF 결과물 풀패키지 강화 완료 (부호버그 + 캡처 헤더/메타/푸터 + 단일 긴 페이지)", "status": "done"},
-    {"date": "2026-04-14", "text": "계산기 3개 페이지 롤아웃 완료 (freelancer-tax · year-end-tax · medical-tax) — AI 내성 레이어 패턴 확장", "status": "done"},
-    {"date": "2026-04-15", "text": "구글 색인 현황 확인 (리마인더 설정됨)", "status": "current"},
-    {"date": "2026-04-15~16", "text": "남은 10개 계산기 페이지 롤아웃 + 로컬 검증", "status": "upcoming"},
-    {"date": "2026-04-15~05-05", "text": "블로그 #008~#028 매일 1개씩 발행", "status": "upcoming"},
-    {"date": "2026-04 중", "text": "애드센스 승인 결과 확인", "status": "upcoming"},
-    {"date": "2026-04-12", "text": "연말정산 계산기 + 부동산연구소 사이트 5페이지 생성", "status": "done"},
-    {"date": "2026-05 중", "text": "블로그 포스트 #029~#060 생성", "status": "upcoming"},
-    {"date": "2026-05 중", "text": "부동산 사이트 취득세/전세가율 계산기 추가 + 도메인 배포", "status": "upcoming"},
-    {"date": "2026-05~06", "text": "제휴 마케팅 시작 (리더스CPA, 쿠팡파트너스)", "status": "upcoming"},
-    {"date": "2026-06~07", "text": "2번째 수익 사이트 구축 시작", "status": "upcoming"},
-    {"date": "2026-07~", "text": "Ezoic 전환 검토, 프리미엄 콘텐츠 출시", "status": "upcoming"},
-    {"date": "2026-04-13", "text": "[맥스아웃] 앱 기획안 작성 완료, 기술 스택 확정", "status": "done"},
-    {"date": "2026-04~05", "text": "[맥스아웃] Phase 1: Xcode 셋업 + SwiftData 모델 + 기본 UI", "status": "upcoming"},
-    {"date": "2026-05~06", "text": "[맥스아웃] Phase 2: 운동 진행 핵심 기능 개발", "status": "upcoming"},
-    {"date": "2026-06", "text": "[맥스아웃] Phase 3: 자동 카운팅 & 고도화", "status": "upcoming"},
-    {"date": "2026-06~07", "text": "[맥스아웃] Phase 4: 통계 + CloudKit + TestFlight", "status": "upcoming"},
-    {"date": "2026-04-14", "text": "[Nudge] 앱 기획 완료 (이름 확정, APP_PLAN, 마스터보드 등록)", "status": "done"},
-    {"date": "2026-04~05", "text": "[Nudge] Phase 1: Xcode 셋업 + App Group + 기본 UI", "status": "upcoming"},
-    {"date": "2026-05", "text": "[Nudge] Phase 2: Interactive Widget 구현", "status": "upcoming"},
-    {"date": "2026-05~06", "text": "[Nudge] Phase 3: watchOS + 동기화", "status": "upcoming"},
-    {"date": "2026-06", "text": "[Nudge] Phase 4: 통계 + TestFlight", "status": "upcoming"}
+    {
+      "date": "2026-04-12",
+      "text": "내부 링크 30페이지 + FAQ 스키마 11페이지 추가, 배포 완료",
+      "status": "done"
+    },
+    {
+      "date": "2026-04-12",
+      "text": "구글 Indexing API로 104개 URL 색인 요청",
+      "status": "done"
+    },
+    {
+      "date": "2026-04-13",
+      "text": "블로그 #006 예약 발행",
+      "status": "done"
+    },
+    {
+      "date": "2026-04-14",
+      "text": "블로그 #007 예약 발행",
+      "status": "done"
+    },
+    {
+      "date": "2026-04-14",
+      "text": "income-tax 파일럿 PDF 결과물 풀패키지 강화 완료 (부호버그 + 캡처 헤더/메타/푸터 + 단일 긴 페이지)",
+      "status": "done"
+    },
+    {
+      "date": "2026-04-14",
+      "text": "계산기 3개 페이지 롤아웃 완료 (freelancer-tax · year-end-tax · medical-tax) — AI 내성 레이어 패턴 확장",
+      "status": "done"
+    },
+    {
+      "date": "2026-04-15",
+      "text": "구글 색인 현황 확인 (리마인더 설정됨)",
+      "status": "current"
+    },
+    {
+      "date": "2026-04-15~16",
+      "text": "남은 10개 계산기 페이지 롤아웃 + 로컬 검증",
+      "status": "upcoming"
+    },
+    {
+      "date": "2026-04-15~05-05",
+      "text": "블로그 #008~#028 매일 1개씩 발행",
+      "status": "upcoming"
+    },
+    {
+      "date": "2026-04 중",
+      "text": "애드센스 승인 결과 확인",
+      "status": "upcoming"
+    },
+    {
+      "date": "2026-04-12",
+      "text": "연말정산 계산기 + 부동산연구소 사이트 5페이지 생성",
+      "status": "done"
+    },
+    {
+      "date": "2026-05 중",
+      "text": "블로그 포스트 #029~#060 생성",
+      "status": "upcoming"
+    },
+    {
+      "date": "2026-05 중",
+      "text": "부동산 사이트 취득세/전세가율 계산기 추가 + 도메인 배포",
+      "status": "upcoming"
+    },
+    {
+      "date": "2026-05~06",
+      "text": "제휴 마케팅 시작 (리더스CPA, 쿠팡파트너스)",
+      "status": "upcoming"
+    },
+    {
+      "date": "2026-06~07",
+      "text": "2번째 수익 사이트 구축 시작",
+      "status": "upcoming"
+    },
+    {
+      "date": "2026-07~",
+      "text": "Ezoic 전환 검토, 프리미엄 콘텐츠 출시",
+      "status": "upcoming"
+    },
+    {
+      "date": "2026-04-13",
+      "text": "[맥스아웃] 앱 기획안 작성 완료, 기술 스택 확정",
+      "status": "done"
+    },
+    {
+      "date": "2026-04~05",
+      "text": "[맥스아웃] Phase 1: Xcode 셋업 + SwiftData 모델 + 기본 UI",
+      "status": "upcoming"
+    },
+    {
+      "date": "2026-05~06",
+      "text": "[맥스아웃] Phase 2: 운동 진행 핵심 기능 개발",
+      "status": "upcoming"
+    },
+    {
+      "date": "2026-06",
+      "text": "[맥스아웃] Phase 3: 자동 카운팅 & 고도화",
+      "status": "upcoming"
+    },
+    {
+      "date": "2026-06~07",
+      "text": "[맥스아웃] Phase 4: 통계 + CloudKit + TestFlight",
+      "status": "upcoming"
+    },
+    {
+      "date": "2026-04-14",
+      "text": "[Nudge] 앱 기획 완료 (이름 확정, APP_PLAN, 마스터보드 등록)",
+      "status": "done"
+    },
+    {
+      "date": "2026-04-14",
+      "text": "[Nudge] 디자인 시스템 & 아이콘 컨셉 4종 완료 (Teal 팔레트, A안 가결정)",
+      "status": "done"
+    },
+    {
+      "date": "2026-04~05",
+      "text": "[Nudge] Phase 1: Xcode 셋업 + App Group + 기본 UI",
+      "status": "upcoming"
+    },
+    {
+      "date": "2026-05",
+      "text": "[Nudge] Phase 2: Interactive Widget 구현",
+      "status": "upcoming"
+    },
+    {
+      "date": "2026-05~06",
+      "text": "[Nudge] Phase 3: watchOS + 동기화",
+      "status": "upcoming"
+    },
+    {
+      "date": "2026-06",
+      "text": "[Nudge] Phase 4: 통계 + TestFlight",
+      "status": "upcoming"
+    }
   ],
   "roadmap": {
     "short": {
@@ -139,11 +638,54 @@ window.PROJECT_DATA = {
     }
   },
   "ideas": [
-    {"rank": "추천 1순위", "title": "부동산 계산기 사이트", "desc": "양도소득세, 취득세, DSR/LTV 대출 한도, 전세-월세 전환, 중개수수료 계산기. salarykorea.site 코드베이스 재활용 가능, 두 사이트 상호 링크로 SEO 시너지.", "tags": ["CPC 최상위", "코드 재활용", "SEO 시너지"]},
-    {"rank": "추천 2순위", "title": "청년/직장인 재테크 가이드", "desc": "청년도약계좌, 청년내일저축, ISA, IRP 등 정부 지원 금융 상품 비교. 매년 정책 변경으로 에버그린 콘텐츠, 금융 CPA 제휴와 궁합 좋음.", "tags": ["에버그린", "CPA 제휴", "정책 연동"]},
-    {"rank": "추천 3순위", "title": "종합 세금 가이드 사이트", "desc": "연말정산, 종합소득세, 부가가치세, 프리랜서 세금 전문. 매년 세법 변경으로 자동 콘텐츠 수요, 높은 CPC 키워드 영역.", "tags": ["높은 CPC", "매년 업데이트"]},
-    {"rank": "아이디어 4", "title": "생활 밀착형 계산기 모음", "desc": "BMI, 칼로리, 음주량, 자동차 유지비, 전기요금, 대출이자 등. 개별 CPC 낮지만 검색량 크고 경쟁 낮아 트래픽 빠르게 확보.", "tags": ["높은 검색량", "낮은 경쟁", "빠른 트래픽"]},
-    {"rank": "아이디어 5", "title": "AI 도구 리뷰/비교 사이트", "desc": "AI 글쓰기, 이미지 생성, 코딩 도구 비교 리뷰. SaaS 제휴 프로그램 20~30% 반복 수수료. 블로그 형태가 더 적합.", "tags": ["SaaS 제휴", "반복 수수료", "빠른 성장"]}
+    {
+      "rank": "추천 1순위",
+      "title": "부동산 계산기 사이트",
+      "desc": "양도소득세, 취득세, DSR/LTV 대출 한도, 전세-월세 전환, 중개수수료 계산기. salarykorea.site 코드베이스 재활용 가능, 두 사이트 상호 링크로 SEO 시너지.",
+      "tags": [
+        "CPC 최상위",
+        "코드 재활용",
+        "SEO 시너지"
+      ]
+    },
+    {
+      "rank": "추천 2순위",
+      "title": "청년/직장인 재테크 가이드",
+      "desc": "청년도약계좌, 청년내일저축, ISA, IRP 등 정부 지원 금융 상품 비교. 매년 정책 변경으로 에버그린 콘텐츠, 금융 CPA 제휴와 궁합 좋음.",
+      "tags": [
+        "에버그린",
+        "CPA 제휴",
+        "정책 연동"
+      ]
+    },
+    {
+      "rank": "추천 3순위",
+      "title": "종합 세금 가이드 사이트",
+      "desc": "연말정산, 종합소득세, 부가가치세, 프리랜서 세금 전문. 매년 세법 변경으로 자동 콘텐츠 수요, 높은 CPC 키워드 영역.",
+      "tags": [
+        "높은 CPC",
+        "매년 업데이트"
+      ]
+    },
+    {
+      "rank": "아이디어 4",
+      "title": "생활 밀착형 계산기 모음",
+      "desc": "BMI, 칼로리, 음주량, 자동차 유지비, 전기요금, 대출이자 등. 개별 CPC 낮지만 검색량 크고 경쟁 낮아 트래픽 빠르게 확보.",
+      "tags": [
+        "높은 검색량",
+        "낮은 경쟁",
+        "빠른 트래픽"
+      ]
+    },
+    {
+      "rank": "아이디어 5",
+      "title": "AI 도구 리뷰/비교 사이트",
+      "desc": "AI 글쓰기, 이미지 생성, 코딩 도구 비교 리뷰. SaaS 제휴 프로그램 20~30% 반복 수수료. 블로그 형태가 더 적합.",
+      "tags": [
+        "SaaS 제휴",
+        "반복 수수료",
+        "빠른 성장"
+      ]
+    }
   ]
-}
-;
+};
