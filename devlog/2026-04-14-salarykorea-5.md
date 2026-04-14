@@ -75,6 +75,17 @@ captureArea는 기존에 wrapper div에 `style="display:none"` 을 주고 calcul
   - `@page { margin: 15mm }` 여백 통일
 - 결과: 인쇄 시 입력 조건 요약 → 메인 결과 → 상세 내역 순으로 한 흐름으로 나오고 중간 끊김이 큰 블록 단위에서만 발생
 
+### 3. 결국 인쇄 버튼 자체를 제거하기로 결정
+
+@media print 를 강화했지만 여전히 인쇄 출력물 품질이 만족스럽지 않았음. 사용자 판단: "PDF 저장 기능이 있으니 필요한 사람은 PDF를 출력하면 된다 — 유지보수 부담이 더 큰 인쇄는 빼자."
+
+- 4개 페이지 (income-tax · freelancer-tax · year-end-tax · medical-tax) 의 `.result-actions` 에서 `data-action="print"` 버튼 블록 제거 → 3버튼(PDF 저장/이미지 저장/링크 복사) 구성
+- `trust-layer.js` 에서 `printPage()` 함수, 이벤트 리스너의 `"print"` 분기, `window.TrustLayer.print` 공개 API 제거
+- 파일 상단 JSDoc 주석 업데이트 — "인쇄 기능은 2026-04-14에 제거됨 — PDF 저장으로 대체"
+- `common.css` 의 `@media print` 블록은 **유지** (브라우저 Ctrl+P 사용자 대응)
+
+이로써 "확실히 동작하는 3개 + 부분적으로 동작하는 1개" → "확실히 동작하는 3개" 구성으로 단순화. Occam's Razor 판정.
+
 ## 🔍 검증 결과 (배포 전 — 로컬 검증 대기)
 
 배포 전 로컬 검증 필요:
