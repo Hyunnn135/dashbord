@@ -24,6 +24,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
 /* Section */
 .section{margin-bottom:40px}
 .section-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#94a3b8;margin-bottom:14px;padding-left:4px}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px}
+.section-head .section-label{margin-bottom:0}
+.section-actions{display:flex;align-items:center;gap:10px}
+.drag-hint{font-size:0.7rem;color:#94a3b8}
+.section-btn{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:6px 12px;font-size:0.72rem;font-weight:600;color:#475569;cursor:pointer;transition:all 0.15s}
+.section-btn:hover{background:#f1f5f9;border-color:#cbd5e1;color:#1e293b}
+.section-btn.primary{background:#3b82f6;border-color:#3b82f6;color:#fff}
+.section-btn.primary:hover{background:#2563eb;border-color:#2563eb;color:#fff}
+
+/* Drag states */
+.project-card[draggable="true"]{cursor:grab}
+.project-card[draggable="true"]:active{cursor:grabbing}
+.project-card.dragging{opacity:0.4}
+.project-card.drag-over{border-color:#3b82f6;transform:scale(1.02);box-shadow:0 0 0 2px rgba(59,130,246,0.25)}
 
 /* Quick Stats */
 .quick-stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
@@ -103,6 +117,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
 .tl-tag.gray{background:#f1f5f9;color:#64748b}
 .tl-meta{font-size:0.7rem;color:#94a3b8;margin-top:3px}
 
+/* Devlog Preview */
+.devlog-preview{display:flex;flex-direction:column;gap:10px}
+.devlog-loading{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;color:#94a3b8;font-size:0.82rem}
+.devlog-item{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 20px;text-decoration:none;color:inherit;display:flex;align-items:center;gap:14px;transition:all 0.15s}
+.devlog-item:hover{border-color:#3b82f6;box-shadow:0 4px 12px rgba(0,0,0,0.05);transform:translateY(-1px)}
+.devlog-date{font-size:0.7rem;font-weight:700;color:#94a3b8;letter-spacing:0.3px;min-width:84px;flex-shrink:0}
+.devlog-title{font-size:0.88rem;font-weight:600;color:#1e293b;line-height:1.45;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.devlog-tag{font-size:0.62rem;padding:2px 8px;border-radius:20px;font-weight:600;flex-shrink:0}
+.devlog-tag.maxout{background:rgba(249,115,22,0.1);color:#ea580c}
+.devlog-tag.nudge{background:rgba(20,184,166,0.1);color:#0d9488}
+.devlog-tag.masterboard{background:rgba(139,92,246,0.1);color:#7c3aed}
+.devlog-tag.salarykorea{background:rgba(59,130,246,0.1);color:#2563eb}
+.devlog-tag.realestate{background:rgba(34,197,94,0.1);color:#16a34a}
+.devlog-tag.default{background:#f1f5f9;color:#64748b}
+
 /* Mobile */
 @media(max-width:640px){
   .top-nav{padding:0 16px;height:48px}
@@ -113,6 +142,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
   .project-grid{grid-template-columns:1fr}
   .quick-stats{flex-direction:column}
   .qs{min-width:auto}
+  .devlog-item{flex-wrap:wrap;gap:8px;padding:14px 16px}
+  .devlog-title{white-space:normal;min-width:100%;order:2}
+  .drag-hint{display:none}
 }
 </style>
 </head>
@@ -124,10 +156,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
     <a href="index.html" class="nav-link active">홈</a>
     <a href="project-masterboard.html" class="nav-link">프로젝트</a>
     <a href="maxout-board.html" class="nav-link">맥스아웃</a>
-    <a href="nudge-board.html" class="nav-link">Nudge</a>
+    <a href="nudge-board.html" class="nav-link">넛지</a>
     <a href="blog-upload-board.html" class="nav-link">블로그</a>
+    <a href="devlog.html" class="nav-link">개발일지</a>
   </div>
-  <span class="nav-date" id="nav-date"></span>
 </div>
 
 <div class="container">
@@ -135,7 +167,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
   <!-- Quick Stats -->
   <div class="quick-stats">
     <div class="qs">
-      <div class="qs-num" id="qs-projects">5</div>
+      <div class="qs-num" id="qs-projects">4</div>
       <div class="qs-label">활성<br>프로젝트</div>
     </div>
     <div class="qs">
@@ -154,22 +186,29 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
 
   <!-- Active Projects -->
   <div class="section">
-    <div class="section-label">활성 프로젝트</div>
-    <div class="project-grid">
+    <div class="section-head">
+      <div class="section-label">활성 프로젝트</div>
+      <div class="section-actions">
+        <span class="drag-hint" id="drag-hint">🖱 카드를 드래그해 순서 변경</span>
+        <button class="section-btn" id="auto-sort-btn" title="기본 순서로 되돌리기">↻ 자동정렬</button>
+      </div>
+    </div>
+    <div class="project-grid" id="project-grid">
 
-      <a href="project-masterboard.html" class="project-card blue">
+      <a href="project-masterboard.html" class="project-card blue" draggable="true" data-card-id="salarykorea">
         <div class="card-top">
           <div class="card-icon blue">💰</div>
           <div class="card-info">
-            <div class="card-title">월급연구소</div>
+            <div class="card-title">월급연구소 (Salarykorea)</div>
             <div class="card-status"><span class="status-dot active"></span> 운영 중</div>
           </div>
         </div>
-        <div class="card-desc">salarykorea.site — 연봉 실수령액, 세금 계산기 등 106개 페이지 운영</div>
+        <div class="card-desc">salarykorea.site — 연봉 실수령액, 세금 계산기 등 106개 페이지 운영 + 네이버 블로그 포스트 65개 시리즈</div>
         <div class="card-tags">
           <span class="card-tag">SEO</span>
           <span class="card-tag">애드센스</span>
           <span class="card-tag">106 pages</span>
+          <span class="card-tag">블로그 10/65</span>
         </div>
         <div class="card-footer">
           <span class="card-arrow">관리하기 →</span>
@@ -180,33 +219,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
         </div>
       </a>
 
-      <a href="blog-upload-board.html" class="project-card purple">
-        <div class="card-top">
-          <div class="card-icon purple">✍️</div>
-          <div class="card-info">
-            <div class="card-title">블로그 관리</div>
-            <div class="card-status"><span class="status-dot active"></span> 업로드 진행 중</div>
-          </div>
-        </div>
-        <div class="card-desc">네이버 블로그 포스트 65개 작성 및 업로드 현황 관리</div>
-        <div class="card-tags">
-          <span class="card-tag">네이버</span>
-          <span class="card-tag">10/65 업로드</span>
-        </div>
-        <div class="card-footer">
-          <span class="card-arrow">관리하기 →</span>
-          <div class="card-progress">
-            15%
-            <div class="mini-bar"><div class="mini-fill" style="width:15%;background:linear-gradient(90deg,#8b5cf6,#a78bfa)"></div></div>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="project-card green" style="pointer-events:auto;opacity:0.7">
+      <a href="#" class="project-card green" style="pointer-events:auto;opacity:0.7" draggable="true" data-card-id="realestate">
         <div class="card-top">
           <div class="card-icon green">🏠</div>
           <div class="card-info">
-            <div class="card-title">부동산연구소</div>
+            <div class="card-title">부동산연구소 (Realestate)</div>
             <div class="card-status"><span class="status-dot building"></span> 구축 중</div>
           </div>
         </div>
@@ -225,11 +242,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
         </div>
       </a>
 
-      <a href="maxout-board.html" class="project-card orange">
+      <a href="maxout-board.html" class="project-card orange" draggable="true" data-card-id="maxout">
         <div class="card-top">
           <div class="card-icon orange">💪</div>
           <div class="card-info">
-            <div class="card-title">맥스아웃 앱</div>
+            <div class="card-title">맥스아웃 (Maxout)</div>
             <div class="card-status"><span class="status-dot building"></span> 기획 완료</div>
           </div>
         </div>
@@ -248,11 +265,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
         </div>
       </a>
 
-      <a href="nudge-board.html" class="project-card teal">
+      <a href="nudge-board.html" class="project-card teal" draggable="true" data-card-id="nudge">
         <div class="card-top">
           <div class="card-icon teal">🫱</div>
           <div class="card-info">
-            <div class="card-title">Nudge (넛지)</div>
+            <div class="card-title">넛지 (Nudge)</div>
             <div class="card-status"><span class="status-dot building"></span> 기획 완료</div>
           </div>
         </div>
@@ -279,6 +296,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
         <div class="add-sub">준비되면 여기에 추가됩니다</div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- Recent Devlog -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-label">📝 최근 개발일지</div>
+      <div class="section-actions">
+        <a href="devlog.html" class="section-btn primary">전체 보기 →</a>
+      </div>
+    </div>
+    <div class="devlog-preview" id="devlog-preview">
+      <div class="devlog-loading">개발일지를 불러오는 중…</div>
     </div>
   </div>
 
@@ -362,10 +392,150 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans
 </div>
 
 <script>
-var now = new Date();
-var days = ['일','월','화','수','목','금','토'];
-document.getElementById('nav-date').textContent =
-  now.getFullYear() + '.' + String(now.getMonth()+1).padStart(2,'0') + '.' + String(now.getDate()).padStart(2,'0') + ' (' + days[now.getDay()] + ')';
+/* ===== Draggable Project Cards ===== */
+(function(){
+  const STORAGE_KEY = 'mb_card_order_v1';
+  const grid = document.getElementById('project-grid');
+  if (!grid) return;
+
+  function getCards(){
+    return Array.from(grid.querySelectorAll('.project-card[data-card-id]'));
+  }
+
+  function applyStoredOrder(){
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const order = JSON.parse(raw);
+      if (!Array.isArray(order)) return;
+      const cards = getCards();
+      const byId = {};
+      cards.forEach(c => byId[c.dataset.cardId] = c);
+      // Remove then re-append in stored order; unknown ids ignored, missing ids stay at the end
+      order.forEach(id => { if (byId[id]) grid.insertBefore(byId[id], grid.querySelector('.add-card')); });
+      cards.forEach(c => {
+        if (!order.includes(c.dataset.cardId)) grid.insertBefore(c, grid.querySelector('.add-card'));
+      });
+    } catch(e){ /* ignore */ }
+  }
+
+  function saveOrder(){
+    const ids = getCards().map(c => c.dataset.cardId);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(ids));
+  }
+
+  let dragEl = null;
+  let dragSuppressClick = false;
+
+  grid.addEventListener('dragstart', (e) => {
+    const card = e.target.closest('.project-card[data-card-id]');
+    if (!card) return;
+    dragEl = card;
+    dragSuppressClick = true;
+    card.classList.add('dragging');
+    try { e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', card.dataset.cardId); } catch(_){}
+  });
+
+  grid.addEventListener('dragend', (e) => {
+    const card = e.target.closest('.project-card[data-card-id]');
+    if (card) card.classList.remove('dragging');
+    document.querySelectorAll('.project-card.drag-over').forEach(c => c.classList.remove('drag-over'));
+    dragEl = null;
+    // Release click suppression slightly later so the drop's click event (if any) is blocked
+    setTimeout(() => { dragSuppressClick = false; }, 50);
+  });
+
+  grid.addEventListener('dragover', (e) => {
+    if (!dragEl) return;
+    e.preventDefault();
+    const target = e.target.closest('.project-card[data-card-id]');
+    if (!target || target === dragEl) return;
+    document.querySelectorAll('.project-card.drag-over').forEach(c => { if (c !== target) c.classList.remove('drag-over'); });
+    target.classList.add('drag-over');
+    // Decide before/after based on pointer position
+    const rect = target.getBoundingClientRect();
+    const midX = rect.left + rect.width / 2;
+    const midY = rect.top + rect.height / 2;
+    const isWide = rect.width > rect.height * 1.2;
+    const after = isWide ? (e.clientX > midX) : (e.clientY > midY);
+    if (after) {
+      if (target.nextSibling !== dragEl) target.parentNode.insertBefore(dragEl, target.nextSibling);
+    } else {
+      if (target !== dragEl) target.parentNode.insertBefore(dragEl, target);
+    }
+  });
+
+  grid.addEventListener('dragleave', (e) => {
+    const target = e.target.closest('.project-card[data-card-id]');
+    if (target) target.classList.remove('drag-over');
+  });
+
+  grid.addEventListener('drop', (e) => {
+    e.preventDefault();
+    document.querySelectorAll('.project-card.drag-over').forEach(c => c.classList.remove('drag-over'));
+    saveOrder();
+  });
+
+  // Prevent accidental navigation right after a drag
+  getCards().forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (dragSuppressClick) { e.preventDefault(); e.stopPropagation(); }
+    });
+  });
+
+  // Auto-sort button: clear saved order, restore default by reloading
+  const btn = document.getElementById('auto-sort-btn');
+  if (btn) btn.addEventListener('click', () => {
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  });
+
+  applyStoredOrder();
+})();
+
+/* ===== Recent Devlog Preview ===== */
+(function(){
+  const host = document.getElementById('devlog-preview');
+  if (!host) return;
+
+  function projectTagFromSlug(slug){
+    const known = ['maxout','nudge','masterboard','salarykorea','realestate'];
+    return known.includes(slug) ? slug : 'default';
+  }
+
+  function labelForProject(slug){
+    const map = { maxout:'맥스아웃', nudge:'넛지', masterboard:'마스터보드', salarykorea:'월급연구소', realestate:'부동산연구소' };
+    return map[slug] || slug;
+  }
+
+  fetch('devlog/index.json', { cache: 'no-cache' })
+    .then(r => r.ok ? r.json() : Promise.reject(new Error('manifest missing')))
+    .then(items => {
+      if (!Array.isArray(items) || items.length === 0) {
+        host.innerHTML = '<div class="devlog-loading">아직 작성된 devlog가 없습니다.</div>';
+        return;
+      }
+      // items assumed sorted newest first in manifest; take first 3
+      const recent = items.slice(0, 3);
+      host.innerHTML = recent.map(it => {
+        const slug = (it.project || 'default').toLowerCase();
+        const tagClass = projectTagFromSlug(slug);
+        const label = labelForProject(slug);
+        const title = it.title || it.file || '제목 없음';
+        const date = it.date || '';
+        const href = 'devlog.html?file=' + encodeURIComponent(it.file);
+        return `<a class="devlog-item" href="${href}">
+          <span class="devlog-date">${date}</span>
+          <span class="devlog-title">${title}</span>
+          <span class="devlog-tag ${tagClass}">${label}</span>
+        </a>`;
+      }).join('');
+    })
+    .catch(() => {
+      host.innerHTML = '<div class="devlog-loading">devlog 인덱스를 불러올 수 없습니다. <a href="devlog.html" style="color:#3b82f6">devlog 페이지로 이동 →</a></div>';
+    });
+})();
 </script>
+
 </body>
 </html>

@@ -143,10 +143,10 @@ a:hover{text-decoration:underline}
     <a href="index.html" class="nav-link">홈</a>
     <a href="project-masterboard.html" class="nav-link active">프로젝트</a>
     <a href="maxout-board.html" class="nav-link">맥스아웃</a>
-    <a href="nudge-board.html" class="nav-link">Nudge</a>
+    <a href="nudge-board.html" class="nav-link">넛지</a>
     <a href="blog-upload-board.html" class="nav-link">블로그</a>
+    <a href="devlog.html" class="nav-link">개발일지</a>
   </div>
-  <span class="nav-date" id="last-updated"></span>
 </div>
 
 <div class="container">
@@ -242,7 +242,7 @@ function applyProjectData() {
   }
   if (data.roadmap) renderRoadmap(data.roadmap);
   if (data.ideas) renderIdeas(data.ideas);
-  if (data.lastUpdated) document.getElementById('last-updated').textContent = data.lastUpdated;
+  // nav-date removed — no-op
 }
 function renderRoadmap(rm) {
   ['short','mid','long'].forEach(function(p) {

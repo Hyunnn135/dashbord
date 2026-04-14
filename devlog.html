@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개발일지 — My Masterboard</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans-serif;background:#f1f5f9;color:#334155;min-height:100vh}
+
+/* === Shared Nav === */
+.top-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #e2e8f0;padding:0 24px;display:flex;align-items:center;height:52px}
+.nav-left{font-size:1.05rem;font-weight:800;color:#1e293b;margin-right:auto;white-space:nowrap}
+.nav-left span{color:#3b82f6}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-link{padding:6px 14px;background:transparent;border:1px solid #e2e8f0;border-radius:8px;color:#64748b;font-size:0.76rem;font-weight:600;text-decoration:none;transition:all 0.15s}
+.nav-link:hover{background:#f1f5f9;color:#334155;text-decoration:none}
+.nav-link.active{background:#3b82f6;border-color:#3b82f6;color:#fff}
+
+.container{max-width:960px;margin:0 auto;padding:28px 20px 60px}
+.page-title{font-size:1.4rem;font-weight:800;color:#1e293b;margin-bottom:4px}
+.page-sub{font-size:0.82rem;color:#94a3b8;margin-bottom:24px}
+
+/* Layout */
+.devlog-layout{display:grid;grid-template-columns:280px 1fr;gap:20px;align-items:start}
+.devlog-side{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:16px;position:sticky;top:72px;max-height:calc(100vh - 92px);overflow-y:auto}
+.side-title{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#94a3b8;margin-bottom:12px;padding:0 4px}
+.side-list{display:flex;flex-direction:column;gap:4px}
+.side-item{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:10px;text-decoration:none;color:inherit;cursor:pointer;transition:background 0.15s;border:1px solid transparent}
+.side-item:hover{background:#f8fafc}
+.side-item.active{background:#eff6ff;border-color:#bfdbfe}
+.side-date{font-size:0.68rem;color:#94a3b8;font-weight:600;letter-spacing:0.3px}
+.side-title-text{font-size:0.82rem;color:#1e293b;font-weight:600;line-height:1.4}
+.side-meta{display:flex;align-items:center;gap:6px;margin-top:3px}
+.side-tag{font-size:0.6rem;padding:2px 7px;border-radius:12px;font-weight:600}
+.side-tag.maxout{background:rgba(249,115,22,0.1);color:#ea580c}
+.side-tag.nudge{background:rgba(20,184,166,0.1);color:#0d9488}
+.side-tag.masterboard{background:rgba(139,92,246,0.1);color:#7c3aed}
+.side-tag.salarykorea{background:rgba(59,130,246,0.1);color:#2563eb}
+.side-tag.realestate{background:rgba(34,197,94,0.1);color:#16a34a}
+.side-tag.default{background:#f1f5f9;color:#64748b}
+
+/* Content */
+.devlog-content{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:32px 40px;min-height:400px}
+.devlog-empty{color:#94a3b8;font-size:0.88rem;text-align:center;padding:60px 20px}
+
+/* Markdown styling */
+.md{color:#334155;font-size:0.94rem;line-height:1.72}
+.md h1{font-size:1.55rem;font-weight:800;color:#0f172a;margin:0 0 10px;padding-bottom:12px;border-bottom:2px solid #e2e8f0;line-height:1.4}
+.md h2{font-size:1.2rem;font-weight:700;color:#1e293b;margin:28px 0 12px;padding-bottom:6px;border-bottom:1px solid #f1f5f9}
+.md h3{font-size:1.02rem;font-weight:700;color:#1e293b;margin:22px 0 10px}
+.md h4{font-size:0.95rem;font-weight:700;color:#334155;margin:16px 0 8px}
+.md p{margin:10px 0}
+.md ul,.md ol{margin:10px 0 10px 22px}
+.md li{margin:4px 0}
+.md blockquote{border-left:3px solid #cbd5e1;padding:6px 16px;margin:14px 0;background:#f8fafc;color:#475569;font-size:0.88rem;border-radius:0 6px 6px 0}
+.md code{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:5px;padding:1px 6px;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:0.84em;color:#be123c}
+.md pre{background:#0f172a;color:#e2e8f0;padding:14px 16px;border-radius:10px;overflow-x:auto;margin:14px 0;font-size:0.82rem;line-height:1.55}
+.md pre code{background:transparent;border:0;color:inherit;padding:0;font-size:inherit}
+.md a{color:#2563eb;text-decoration:underline;text-underline-offset:2px}
+.md a:hover{color:#1d4ed8}
+.md strong{color:#0f172a;font-weight:700}
+.md hr{border:0;border-top:1px solid #e2e8f0;margin:22px 0}
+.md table{border-collapse:collapse;width:100%;margin:14px 0;font-size:0.86rem}
+.md th,.md td{border:1px solid #e2e8f0;padding:8px 12px;text-align:left}
+.md th{background:#f8fafc;font-weight:700;color:#1e293b}
+.md img{max-width:100%;border-radius:8px;margin:10px 0}
+
+.content-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px}
+.raw-link{font-size:0.72rem;color:#64748b;text-decoration:none;padding:5px 10px;background:#f1f5f9;border-radius:6px;border:1px solid #e2e8f0}
+.raw-link:hover{background:#e2e8f0;color:#334155}
+
+/* Mobile */
+@media(max-width:820px){
+  .devlog-layout{grid-template-columns:1fr}
+  .devlog-side{position:static;max-height:none}
+  .devlog-content{padding:22px 20px}
+}
+@media(max-width:640px){
+  .top-nav{padding:0 16px;height:48px}
+  .nav-left{font-size:0.95rem}
+  .nav-link{padding:5px 10px;font-size:0.72rem}
+  .nav-links{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .container{padding:20px 16px 40px}
+}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <div class="nav-left"><span>My</span> Masterboard</div>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">홈</a>
+    <a href="project-masterboard.html" class="nav-link">프로젝트</a>
+    <a href="maxout-board.html" class="nav-link">맥스아웃</a>
+    <a href="nudge-board.html" class="nav-link">넛지</a>
+    <a href="blog-upload-board.html" class="nav-link">블로그</a>
+    <a href="devlog.html" class="nav-link active">개발일지</a>
+  </div>
+</div>
+
+<div class="container">
+  <h1 class="page-title">📝 개발일지</h1>
+  <p class="page-sub">각 프로젝트의 작업 로그와 결정 사항 기록. 최신순으로 정렬되어 있습니다.</p>
+
+  <div class="devlog-layout">
+    <aside class="devlog-side">
+      <div class="side-title">📚 전체 일지</div>
+      <div class="side-list" id="side-list">
+        <div style="padding:10px;color:#94a3b8;font-size:0.8rem">로딩 중…</div>
+      </div>
+    </aside>
+
+    <main class="devlog-content">
+      <div id="devlog-body">
+        <div class="devlog-empty">왼쪽 목록에서 개발일지를 선택하세요.</div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+(function(){
+  const sideList = document.getElementById('side-list');
+  const body = document.getElementById('devlog-body');
+
+  const PROJECT_LABEL = { maxout:'맥스아웃', nudge:'넛지', masterboard:'마스터보드', salarykorea:'월급연구소', realestate:'부동산연구소' };
+  const KNOWN_TAGS = Object.keys(PROJECT_LABEL);
+
+  function tagClass(slug){ return KNOWN_TAGS.includes(slug) ? slug : 'default'; }
+  function labelFor(slug){ return PROJECT_LABEL[slug] || slug; }
+
+  function getFileFromQuery(){
+    const p = new URLSearchParams(location.search);
+    return p.get('file');
+  }
+
+  function renderSide(items, activeFile){
+    sideList.innerHTML = items.map(it => {
+      const slug = (it.project || 'default').toLowerCase();
+      const isActive = it.file === activeFile;
+      return `<a class="side-item${isActive ? ' active' : ''}" href="devlog.html?file=${encodeURIComponent(it.file)}">
+        <span class="side-date">${it.date || ''}</span>
+        <span class="side-title-text">${it.title || it.file}</span>
+        <span class="side-meta"><span class="side-tag ${tagClass(slug)}">${labelFor(slug)}</span></span>
+      </a>`;
+    }).join('');
+  }
+
+  function renderMarkdown(text, meta){
+    // Sanitize — marked has built-in option; we trust our own content
+    const html = marked.parse(text, { breaks: false, gfm: true });
+    const rawHref = 'devlog/' + meta.file;
+    body.innerHTML = `
+      <div class="content-header">
+        <div></div>
+        <a class="raw-link" href="${rawHref}" target="_blank" rel="noopener">원문 보기 (raw) ↗</a>
+      </div>
+      <div class="md">${html}</div>
+    `;
+    // Scroll top of content on mobile
+    body.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function showEmpty(msg){
+    body.innerHTML = `<div class="devlog-empty">${msg || '왼쪽 목록에서 개발일지를 선택하세요.'}</div>`;
+  }
+
+  fetch('devlog/index.json', { cache: 'no-cache' })
+    .then(r => r.ok ? r.json() : Promise.reject(new Error('manifest missing')))
+    .then(items => {
+      if (!Array.isArray(items) || items.length === 0) {
+        sideList.innerHTML = '<div style="padding:10px;color:#94a3b8;font-size:0.8rem">등록된 devlog가 없습니다.</div>';
+        showEmpty('아직 등록된 개발일지가 없습니다.');
+        return;
+      }
+      let activeFile = getFileFromQuery();
+      if (!activeFile) activeFile = items[0].file;
+      const meta = items.find(i => i.file === activeFile) || items[0];
+      renderSide(items, meta.file);
+
+      fetch('devlog/' + meta.file, { cache: 'no-cache' })
+        .then(r => r.ok ? r.text() : Promise.reject(new Error('file missing')))
+        .then(text => renderMarkdown(text, meta))
+        .catch(() => showEmpty('선택한 개발일지를 불러올 수 없습니다. 파일이 저장소에 있는지 확인해 주세요.'));
+    })
+    .catch(() => {
+      sideList.innerHTML = '<div style="padding:10px;color:#ef4444;font-size:0.8rem">index.json 로드 실패</div>';
+      showEmpty('devlog 인덱스를 불러올 수 없습니다.');
+    });
+})();
+</script>
+
+</body>
+</html>

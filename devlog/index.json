@@ -1,0 +1,32 @@
+[
+  {
+    "file": "2026-04-14-masterboard-3.md",
+    "date": "2026-04-14",
+    "project": "masterboard",
+    "title": "홈 리파인: 카드 드래그 정렬 + 프로젝트 명칭 통일 + devlog 뷰어"
+  },
+  {
+    "file": "2026-04-14-nudge.md",
+    "date": "2026-04-14",
+    "project": "nudge",
+    "title": "신규 프로젝트 킥오프: \"위젯 탭 1회 = 운동 1회\" 초미니멀 운동 앱"
+  },
+  {
+    "file": "2026-04-14-masterboard-2.md",
+    "date": "2026-04-14",
+    "project": "masterboard",
+    "title": "devlog 통합 위치 정리(masterboard/devlog/) + WORKFLOW_RULES 5번 항목 갱신"
+  },
+  {
+    "file": "2026-04-14-masterboard.md",
+    "date": "2026-04-14",
+    "project": "masterboard",
+    "title": "마스터 규칙 정립 + 프로젝트 명칭 전면 변경(dashboard→masterboard, workout→maxout)"
+  },
+  {
+    "file": "2026-04-13-maxout.md",
+    "date": "2026-04-13",
+    "project": "maxout",
+    "title": "프로젝트 시작 & 기획"
+  }
+]
