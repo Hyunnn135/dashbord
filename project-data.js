@@ -1,5 +1,5 @@
 window.PROJECT_DATA = {
-  "lastUpdated": "2026-04-14",
+  "lastUpdated": "2026-04-15",
   "stats": {
     "pages": 106,
     "indexed": 104,
@@ -403,34 +403,41 @@ window.PROJECT_DATA = {
     {
       "id": "n4",
       "text": "[Phase 1] Xcode 프로젝트 셋업 (iOS 앱 + Widget Extension + watchOS)",
-      "done": false,
+      "done": true,
       "tag": "Nudge",
       "tagColor": "#0d9488"
     },
     {
       "id": "n5",
-      "text": "[Phase 1] App Group 설정 + SwiftData 모델 정의",
-      "done": false,
+      "text": "[Phase 1] App Group 설정 + 공용 데이터 저장소(SharedStore) 구현",
+      "done": true,
       "tag": "Nudge",
       "tagColor": "#0d9488"
     },
     {
       "id": "n6",
       "text": "[Phase 1] 활성 운동 선택 화면 + 기본 카운터 UI",
-      "done": false,
+      "done": true,
       "tag": "Nudge",
       "tagColor": "#0d9488"
     },
     {
       "id": "n7",
       "text": "[Phase 2] Widget Extension + 소형/중형 위젯 디자인",
-      "done": false,
+      "done": true,
       "tag": "Nudge",
       "tagColor": "#0d9488"
     },
     {
       "id": "n8",
       "text": "[Phase 2] App Intents로 Interactive Widget 구현 (탭=+1)",
+      "done": true,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n8b",
+      "text": "[Phase 1~2] 시뮬레이터 실기 검증 (위젯 탭 → 숫자 반영, 앱↔위젯 동기화)",
       "done": false,
       "tag": "Nudge",
       "tagColor": "#0d9488"
@@ -465,21 +472,21 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n13",
-      "text": "[Monetize] v1.1 IAP '개발자 응원하기 $2.99' 도입 (DAU 500~1000 도달 후)",
+      "text": "[Monetize] $0.99 '개발자 커피값 후원' Consumable IAP 구현 (StoreKit 2)",
       "done": false,
       "tag": "Nudge",
       "tagColor": "#0d9488"
     },
     {
       "id": "n14",
-      "text": "[Monetize] v1.2 통계 화면 interstitial 광고 + 빈도 캡 (DAU 2000+ 시점)",
+      "text": "[Monetize] App Store Connect 팁 상품 등록 (site.salarykorea.nudge.tip.coffee) + Sandbox 테스트",
       "done": false,
       "tag": "Nudge",
       "tagColor": "#0d9488"
     },
     {
       "id": "n15",
-      "text": "[Monetize] v1.0 코드에 adsRemoved 플래그·분기 구조 미리 설계 (기능은 off)",
+      "text": "[Cross] 맥스아웃 크로스 프로모션 — 30일 연속 사용자 설정 화면 1회 노출 카드",
       "done": false,
       "tag": "Nudge",
       "tagColor": "#0d9488"
@@ -607,9 +614,14 @@ window.PROJECT_DATA = {
       "status": "done"
     },
     {
-      "date": "2026-04~05",
-      "text": "[Nudge] Phase 1: Xcode 셋업 + App Group + 기본 UI",
-      "status": "upcoming"
+      "date": "2026-04-15",
+      "text": "[Nudge] 수익화 전략 v2 전면 개정 — 완전 무료 + $0.99 커피값 팁 1종, 본격 수익화는 맥스아웃 구독제로",
+      "status": "done"
+    },
+    {
+      "date": "2026-04-15",
+      "text": "[Nudge] Phase 1~2 핵심 구현: App Group + SharedStore + 메인 ContentView + Interactive Widget(3버튼, 탭=+1). Watch 타겟 임시 제외. 시뮬레이터 실기 검증 대기",
+      "status": "done"
     },
     {
       "date": "2026-05",
