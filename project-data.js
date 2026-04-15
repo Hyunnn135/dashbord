@@ -1,5 +1,5 @@
 window.PROJECT_DATA = {
-  "lastUpdated": "2026-04-15",
+  "lastUpdated": "2026-04-15 (Nudge Phase 3 시작 — Watch 복원 + WC 동기화)",
   // 2026-04-15 22시 갱신 — Nudge 위젯 편집 UI + 아이콘 + Phase 4 통계
 
   "stats": {
@@ -459,15 +459,29 @@ window.PROJECT_DATA = {
       "tagColor": "#0d9488"
     },
     {
+      "id": "n8e",
+      "text": "[Design/낮은 우선순위] 운동 아이콘 교체 — 현재 SF Symbols 톤 재검토 (Exercise.symbolName 한 곳 수정으로 앱/위젯/통계 동시 반영)",
+      "done": false,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
       "id": "n9",
-      "text": "[Phase 3] watchOS 앱 + 컴플리케이션",
+      "text": "[Phase 3] watchOS 메인 앱 (+1 버튼, 활성 운동 iPhone 전담) — 구현 완료, 컴플리케이션은 별도 타겟 추가 필요 (다음 세션)",
       "done": false,
       "tag": "Nudge",
       "tagColor": "#0d9488"
     },
     {
       "id": "n10",
-      "text": "[Phase 3] iPhone ↔ Watch 동기화 검증 (CloudKit vs WatchConnectivity)",
+      "text": "[Phase 3] iPhone ↔ Watch 동기화 — 전략 WC 단독 확정, NudgeSync/SharedStore 구현 완료, 실기기 양방향 검증 대기",
+      "done": false,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n10b",
+      "text": "[Phase 3] 컴플리케이션 circularSmall — Xcode UI로 Watch Widget Extension 타겟 신규 추가 필요",
       "done": false,
       "tag": "Nudge",
       "tagColor": "#0d9488"
@@ -650,18 +664,18 @@ window.PROJECT_DATA = {
       "status": "done"
     },
     {
+      "date": "2026-04-15",
+      "text": "[Nudge] Phase 3 시작 — Watch 타겟 pbxproj 복원(Embed Watch Content 5개 섹션 정밀 재삽입), NudgeWatch.entitlements + 앱 그룹, SharedStore에 lastModified/syncSnapshot/applyRemoteSnapshot 추가, NudgeSync WC 레이어(iOS + Watch 동일 코드), Watch 메인 앱(+1 버튼 + 햅틱) 완료. 실기기 WC 양방향 검증 + 컴플리케이션은 다음 세션",
+      "status": "done"
+    },
+    {
+      "date": "2026-04-16~",
+      "text": "[Nudge] 실기기 빌드/테스트 + 컴플리케이션(circularSmall) Widget Extension 타겟 추가",
+      "status": "upcoming"
+    },
+    {
       "date": "2026-05",
-      "text": "[Nudge] Phase 2: Interactive Widget 구현",
-      "status": "upcoming"
-    },
-    {
-      "date": "2026-05~06",
-      "text": "[Nudge] Phase 3: watchOS + 동기화",
-      "status": "upcoming"
-    },
-    {
-      "date": "2026-06",
-      "text": "[Nudge] Phase 4: 통계 + TestFlight",
+      "text": "[Nudge] TestFlight 배포 준비 (App Store 메타데이터, 스크린샷)",
       "status": "upcoming"
     }
   ],
