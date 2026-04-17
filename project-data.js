@@ -1,6 +1,6 @@
 window.PROJECT_DATA = {
-  "lastUpdated": "2026-04-15 (Nudge Phase 3 시작 — Watch 복원 + WC 동기화)",
-  // 2026-04-15 22시 갱신 — Nudge 위젯 편집 UI + 아이콘 + Phase 4 통계
+  "lastUpdated": "2026-04-17 (Nudge Phase 3 컴플리케이션 Widget Extension 타겟 구현 완료 확인)",
+  // 2026-04-17 — 이전 세션에서 추가된 컴플리케이션 타겟 상태를 PROGRESS/project-data에 정합화
 
   "stats": {
     "pages": 106,
@@ -467,21 +467,28 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n9",
-      "text": "[Phase 3] watchOS 메인 앱 (+1 버튼, 활성 운동 iPhone 전담) — 구현 완료, 컴플리케이션은 별도 타겟 추가 필요 (다음 세션)",
-      "done": false,
+      "text": "[Phase 3] watchOS 메인 앱 (+1 버튼, 활성 운동 iPhone 전담) 구현 완료",
+      "done": true,
       "tag": "Nudge",
       "tagColor": "#0d9488"
     },
     {
       "id": "n10",
-      "text": "[Phase 3] iPhone ↔ Watch 동기화 — 전략 WC 단독 확정, NudgeSync/SharedStore 구현 완료, 실기기 양방향 검증 대기",
+      "text": "[Phase 3] iPhone ↔ Watch 동기화 — WC 단독 전략, NudgeSync/SharedStore 구현 완료, 실기기 양방향 검증 대기",
       "done": false,
       "tag": "Nudge",
       "tagColor": "#0d9488"
     },
     {
       "id": "n10b",
-      "text": "[Phase 3] 컴플리케이션 circularSmall — Xcode UI로 Watch Widget Extension 타겟 신규 추가 필요",
+      "text": "[Phase 3] 컴플리케이션 Widget Extension 타겟 추가 (3종 패밀리 Circular/Inline/Rectangular + Config Intent + 탭=+1 → reloadTimelines → WC push)",
+      "done": true,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n10c",
+      "text": "[Phase 3] 실기기에서 컴플리케이션 시계 화면 배치 & 탭 동작 확인",
       "done": false,
       "tag": "Nudge",
       "tagColor": "#0d9488"
@@ -669,8 +676,13 @@ window.PROJECT_DATA = {
       "status": "done"
     },
     {
-      "date": "2026-04-16~",
-      "text": "[Nudge] 실기기 빌드/테스트 + 컴플리케이션(circularSmall) Widget Extension 타겟 추가",
+      "date": "2026-04-15",
+      "text": "[Nudge] Phase 3 컴플리케이션 Widget Extension 타겟(NudgeWatchComplicationExtension) 추가 — watchOS app-extension, Watch App에 Embed+Dependency, App Group, 3종 패밀리(Circular/Inline/Rectangular), Config Intent(운동 선택) + recommendations, 탭=+1 → reloadTimelines → pushAwaitingActivation(5초 대기)로 iPhone WC push. (2026-04-17 세션에서 상태 기록 정합화)",
+      "status": "done"
+    },
+    {
+      "date": "2026-04-17~",
+      "text": "[Nudge] 실기기 빌드/검증 — 컴플리케이션 3종 패밀리 시계 화면 배치, 탭→카운트 반영, iPhone↔Watch WC 양방향 동기화, 잠금 화면 위젯, 햅틱",
       "status": "upcoming"
     },
     {
