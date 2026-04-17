@@ -1,5 +1,11 @@
 [
   {
+    "file": "2026-04-17-nudge-2.md",
+    "date": "2026-04-17",
+    "project": "nudge",
+    "title": "NudgeSync 3-copy 드리프트 정합화 + 양방향 동기화 버그 진단용 로그 보강"
+  },
+  {
     "file": "2026-04-17-nudge.md",
     "date": "2026-04-17",
     "project": "nudge",

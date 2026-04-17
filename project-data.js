@@ -1,5 +1,5 @@
 window.PROJECT_DATA = {
-  "lastUpdated": "2026-04-17 (Nudge Phase 3 컴플리케이션 Widget Extension 타겟 구현 완료 확인)",
+  "lastUpdated": "2026-04-17 (Nudge NudgeSync 3-copy 드리프트 정합화 + 양방향 동기화 버그 진단용 로그 보강)",
   // 2026-04-17 — 이전 세션에서 추가된 컴플리케이션 타겟 상태를 PROGRESS/project-data에 정합화
 
   "stats": {
@@ -494,6 +494,20 @@ window.PROJECT_DATA = {
       "tagColor": "#0d9488"
     },
     {
+      "id": "n10d",
+      "text": "[Phase 3/진단] NudgeSync 3-copy 드리프트 정합화 + Watch:recv/iPhone:push/Watch:push appendDebugLog 보강 (양방향 동기화 버그 진단 준비)",
+      "done": true,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n10e",
+      "text": "[Phase 3/🔴최우선] iPhone ↔ Watch 스마트스택 컴플리케이션 양방향 동기화 불능 — 실기기 재현 + 🐜/🐞 로그 캡처 + 실패 스테이지 식별 + 패치",
+      "done": false,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
       "id": "n11",
       "text": "[Phase 4] 주/월/연 통계 화면 (Swift Charts 스택 바 + 12주 히트맵 + TabView)",
       "done": true,
@@ -681,8 +695,13 @@ window.PROJECT_DATA = {
       "status": "done"
     },
     {
+      "date": "2026-04-17",
+      "text": "[Nudge] NudgeSync 3-copy 드리프트 정합화 — Watch App NudgeSync.swift 가 최신(iOS 쪽에 이미 있는 iPhone:recv appendDebugLog 3줄)에서 밀려 있던 상태 확인. Watch 쪽에 Watch:recv (applicationContext/message/userInfo) 로그 추가 + iOS·Watch 양쪽 pushLocalChange 에 iPhone:push/Watch:push start/OK/FAIL 로그 추가. 헤더 코멘트도 3개 타겟 안내문으로 통일. 양방향 동기화 버그 진단을 위한 🐜/🐞 뷰어 가시성 확보",
+      "status": "done"
+    },
+    {
       "date": "2026-04-17~",
-      "text": "[Nudge] 실기기 빌드/검증 — 컴플리케이션 3종 패밀리 시계 화면 배치, 탭→카운트 반영, iPhone↔Watch WC 양방향 동기화, 잠금 화면 위젯, 햅틱",
+      "text": "[Nudge] 실기기 빌드/검증 — 🔴 양방향 동기화 버그 재현 & 로그 캡처(🐜 iOS / 🐞 Watch) → 실패 스테이지 식별 → 패치. 이후 컴플리케이션 3종 패밀리 시계 화면 배치, 잠금 화면 위젯, 햅틱 검증",
       "status": "upcoming"
     },
     {
