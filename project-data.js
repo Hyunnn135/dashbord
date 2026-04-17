@@ -1,5 +1,5 @@
 window.PROJECT_DATA = {
-  "lastUpdated": "2026-04-17 (Nudge NudgeSync 3-copy 드리프트 정합화 + 양방향 동기화 버그 진단용 로그 보강)",
+  "lastUpdated": "2026-04-17 (Nudge NudgeSync 3-copy 드리프트 정합화 + handleRemote WidgetCenter 가드 버그 수정 + 진단 로그 보강)",
   // 2026-04-17 — 이전 세션에서 추가된 컴플리케이션 타겟 상태를 PROGRESS/project-data에 정합화
 
   "stats": {
@@ -501,6 +501,13 @@ window.PROJECT_DATA = {
       "tagColor": "#0d9488"
     },
     {
+      "id": "n10f",
+      "text": "[Phase 3/수정] handleRemote WidgetCenter 가드 버그 수정 — #if os(iOS) 제거로 watchOS 에서도 컴플리케이션 타임라인 리로드 동작 (iPhone→Watch 방향 반영 불능의 유력 원인 선제 제거)",
+      "done": true,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
       "id": "n10e",
       "text": "[Phase 3/🔴최우선] iPhone ↔ Watch 스마트스택 컴플리케이션 양방향 동기화 불능 — 실기기 재현 + 🐜/🐞 로그 캡처 + 실패 스테이지 식별 + 패치",
       "done": false,
@@ -697,6 +704,11 @@ window.PROJECT_DATA = {
     {
       "date": "2026-04-17",
       "text": "[Nudge] NudgeSync 3-copy 드리프트 정합화 — Watch App NudgeSync.swift 가 최신(iOS 쪽에 이미 있는 iPhone:recv appendDebugLog 3줄)에서 밀려 있던 상태 확인. Watch 쪽에 Watch:recv (applicationContext/message/userInfo) 로그 추가 + iOS·Watch 양쪽 pushLocalChange 에 iPhone:push/Watch:push start/OK/FAIL 로그 추가. 헤더 코멘트도 3개 타겟 안내문으로 통일. 양방향 동기화 버그 진단을 위한 🐜/🐞 뷰어 가시성 확보",
+      "status": "done"
+    },
+    {
+      "date": "2026-04-17",
+      "text": "[Nudge] handleRemote WidgetCenter 가드 버그 수정 — 정합화 중 발견. iOS/Watch App NudgeSync.handleRemote 의 `WidgetCenter.shared.reloadAllTimelines()` 가 `#if os(iOS)` 안에 갇혀 있어 watchOS 에선 호출 안 됨. iPhone→Watch 경로에서 Watch App 이 수신해도 컴플리케이션 타임라인이 리프레시 안 되는 구조. 가드 제거 + `import WidgetKit` 을 플랫폼 가드 밖으로 이동 + 호출 자체도 observing 용 appendDebugLog 추가. iPhone→Watch 방향 반영 불능 유력 원인 선제 제거",
       "status": "done"
     },
     {
