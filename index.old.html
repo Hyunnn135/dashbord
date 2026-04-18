@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Masterboard</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans-serif;background:#f1f5f9;color:#334155;min-height:100vh}
+
+/* === Shared Nav === */
+.top-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #e2e8f0;padding:0 24px;display:flex;align-items:center;height:52px}
+.nav-left{font-size:1.05rem;font-weight:800;color:#1e293b;margin-right:auto;white-space:nowrap}
+.nav-left span{color:#3b82f6}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-link{padding:6px 14px;background:transparent;border:1px solid #e2e8f0;border-radius:8px;color:#64748b;font-size:0.76rem;font-weight:600;text-decoration:none;transition:all 0.15s}
+.nav-link:hover{background:#f1f5f9;color:#334155;text-decoration:none}
+.nav-link.active{background:#3b82f6;border-color:#3b82f6;color:#fff}
+.nav-date{font-size:0.72rem;color:#94a3b8;margin-left:10px;white-space:nowrap}
+
+/* Main */
+.container{max-width:960px;margin:0 auto;padding:28px 20px 60px}
+
+/* Section */
+.section{margin-bottom:40px}
+.section-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#94a3b8;margin-bottom:14px;padding-left:4px}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px}
+.section-head .section-label{margin-bottom:0}
+.section-actions{display:flex;align-items:center;gap:10px}
+.drag-hint{font-size:0.7rem;color:#94a3b8}
+.section-btn{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:6px 12px;font-size:0.72rem;font-weight:600;color:#475569;cursor:pointer;transition:all 0.15s}
+.section-btn:hover{background:#f1f5f9;border-color:#cbd5e1;color:#1e293b}
+.section-btn.primary{background:#3b82f6;border-color:#3b82f6;color:#fff}
+.section-btn.primary:hover{background:#2563eb;border-color:#2563eb;color:#fff}
+
+/* Drag states */
+.project-card[draggable="true"]{cursor:grab}
+.project-card[draggable="true"]:active{cursor:grabbing}
+.project-card.dragging{opacity:0.4}
+.project-card.drag-over{border-color:#3b82f6;transform:scale(1.02);box-shadow:0 0 0 2px rgba(59,130,246,0.25)}
+
+/* Quick Stats */
+.quick-stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.qs{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:10px;flex:1;min-width:140px}
+.qs-num{font-size:1.3rem;font-weight:800;color:#1e293b}
+.qs-label{font-size:0.72rem;color:#94a3b8;line-height:1.3}
+
+/* Urgent Review Actions Banner */
+.urgent-banner{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);border-radius:14px;padding:22px 26px;margin-bottom:28px;color:#fff;box-shadow:0 8px 20px rgba(127,29,29,0.25)}
+.urgent-head{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.urgent-title{font-size:0.95rem;font-weight:800;letter-spacing:0.3px}
+.urgent-sub{font-size:0.75rem;color:#fecaca;margin-bottom:14px;line-height:1.45}
+.urgent-list{list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;margin:0}
+.urgent-item{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:11px 14px;font-size:0.82rem;line-height:1.5;display:flex;gap:10px;align-items:flex-start}
+.urgent-badge{display:inline-block;min-width:28px;height:22px;padding:0 7px;border-radius:6px;background:rgba(255,255,255,0.15);font-size:0.68rem;font-weight:800;text-align:center;line-height:22px;flex-shrink:0;margin-top:1px}
+.urgent-item strong{color:#fff;font-weight:700}
+.urgent-item span{color:#fecaca;font-size:0.75rem;display:block;margin-top:3px}
+.urgent-link{display:inline-block;margin-top:14px;padding:7px 14px;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.22);border-radius:8px;color:#fff;font-size:0.72rem;font-weight:600;text-decoration:none;transition:all 0.15s}
+.urgent-link:hover{background:rgba(255,255,255,0.28);color:#fff}
+
+/* Project Cards Grid */
+.project-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:16px}
+
+/* Project Card */
+.project-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px;text-decoration:none;color:inherit;transition:all 0.2s;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+.project-card:hover{border-color:#3b82f6;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0}
+.project-card.blue::before{background:linear-gradient(90deg,#3b82f6,#60a5fa)}
+.project-card.purple::before{background:linear-gradient(90deg,#8b5cf6,#a78bfa)}
+.project-card.green::before{background:linear-gradient(90deg,#22c55e,#4ade80)}
+.project-card.orange::before{background:linear-gradient(90deg,#f97316,#fb923c)}
+.project-card.pink::before{background:linear-gradient(90deg,#ec4899,#f472b6)}
+.project-card.teal::before{background:linear-gradient(90deg,#14b8a6,#2dd4bf)}
+
+.card-top{display:flex;align-items:center;gap:12px}
+.card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.card-icon.blue{background:rgba(59,130,246,0.1)}
+.card-icon.purple{background:rgba(139,92,246,0.1)}
+.card-icon.green{background:rgba(34,197,94,0.1)}
+.card-icon.orange{background:rgba(249,115,22,0.1)}
+.card-icon.teal{background:rgba(20,184,166,0.1)}
+.card-info{flex:1;min-width:0}
+.card-title{font-size:1rem;font-weight:700;color:#1e293b}
+.card-status{font-size:0.72rem;margin-top:3px;display:flex;align-items:center;gap:5px;color:#64748b}
+.status-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.status-dot.active{background:#22c55e}
+.status-dot.building{background:#f59e0b}
+.status-dot.planned{background:#94a3b8}
+
+.card-desc{font-size:0.82rem;color:#64748b;line-height:1.55}
+.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.card-tag{font-size:0.65rem;padding:3px 9px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;color:#64748b}
+.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px}
+.card-arrow{font-size:0.78rem;color:#3b82f6;font-weight:600}
+.card-progress{display:flex;align-items:center;gap:6px;font-size:0.72rem;color:#94a3b8}
+.mini-bar{width:48px;height:4px;background:#e2e8f0;border-radius:2px;overflow:hidden}
+.mini-fill{height:100%;border-radius:2px}
+
+/* Add Project Card */
+.add-card{background:transparent;border:2px dashed #cbd5e1;border-radius:14px;padding:32px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:default;transition:all 0.2s;min-height:180px}
+.add-card:hover{border-color:#94a3b8}
+.add-icon{width:44px;height:44px;border-radius:12px;background:#f8fafc;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#94a3b8}
+.add-text{font-size:0.85rem;color:#94a3b8;font-weight:600}
+.add-sub{font-size:0.72rem;color:#cbd5e1}
+
+/* === Portfolio Timeline === */
+.timeline-wrap{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px 28px}
+.timeline-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:8px}
+.timeline-title{font-size:0.95rem;font-weight:700;color:#1e293b}
+.timeline-sub{font-size:0.72rem;color:#94a3b8}
+.timeline{position:relative;padding-left:22px}
+.timeline::before{content:'';position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,#e2e8f0 0%,#f1f5f9 100%);border-radius:2px}
+.tl-item{position:relative;padding:10px 0 14px 16px;border-left:0}
+.tl-item::before{content:'';position:absolute;left:-22px;top:14px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #cbd5e1;box-sizing:border-box}
+.tl-item.blue::before{border-color:#3b82f6}
+.tl-item.purple::before{border-color:#8b5cf6}
+.tl-item.green::before{border-color:#22c55e}
+.tl-item.orange::before{border-color:#f97316}
+.tl-item.teal::before{border-color:#14b8a6}
+.tl-item.gray::before{border-color:#94a3b8}
+.tl-date{font-size:0.7rem;color:#94a3b8;font-weight:700;letter-spacing:0.4px;margin-bottom:4px}
+.tl-content{font-size:0.86rem;color:#334155;line-height:1.55}
+.tl-content strong{color:#1e293b;font-weight:700}
+.tl-tag{display:inline-block;font-size:0.62rem;padding:2px 8px;border-radius:20px;margin-left:6px;font-weight:600;vertical-align:middle}
+.tl-tag.blue{background:rgba(59,130,246,0.1);color:#2563eb}
+.tl-tag.purple{background:rgba(139,92,246,0.1);color:#7c3aed}
+.tl-tag.green{background:rgba(34,197,94,0.1);color:#16a34a}
+.tl-tag.orange{background:rgba(249,115,22,0.1);color:#ea580c}
+.tl-tag.teal{background:rgba(20,184,166,0.1);color:#0d9488}
+.tl-tag.gray{background:#f1f5f9;color:#64748b}
+.tl-meta{font-size:0.7rem;color:#94a3b8;margin-top:3px}
+
+/* Devlog Preview */
+.devlog-preview{display:flex;flex-direction:column;gap:12px}
+.devlog-loading{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;color:#94a3b8;font-size:0.82rem}
+.devlog-day{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px 18px;transition:all 0.15s}
+.devlog-day:hover{box-shadow:0 4px 12px rgba(0,0,0,0.04)}
+.devlog-day-header{display:flex;align-items:baseline;justify-content:space-between;padding-bottom:8px;margin-bottom:6px;border-bottom:1px solid #f1f5f9}
+.devlog-day-date{font-size:0.78rem;font-weight:800;color:#1e293b;letter-spacing:0.3px}
+.devlog-day-weekday{font-size:0.66rem;color:#94a3b8;font-weight:600;margin-left:4px}
+.devlog-day-count{font-size:0.62rem;color:#64748b;font-weight:700;background:#f1f5f9;padding:2px 8px;border-radius:20px}
+.devlog-day-list{display:flex;flex-direction:column;gap:2px}
+.devlog-item{display:flex;align-items:center;gap:10px;padding:8px 8px;border-radius:8px;text-decoration:none;color:inherit;transition:background 0.12s}
+.devlog-item:hover{background:#f8fafc}
+.devlog-session{font-size:0.64rem;font-weight:800;color:#64748b;background:#f1f5f9;min-width:22px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:0.3px}
+.devlog-session.blank{opacity:0.35}
+.devlog-title{font-size:0.86rem;font-weight:600;color:#1e293b;line-height:1.4;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.devlog-tag{font-size:0.6rem;padding:2px 8px;border-radius:12px;font-weight:700;flex-shrink:0}
+.devlog-tag.maxout{background:rgba(249,115,22,0.1);color:#ea580c}
+.devlog-tag.nudge{background:rgba(20,184,166,0.1);color:#0d9488}
+.devlog-tag.masterboard{background:rgba(139,92,246,0.1);color:#7c3aed}
+.devlog-tag.salarykorea{background:rgba(59,130,246,0.1);color:#2563eb}
+.devlog-tag.realestate{background:rgba(34,197,94,0.1);color:#16a34a}
+.devlog-tag.default{background:#f1f5f9;color:#64748b}
+
+/* Mobile */
+@media(max-width:640px){
+  .top-nav{padding:0 16px;height:48px}
+  .nav-left{font-size:0.95rem}
+  .nav-link{padding:5px 10px;font-size:0.72rem}
+  .nav-date{display:none}
+  .container{padding:20px 16px 40px}
+  .project-grid{grid-template-columns:1fr}
+  .quick-stats{flex-direction:column}
+  .qs{min-width:auto}
+  .devlog-day{padding:12px 14px}
+  .devlog-item{gap:8px;padding:7px 4px}
+  .devlog-title{font-size:0.82rem}
+  .drag-hint{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <div class="nav-left"><span>My</span> Masterboard</div>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link active">홈</a>
+    <a href="project-masterboard.html" class="nav-link">프로젝트</a>
+    <a href="maxout-board.html" class="nav-link">맥스아웃</a>
+    <a href="nudge-board.html" class="nav-link">넛지</a>
+    <a href="blog-upload-board.html" class="nav-link">블로그</a>
+    <a href="devlog.html" class="nav-link">개발일지</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Quick Stats -->
+  <div class="quick-stats">
+    <div class="qs">
+      <div class="qs-num" id="qs-projects">4</div>
+      <div class="qs-label">활성<br>프로젝트</div>
+    </div>
+    <div class="qs">
+      <div class="qs-num" id="qs-pages">145</div>
+      <div class="qs-label">전체<br>페이지</div>
+    </div>
+    <div class="qs">
+      <div class="qs-num" id="qs-tasks" style="color:#dc2626">🔴 5</div>
+      <div class="qs-label">긴급<br>리뷰 액션</div>
+    </div>
+    <div class="qs">
+      <div class="qs-num" id="qs-adsense">거절</div>
+      <div class="qs-label">애드센스<br>(재심사 대기)</div>
+    </div>
+  </div>
+
+  <!-- 🔴 Urgent Review Actions — salarykorea 수익화 보수 리뷰(2026-04-18) 결과 -->
+  <div class="urgent-banner">
+    <div class="urgent-head">
+      <span style="font-size:1.2rem">🔴</span>
+      <div class="urgent-title">긴급 리뷰 액션 — salarykorea 수익화 재조정 (2026-04-18)</div>
+    </div>
+    <div class="urgent-sub">
+      시장·경쟁·RPM 실측 결과 이 사이트 단독 월 100만원은 현실적으로 불가. 매몰비용을 피하기 위해 신규 콘텐츠 추가는 보류하고 <strong>측정 → 30일 관찰 → 5/18 재판단</strong>이 최우선.
+    </div>
+    <ul class="urgent-list">
+      <li class="urgent-item">
+        <span class="urgent-badge">1</span>
+        <div><strong>GA4 전 페이지 실설치</strong><span>현재 gtag 0개 설치 (dns-prefetch 힌트만 존재). 측정 없이는 어떤 판단도 불가</span></div>
+      </li>
+      <li class="urgent-item">
+        <span class="urgent-badge">2</span>
+        <div><strong>Search Console 실측 데이터 확인</strong><span>지난 30일 노출·클릭·상위 쿼리 — 이미 색인은 된 상태이므로 숫자는 있을 것</span></div>
+      </li>
+      <li class="urgent-item">
+        <span class="urgent-badge">3</span>
+        <div><strong>i18n 33개 noindex 처리</strong><span>-en/-ja/-zh 기계번역 페이지 33개 모두 noindex 0개 — AdSense 재심사 전 리스크 제거 필수</span></div>
+      </li>
+      <li class="urgent-item">
+        <span class="urgent-badge">4</span>
+        <div><strong>카카오 AdFit 등록 + 슬롯 삽입</strong><span>AdSense 재거절 대비 백업 광고망. 개인 승인 1~2일, 실측 RPM 확보 목적</span></div>
+      </li>
+      <li class="urgent-item">
+        <span class="urgent-badge">5</span>
+        <div><strong>2026-05-18 재판단</strong><span>GA/SC 30일 데이터로 결정 — 일 50PV 미만=자동화 / 100~300PV=최소수익화 / 500+=계속투자</span></div>
+      </li>
+    </ul>
+    <a href="../salarykorea/MARKET_REVIEW_2026-04-18.md" class="urgent-link">📄 풀버전 리뷰 리포트 →</a>
+    <a href="project-masterboard.html" class="urgent-link" style="margin-left:8px">🗂 프로젝트 상세 →</a>
+  </div>
+
+  <!-- Active Projects -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-label">활성 프로젝트</div>
+      <div class="section-actions">
+        <span class="drag-hint" id="drag-hint">🖱 카드를 드래그해 순서 변경</span>
+        <button class="section-btn" id="auto-sort-btn" title="기본 순서로 되돌리기">↻ 자동정렬</button>
+      </div>
+    </div>
+    <div class="project-grid" id="project-grid">
+
+      <a href="project-masterboard.html" class="project-card blue" draggable="true" data-card-id="salarykorea">
+        <div class="card-top">
+          <div class="card-icon blue">💰</div>
+          <div class="card-info">
+            <div class="card-title">월급연구소 (Salarykorea)</div>
+            <div class="card-status"><span class="status-dot active"></span> 운영 중</div>
+          </div>
+        </div>
+        <div class="card-desc">salarykorea.site — 연봉 실수령액, 세금 계산기 등 106개 페이지 운영 + 네이버 블로그 포스트 65개 시리즈</div>
+        <div class="card-tags">
+          <span class="card-tag">SEO</span>
+          <span class="card-tag">애드센스</span>
+          <span class="card-tag">106 pages</span>
+          <span class="card-tag">블로그 10/65</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-arrow">관리하기 →</span>
+          <div class="card-progress">
+            62%
+            <div class="mini-bar"><div class="mini-fill" style="width:62%;background:linear-gradient(90deg,#3b82f6,#60a5fa)"></div></div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="project-card green" style="pointer-events:auto;opacity:0.7" draggable="true" data-card-id="realestate">
+        <div class="card-top">
+          <div class="card-icon green">🏠</div>
+          <div class="card-info">
+            <div class="card-title">부동산연구소 (Realestate)</div>
+            <div class="card-status"><span class="status-dot building"></span> 구축 중</div>
+          </div>
+        </div>
+        <div class="card-desc">부동산 세금·대출 계산기 사이트 — 5페이지 완성, 도메인 미구매</div>
+        <div class="card-tags">
+          <span class="card-tag">부동산</span>
+          <span class="card-tag">5 pages</span>
+          <span class="card-tag">도메인 필요</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-arrow">준비 중 →</span>
+          <div class="card-progress">
+            30%
+            <div class="mini-bar"><div class="mini-fill" style="width:30%;background:linear-gradient(90deg,#22c55e,#4ade80)"></div></div>
+          </div>
+        </div>
+      </a>
+
+      <a href="maxout-board.html" class="project-card orange" draggable="true" data-card-id="maxout">
+        <div class="card-top">
+          <div class="card-icon orange">💪</div>
+          <div class="card-info">
+            <div class="card-title">맥스아웃 (Maxout)</div>
+            <div class="card-status"><span class="status-dot building"></span> 기획 완료</div>
+          </div>
+        </div>
+        <div class="card-desc">푸시업 & 풀업 슈퍼세트 iOS/watchOS 앱 — SwiftUI + CloudKit</div>
+        <div class="card-tags">
+          <span class="card-tag">SwiftUI</span>
+          <span class="card-tag">iOS/watchOS</span>
+          <span class="card-tag">Phase 0</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-arrow">개발 준비 중 →</span>
+          <div class="card-progress">
+            0%
+            <div class="mini-bar"><div class="mini-fill" style="width:0%;background:linear-gradient(90deg,#f97316,#fb923c)"></div></div>
+          </div>
+        </div>
+      </a>
+
+      <a href="nudge-board.html" class="project-card teal" draggable="true" data-card-id="nudge">
+        <div class="card-top">
+          <div class="card-icon teal">🫱</div>
+          <div class="card-info">
+            <div class="card-title">넛지 (Nudge)</div>
+            <div class="card-status"><span class="status-dot building"></span> 기획 완료</div>
+          </div>
+        </div>
+        <div class="card-desc">위젯 탭 1회 = 운동 1회 기록. 초미니멀 운동 카운터 iOS/watchOS 앱 — SwiftUI + WidgetKit</div>
+        <div class="card-tags">
+          <span class="card-tag">SwiftUI</span>
+          <span class="card-tag">Widget</span>
+          <span class="card-tag">iOS 17+</span>
+          <span class="card-tag">Phase 0</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-arrow">개발 준비 중 →</span>
+          <div class="card-progress">
+            5%
+            <div class="mini-bar"><div class="mini-fill" style="width:5%;background:linear-gradient(90deg,#14b8a6,#2dd4bf)"></div></div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Add New Project Placeholder -->
+      <div class="add-card">
+        <div class="add-icon">+</div>
+        <div class="add-text">새 프로젝트 추가</div>
+        <div class="add-sub">준비되면 여기에 추가됩니다</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Recent Devlog -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-label">📝 최근 개발일지</div>
+      <div class="section-actions">
+        <a href="devlog.html" class="section-btn primary">전체 보기 →</a>
+      </div>
+    </div>
+    <div class="devlog-preview" id="devlog-preview">
+      <div class="devlog-loading">개발일지를 불러오는 중…</div>
+    </div>
+  </div>
+
+  <!-- Portfolio Timeline (recent activity / milestones) -->
+  <div class="section">
+    <div class="section-label">📅 포트폴리오 타임라인</div>
+    <div class="timeline-wrap">
+      <div class="timeline-head">
+        <div class="timeline-title">최근 활동 & 마일스톤</div>
+        <div class="timeline-sub">개발 일지(devlog) 기반 · 최신순</div>
+      </div>
+      <div class="timeline">
+
+        <div class="tl-item teal">
+          <div class="tl-date">2026-04-14</div>
+          <div class="tl-content">
+            <strong>Nudge (넛지) 앱 기획 시작</strong> — 위젯 탭 1회 = 운동 1회 기록. 푸시업/풀업/스쿼트 초미니멀 카운터 (iOS + watchOS). 맥스아웃과 정반대 페르소나
+            <span class="tl-tag teal">기획</span>
+          </div>
+          <div class="tl-meta">Nudge · Phase 0</div>
+        </div>
+
+        <div class="tl-item gray">
+          <div class="tl-date">2026-04-14</div>
+          <div class="tl-content">
+            <strong>마스터 작업 규칙(WORKFLOW_RULES) 정립</strong> — 5대 핵심 지침 + 모든 프로젝트 devlog 표준 템플릿 배포, 메모리 0순위 등록
+            <span class="tl-tag gray">프로세스</span>
+          </div>
+          <div class="tl-meta">마스터보드 · 워크플로우</div>
+        </div>
+
+        <div class="tl-item orange">
+          <div class="tl-date">2026-04-13</div>
+          <div class="tl-content">
+            <strong>맥스아웃 앱 기획 완료</strong> — 푸시업+풀업 슈퍼세트 전용, SwiftUI + CloudKit 스택 확정, Phase 0 종료
+            <span class="tl-tag orange">기획</span>
+          </div>
+          <div class="tl-meta">맥스아웃 앱 · Phase 0</div>
+        </div>
+
+        <div class="tl-item purple">
+          <div class="tl-date">2026-04-14</div>
+          <div class="tl-content">
+            <strong>블로그 #007 예약 발행</strong> — 네이버 블로그 시리즈 진행 중 (10/65)
+            <span class="tl-tag purple">블로그</span>
+          </div>
+          <div class="tl-meta">월급연구소 · 블로그</div>
+        </div>
+
+        <div class="tl-item blue">
+          <div class="tl-date">2026-04-12</div>
+          <div class="tl-content">
+            <strong>구글 색인 104개 URL 일괄 요청</strong> — Indexing API 자동화 스크립트로 전체 사이트 색인 요청 완료
+            <span class="tl-tag blue">SEO</span>
+          </div>
+          <div class="tl-meta">월급연구소 · SEO</div>
+        </div>
+
+        <div class="tl-item blue">
+          <div class="tl-date">2026-04-12</div>
+          <div class="tl-content">
+            <strong>내부 링크 30페이지 + FAQ 스키마 11페이지</strong> — 사이트 SEO 강화 배포
+            <span class="tl-tag blue">SEO</span>
+          </div>
+          <div class="tl-meta">월급연구소 · SEO</div>
+        </div>
+
+        <div class="tl-item green">
+          <div class="tl-date">2026-04-12</div>
+          <div class="tl-content">
+            <strong>부동산연구소 사이트 초기 구축</strong> — 5페이지 (index, mortgage, 양도세, 전세전환, 청약점수) 완성
+            <span class="tl-tag green">신규 사이트</span>
+          </div>
+          <div class="tl-meta">부동산연구소 · 초기 구축</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ===== Draggable Project Cards ===== */
+(function(){
+  const STORAGE_KEY = 'mb_card_order_v1';
+  const grid = document.getElementById('project-grid');
+  if (!grid) return;
+
+  function getCards(){
+    return Array.from(grid.querySelectorAll('.project-card[data-card-id]'));
+  }
+
+  function applyStoredOrder(){
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const order = JSON.parse(raw);
+      if (!Array.isArray(order)) return;
+      const cards = getCards();
+      const byId = {};
+      cards.forEach(c => byId[c.dataset.cardId] = c);
+      // Remove then re-append in stored order; unknown ids ignored, missing ids stay at the end
+      order.forEach(id => { if (byId[id]) grid.insertBefore(byId[id], grid.querySelector('.add-card')); });
+      cards.forEach(c => {
+        if (!order.includes(c.dataset.cardId)) grid.insertBefore(c, grid.querySelector('.add-card'));
+      });
+    } catch(e){ /* ignore */ }
+  }
+
+  function saveOrder(){
+    const ids = getCards().map(c => c.dataset.cardId);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(ids));
+  }
+
+  let dragEl = null;
+  let dragSuppressClick = false;
+
+  grid.addEventListener('dragstart', (e) => {
+    const card = e.target.closest('.project-card[data-card-id]');
+    if (!card) return;
+    dragEl = card;
+    dragSuppressClick = true;
+    card.classList.add('dragging');
+    try { e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', card.dataset.cardId); } catch(_){}
+  });
+
+  grid.addEventListener('dragend', (e) => {
+    const card = e.target.closest('.project-card[data-card-id]');
+    if (card) card.classList.remove('dragging');
+    document.querySelectorAll('.project-card.drag-over').forEach(c => c.classList.remove('drag-over'));
+    dragEl = null;
+    // Release click suppression slightly later so the drop's click event (if any) is blocked
+    setTimeout(() => { dragSuppressClick = false; }, 50);
+  });
+
+  grid.addEventListener('dragover', (e) => {
+    if (!dragEl) return;
+    e.preventDefault();
+    const target = e.target.closest('.project-card[data-card-id]');
+    if (!target || target === dragEl) return;
+    document.querySelectorAll('.project-card.drag-over').forEach(c => { if (c !== target) c.classList.remove('drag-over'); });
+    target.classList.add('drag-over');
+    // Decide before/after based on pointer position
+    const rect = target.getBoundingClientRect();
+    const midX = rect.left + rect.width / 2;
+    const midY = rect.top + rect.height / 2;
+    const isWide = rect.width > rect.height * 1.2;
+    const after = isWide ? (e.clientX > midX) : (e.clientY > midY);
+    if (after) {
+      if (target.nextSibling !== dragEl) target.parentNode.insertBefore(dragEl, target.nextSibling);
+    } else {
+      if (target !== dragEl) target.parentNode.insertBefore(dragEl, target);
+    }
+  });
+
+  grid.addEventListener('dragleave', (e) => {
+    const target = e.target.closest('.project-card[data-card-id]');
+    if (target) target.classList.remove('drag-over');
+  });
+
+  grid.addEventListener('drop', (e) => {
+    e.preventDefault();
+    document.querySelectorAll('.project-card.drag-over').forEach(c => c.classList.remove('drag-over'));
+    saveOrder();
+  });
+
+  // Prevent accidental navigation right after a drag
+  getCards().forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (dragSuppressClick) { e.preventDefault(); e.stopPropagation(); }
+    });
+  });
+
+  // Auto-sort button: clear saved order, restore default by reloading
+  const btn = document.getElementById('auto-sort-btn');
+  if (btn) btn.addEventListener('click', () => {
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  });
+
+  applyStoredOrder();
+})();
+
+/* ===== Recent Devlog Preview — grouped by date ===== */
+(function(){
+  const host = document.getElementById('devlog-preview');
+  if (!host) return;
+
+  const PROJECT_LABEL = { maxout:'맥스아웃', nudge:'넛지', masterboard:'마스터보드', salarykorea:'월급연구소', realestate:'부동산연구소' };
+  const KNOWN = Object.keys(PROJECT_LABEL);
+
+  function tagClass(slug){ return KNOWN.includes(slug) ? slug : 'default'; }
+  function labelFor(slug){ return PROJECT_LABEL[slug] || slug; }
+
+  function weekdayOf(dateStr){
+    try { return ['일','월','화','수','목','금','토'][new Date(dateStr + 'T00:00:00').getDay()]; }
+    catch(e){ return ''; }
+  }
+
+  function assignSessions(items){
+    const groups = {};
+    items.forEach(it => {
+      const key = (it.date || '') + '|' + ((it.project || 'default').toLowerCase());
+      (groups[key] = groups[key] || []).push(it);
+    });
+    Object.values(groups).forEach(arr => {
+      if (arr.length < 2) return;
+      // manifest is newest first — reverse for chronological numbering
+      arr.slice().reverse().forEach((it, idx) => { it._session = idx + 1; });
+    });
+  }
+
+  fetch('devlog/index.json', { cache: 'no-cache' })
+    .then(r => r.ok ? r.json() : Promise.reject(new Error('manifest missing')))
+    .then(items => {
+      if (!Array.isArray(items) || items.length === 0) {
+        host.innerHTML = '<div class="devlog-loading">아직 작성된 devlog가 없습니다.</div>';
+        return;
+      }
+      assignSessions(items);
+
+      // Group by date, take top 2 most recent dates
+      const byDate = [];
+      const seen = {};
+      items.forEach(it => {
+        const d = it.date || '';
+        if (!seen[d]) { seen[d] = { date:d, items:[] }; byDate.push(seen[d]); }
+        seen[d].items.push(it);
+      });
+      const topDates = byDate.slice(0, 2);
+
+      host.innerHTML = topDates.map(grp => {
+        const wk = weekdayOf(grp.date);
+        const rows = grp.items.map(it => {
+          const slug = (it.project || 'default').toLowerCase();
+          const href = 'devlog.html?file=' + encodeURIComponent(it.file);
+          const badge = it._session
+            ? `<span class="devlog-session">#${it._session}</span>`
+            : `<span class="devlog-session blank">·</span>`;
+          return `<a class="devlog-item" href="${href}">
+            ${badge}
+            <span class="devlog-title">${it.title || it.file}</span>
+            <span class="devlog-tag ${tagClass(slug)}">${labelFor(slug)}</span>
+          </a>`;
+        }).join('');
+        return `<div class="devlog-day">
+          <div class="devlog-day-header">
+            <div>
+              <span class="devlog-day-date">${grp.date}</span>
+              <span class="devlog-day-weekday">${wk ? '('+wk+')' : ''}</span>
+            </div>
+            <span class="devlog-day-count">${grp.items.length}건</span>
+          </div>
+          <div class="devlog-day-list">${rows}</div>
+        </div>`;
+      }).join('');
+    })
+    .catch(() => {
+      host.innerHTML = '<div class="devlog-loading">devlog 인덱스를 불러올 수 없습니다. <a href="devlog.html" style="color:#3b82f6">devlog 페이지로 이동 →</a></div>';
+    });
+})();
+</script>
+
+</body>
+</html>

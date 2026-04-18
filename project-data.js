@@ -1,15 +1,93 @@
 window.PROJECT_DATA = {
-  "lastUpdated": "2026-04-18 (salarykorea 수익화 보수 리뷰 — 시장·경쟁·RPM 실측 후 5개 긴급 액션 최상단 추가 / 남은 계산기 10개 롤아웃은 데이터 확인 후 결정으로 보류)",
-  "stats": {
-    "pages": 145,
-    "indexed": 104,
-    "blogUploaded": 10,
-    "blogTotal": 65,
-    "adsense": "거절 (재심사 대기)"
-  },
+  "lastUpdated": "2026-04-18 — 스키마 v2 리팩토링 완료 (project/status/priority/phase/tags 필드 도입, legacy 필드는 Phase 4까지 유지)",
+  "schemaVersion": "2.0",
+  "projects": [
+    {
+      "slug": "salarykorea",
+      "name": "월급연구소",
+      "icon": "💰",
+      "themeColor": "#3b82f6",
+      "status": "active",
+      "oneLiner": "연봉/세금 계산기 + 블로그 (AdSense 재심사 대기)",
+      "phases": [
+        "Phase 1: MVP 구축 (완료)",
+        "Phase 2: SEO & 수익화 기반 (완료)",
+        "Phase 3: 측정 & 재판단 (진행)"
+      ],
+      "currentPhase": "Phase 3: 측정 & 재판단",
+      "linkedDocs": {
+        "context": "salarykorea/PROJECT-CONTEXT.md",
+        "progress": "salarykorea/PROGRESS.md"
+      }
+    },
+    {
+      "slug": "maxout",
+      "name": "맥스아웃",
+      "icon": "💪",
+      "themeColor": "#fb923c",
+      "status": "active",
+      "oneLiner": "푸시업+풀업 슈퍼세트 iOS 앱",
+      "phases": [
+        "Phase 1: 기반",
+        "Phase 2: 핵심 기능",
+        "Phase 3: 자동 카운팅",
+        "Phase 4: 폴리싱 & 배포"
+      ],
+      "currentPhase": "Phase 1: 기반",
+      "linkedDocs": {
+        "context": "maxout/PROJECT_CONTEXT.md",
+        "progress": "maxout/PROGRESS.md"
+      }
+    },
+    {
+      "slug": "nudge",
+      "name": "Nudge",
+      "icon": "🎯",
+      "themeColor": "#0d9488",
+      "status": "active",
+      "oneLiner": "푸시업/풀업/스쿼트 위젯 탭 기록 앱",
+      "phases": [
+        "Phase 1: 기반 (완료)",
+        "Phase 2: 위젯 (완료)",
+        "Phase 3: Watch 동기화 (진행)",
+        "Phase 4: 폴리싱 & 배포"
+      ],
+      "currentPhase": "Phase 3: Watch 동기화",
+      "linkedDocs": {
+        "context": "nudge/PROJECT_CONTEXT.md",
+        "progress": "nudge/PROGRESS.md"
+      }
+    },
+    {
+      "slug": "realestate",
+      "name": "부동산연구소",
+      "icon": "🏠",
+      "themeColor": "#64748b",
+      "status": "paused",
+      "oneLiner": "부동산 계산기 사이트 (도메인 미구매, 보류)",
+      "phases": [
+        "Phase 1: MVP 5페이지 (완료)",
+        "Phase 2: 계산기 확장 & 도메인"
+      ],
+      "currentPhase": "Phase 2: 계산기 확장 & 도메인",
+      "linkedDocs": null
+    }
+  ],
   "tasks": [
     {
       "id": "r1",
+      "project": "salarykorea",
+      "title": "🔴 [1순위] GA4 전 페이지 실설치 — 현재 gtag 0개 설치 (dns-prefetch만 존재). 측정 없이는 어떤 판단도 불가",
+      "status": "now",
+      "priority": "high",
+      "phase": null,
+      "tags": [
+        "측정",
+        "긴급액션"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "🔴 [1순위] GA4 전 페이지 실설치 — 현재 gtag 0개 설치 (dns-prefetch만 존재). 측정 없이는 어떤 판단도 불가",
       "done": false,
       "tag": "🔴 리뷰 액션",
@@ -17,6 +95,18 @@ window.PROJECT_DATA = {
     },
     {
       "id": "r2",
+      "project": "salarykorea",
+      "title": "🔴 [2순위] Search Console 실측 — 지난 30일 노출/클릭/상위 쿼리 확인 후 실제 유입 규모 파악",
+      "status": "now",
+      "priority": "high",
+      "phase": null,
+      "tags": [
+        "측정",
+        "긴급액션"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "🔴 [2순위] Search Console 실측 — 지난 30일 노출/클릭/상위 쿼리 확인 후 실제 유입 규모 파악",
       "done": false,
       "tag": "🔴 리뷰 액션",
@@ -24,6 +114,18 @@ window.PROJECT_DATA = {
     },
     {
       "id": "r3",
+      "project": "salarykorea",
+      "title": "🔴 [3순위] i18n 33개(-en/-ja/-zh) noindex 처리 — AdSense 재심사 전 기계번역 리스크 제거 (현재 noindex 0개)",
+      "status": "now",
+      "priority": "high",
+      "phase": null,
+      "tags": [
+        "SEO",
+        "긴급액션"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "🔴 [3순위] i18n 33개(-en/-ja/-zh) noindex 처리 — AdSense 재심사 전 기계번역 리스크 제거 (현재 noindex 0개)",
       "done": false,
       "tag": "🔴 리뷰 액션",
@@ -31,6 +133,18 @@ window.PROJECT_DATA = {
     },
     {
       "id": "r4",
+      "project": "salarykorea",
+      "title": "🟡 [4순위] 카카오 AdFit 등록 + 슬롯 삽입 — AdSense 재거절 대비 백업 광고 네트워크 (개인 승인 1~2일)",
+      "status": "next",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "수익화",
+        "긴급액션"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "🟡 [4순위] 카카오 AdFit 등록 + 슬롯 삽입 — AdSense 재거절 대비 백업 광고 네트워크 (개인 승인 1~2일)",
       "done": false,
       "tag": "🔴 리뷰 액션",
@@ -38,6 +152,18 @@ window.PROJECT_DATA = {
     },
     {
       "id": "r5",
+      "project": "salarykorea",
+      "title": "🟡 [5순위] 2026-05-18 ±3일 재판단 — GA/SC 30일 데이터로 유지/자동화/피벗 결정. 일50PV미만=자동화, 100~300PV=최소수익화, 500PV+=계속투자",
+      "status": "later",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "전략",
+        "긴급액션"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "🟡 [5순위] 2026-05-18 ±3일 재판단 — GA/SC 30일 데이터로 유지/자동화/피벗 결정. 일50PV미만=자동화, 100~300PV=최소수익화, 500PV+=계속투자",
       "done": false,
       "tag": "🔴 리뷰 액션",
@@ -45,6 +171,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t1",
+      "project": "salarykorea",
+      "title": "사이트 68개 HTML 페이지 제작",
+      "status": "done",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "사이트"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "사이트 68개 HTML 페이지 제작",
       "done": true,
       "tag": "사이트",
@@ -52,6 +189,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t2",
+      "project": "salarykorea",
+      "title": "OG 이미지 한국어 버전 교체",
+      "status": "done",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "사이트"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "OG 이미지 한국어 버전 교체",
       "done": true,
       "tag": "사이트",
@@ -59,6 +207,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t3",
+      "project": "salarykorea",
+      "title": "네비게이션 메뉴 업데이트 (3개 신규 페이지)",
+      "status": "done",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "사이트"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "네비게이션 메뉴 업데이트 (3개 신규 페이지)",
       "done": true,
       "tag": "사이트",
@@ -66,6 +225,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t4",
+      "project": "salarykorea",
+      "title": "블로그 포스트 #001~#028 생성",
+      "status": "done",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "블로그"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "블로그 포스트 #001~#028 생성",
       "done": true,
       "tag": "블로그",
@@ -73,6 +243,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t5",
+      "project": "salarykorea",
+      "title": "블로그 포스트 #061~#065 생성",
+      "status": "done",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "블로그"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "블로그 포스트 #061~#065 생성",
       "done": true,
       "tag": "블로그",
@@ -80,6 +261,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t6",
+      "project": "salarykorea",
+      "title": "블로그 #001~#010 네이버 업로드 완료",
+      "status": "done",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "블로그"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "블로그 #001~#010 네이버 업로드 완료",
       "done": true,
       "tag": "블로그",
@@ -87,6 +279,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t7",
+      "project": "salarykorea",
+      "title": "블로그 업로드 마스터보드 HTML 제작",
+      "status": "done",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "도구"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "블로그 업로드 마스터보드 HTML 제작",
       "done": true,
       "tag": "도구",
@@ -94,6 +297,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t8",
+      "project": "salarykorea",
+      "title": "블로그 이모지 제거 + 리치텍스트 복사 적용",
+      "status": "done",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "블로그"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "블로그 이모지 제거 + 리치텍스트 복사 적용",
       "done": true,
       "tag": "블로그",
@@ -101,6 +315,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t9",
+      "project": "salarykorea",
+      "title": "내부 링크 강화 — 30개 페이지에 관련 콘텐츠 추가",
+      "status": "done",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "SEO"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "내부 링크 강화 — 30개 페이지에 관련 콘텐츠 추가",
       "done": true,
       "tag": "SEO",
@@ -108,6 +333,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t10",
+      "project": "salarykorea",
+      "title": "FAQ 스키마 — 11개 계산기 페이지에 추가",
+      "status": "done",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "SEO"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "FAQ 스키마 — 11개 계산기 페이지에 추가",
       "done": true,
       "tag": "SEO",
@@ -115,6 +351,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t11",
+      "project": "salarykorea",
+      "title": "구글 색인 요청 — 104개 URL 전체",
+      "status": "done",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "SEO"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "구글 색인 요청 — 104개 URL 전체",
       "done": true,
       "tag": "SEO",
@@ -122,6 +369,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t12",
+      "project": "salarykorea",
+      "title": "구글 색인 자동화 스크립트 구축",
+      "status": "done",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "도구"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "구글 색인 자동화 스크립트 구축",
       "done": true,
       "tag": "도구",
@@ -129,6 +387,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t13",
+      "project": "salarykorea",
+      "title": "수익화 단기/중기/장기 로드맵 수립",
+      "status": "done",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "전략"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "수익화 단기/중기/장기 로드맵 수립",
       "done": true,
       "tag": "전략",
@@ -136,6 +405,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t14",
+      "project": "salarykorea",
+      "title": "블로그 포스트 #029~#060 생성 (32개) — ⏸ 2026-04-18 리뷰 결과 보류, 5/18 데이터 확인 후 재개 여부 결정",
+      "status": "later",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "블로그"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "블로그 포스트 #029~#060 생성 (32개) — ⏸ 2026-04-18 리뷰 결과 보류, 5/18 데이터 확인 후 재개 여부 결정",
       "done": false,
       "tag": "블로그",
@@ -143,6 +423,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t15",
+      "project": "salarykorea",
+      "title": "블로그 #011~#028 네이버 업로드 (매일 1개)",
+      "status": "later",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "블로그"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "블로그 #011~#028 네이버 업로드 (매일 1개)",
       "done": false,
       "tag": "블로그",
@@ -150,6 +441,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t16",
+      "project": "salarykorea",
+      "title": "애드센스 승인 획득",
+      "status": "later",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "수익화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "애드센스 승인 획득",
       "done": false,
       "tag": "수익화",
@@ -157,6 +459,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t17",
+      "project": "salarykorea",
+      "title": "구글 색인 현황 확인 (4/15)",
+      "status": "next",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "SEO"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "구글 색인 현황 확인 (4/15)",
       "done": false,
       "tag": "SEO",
@@ -164,6 +477,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t18",
+      "project": "salarykorea",
+      "title": "Selenium 네이버 업로더 디버깅",
+      "status": "later",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "도구"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "Selenium 네이버 업로더 디버깅",
       "done": false,
       "tag": "도구",
@@ -171,6 +495,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t19",
+      "project": "salarykorea",
+      "title": "제휴 마케팅 플랫폼 가입 (리더스CPA, 링크프라이스)",
+      "status": "later",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "수익화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "제휴 마케팅 플랫폼 가입 (리더스CPA, 링크프라이스)",
       "done": false,
       "tag": "수익화",
@@ -178,6 +513,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t20",
+      "project": "salarykorea",
+      "title": "2번째 수익 사이트 기획 및 구축",
+      "status": "done",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "전략"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "2번째 수익 사이트 기획 및 구축",
       "done": true,
       "tag": "전략",
@@ -185,6 +531,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t21",
+      "project": "salarykorea",
+      "title": "프리미엄 콘텐츠 PDF 3종 전략안 작성 (docs/premium-pdf/) → 본문 집필 대기",
+      "status": "later",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "수익화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "프리미엄 콘텐츠 PDF 3종 전략안 작성 (docs/premium-pdf/) → 본문 집필 대기",
       "done": false,
       "tag": "수익화",
@@ -192,6 +549,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t22",
+      "project": "salarykorea",
+      "title": "연말정산 계산기 (year-end-tax.html) 추가",
+      "status": "done",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "사이트"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "연말정산 계산기 (year-end-tax.html) 추가",
       "done": true,
       "tag": "사이트",
@@ -199,6 +567,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t23",
+      "project": "realestate",
+      "title": "부동산연구소 사이트 초기 구축 (5페이지)",
+      "status": "done",
+      "priority": "mid",
+      "phase": "Phase 1: MVP 5페이지",
+      "tags": [
+        "사이트"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "부동산연구소 사이트 초기 구축 (5페이지)",
       "done": true,
       "tag": "전략",
@@ -206,6 +585,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t24",
+      "project": "realestate",
+      "title": "부동산 사이트 — 취득세 계산기 (acquisition-tax.html) 제작",
+      "status": "later",
+      "priority": "low",
+      "phase": "Phase 2: 계산기 확장 & 도메인",
+      "tags": [
+        "계산기"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "부동산 사이트 — 취득세 계산기 (acquisition-tax.html) 제작",
       "done": false,
       "tag": "부동산",
@@ -213,6 +603,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t25",
+      "project": "realestate",
+      "title": "부동산 사이트 — 전세가율 계산기 (rent-ratio.html) 제작",
+      "status": "later",
+      "priority": "low",
+      "phase": "Phase 2: 계산기 확장 & 도메인",
+      "tags": [
+        "계산기"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "부동산 사이트 — 전세가율 계산기 (rent-ratio.html) 제작",
       "done": false,
       "tag": "부동산",
@@ -220,6 +621,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t26",
+      "project": "realestate",
+      "title": "부동산 사이트 도메인 구매 및 배포",
+      "status": "later",
+      "priority": "mid",
+      "phase": "Phase 2: 계산기 확장 & 도메인",
+      "tags": [
+        "배포"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "부동산 사이트 도메인 구매 및 배포",
       "done": false,
       "tag": "부동산",
@@ -227,6 +639,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t27",
+      "project": "salarykorea",
+      "title": "AI 내성 재포지셔닝 전략 수립 (docs/ai-resistance/)",
+      "status": "done",
+      "priority": "high",
+      "phase": null,
+      "tags": [
+        "전략"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "AI 내성 재포지셔닝 전략 수립 (docs/ai-resistance/)",
       "done": true,
       "tag": "전략",
@@ -234,6 +657,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t28",
+      "project": "salarykorea",
+      "title": "공통 컴포넌트 구현 (trust-layer.js + common.css 확장)",
+      "status": "done",
+      "priority": "high",
+      "phase": null,
+      "tags": [
+        "수익화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "공통 컴포넌트 구현 (trust-layer.js + common.css 확장)",
       "done": true,
       "tag": "수익화",
@@ -241,6 +675,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t29",
+      "project": "salarykorea",
+      "title": "파일럿 페이지 income-tax.html 에 AI 내성 3축 적용 완료",
+      "status": "done",
+      "priority": "high",
+      "phase": null,
+      "tags": [
+        "수익화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "파일럿 페이지 income-tax.html 에 AI 내성 3축 적용 완료",
       "done": true,
       "tag": "수익화",
@@ -248,6 +693,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t32",
+      "project": "salarykorea",
+      "title": "income-tax 파일럿 PDF 결과물 풀패키지 강화 (부호버그 수정 + 캡처 헤더/메타/푸터 + Trust Badge 재구성 + 단일 긴 PDF 페이지)",
+      "status": "done",
+      "priority": "high",
+      "phase": null,
+      "tags": [
+        "수익화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "income-tax 파일럿 PDF 결과물 풀패키지 강화 (부호버그 수정 + 캡처 헤더/메타/푸터 + Trust Badge 재구성 + 단일 긴 PDF 페이지)",
       "done": true,
       "tag": "수익화",
@@ -255,6 +711,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t33",
+      "project": "salarykorea",
+      "title": "계산기 3개 페이지 롤아웃 (freelancer-tax · year-end-tax · medical-tax) — AI 내성 레이어 + 캡처 풀패키지 + TrustLayer.bind + captureMeta",
+      "status": "done",
+      "priority": "high",
+      "phase": null,
+      "tags": [
+        "수익화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "계산기 3개 페이지 롤아웃 (freelancer-tax · year-end-tax · medical-tax) — AI 내성 레이어 + 캡처 풀패키지 + TrustLayer.bind + captureMeta",
       "done": true,
       "tag": "수익화",
@@ -262,6 +729,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t30",
+      "project": "salarykorea",
+      "title": "메인 계산기 14개 페이지 롤아웃 (AI 내성 레이어) — 4/14 진행 중 (4/14 완료: income-tax + freelancer-tax + year-end-tax + medical-tax)",
+      "status": "next",
+      "priority": "high",
+      "phase": null,
+      "tags": [
+        "수익화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "메인 계산기 14개 페이지 롤아웃 (AI 내성 레이어) — 4/14 진행 중 (4/14 완료: income-tax + freelancer-tax + year-end-tax + medical-tax)",
       "done": false,
       "tag": "수익화",
@@ -269,6 +747,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t34",
+      "project": "salarykorea",
+      "title": "남은 10개 계산기 페이지 롤아웃 (gift-tax · acquisition-tax · monthly-salary · salary-table · retirement · insurance · silbi · holiday-pay · unemployment · minimum-wage) — ⏸ 2026-04-18 리뷰 결과 보류, 데이터로 트래픽 증가 확인 후 재개 (매몰비용 방지)",
+      "status": "later",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "수익화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "남은 10개 계산기 페이지 롤아웃 (gift-tax · acquisition-tax · monthly-salary · salary-table · retirement · insurance · silbi · holiday-pay · unemployment · minimum-wage) — ⏸ 2026-04-18 리뷰 결과 보류, 데이터로 트래픽 증가 확인 후 재개 (매몰비용 방지)",
       "done": false,
       "tag": "수익화",
@@ -276,6 +765,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "t31",
+      "project": "salarykorea",
+      "title": "PDF 기획안 v2 리라이트 (긴 글 → 워크시트/템플릿 중심)",
+      "status": "later",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "수익화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "PDF 기획안 v2 리라이트 (긴 글 → 워크시트/템플릿 중심)",
       "done": false,
       "tag": "수익화",
@@ -283,6 +783,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w1",
+      "project": "maxout",
+      "title": "맥스아웃 앱 기획안 작성 (APP_PLAN.md)",
+      "status": "done",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "기획"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "맥스아웃 앱 기획안 작성 (APP_PLAN.md)",
       "done": true,
       "tag": "맥스아웃",
@@ -290,6 +801,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w2",
+      "project": "maxout",
+      "title": "기술 스택 확정 (SwiftUI + CloudKit)",
+      "status": "done",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "기획"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "기술 스택 확정 (SwiftUI + CloudKit)",
       "done": true,
       "tag": "맥스아웃",
@@ -297,6 +819,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w3",
+      "project": "maxout",
+      "title": "핵심 기능 설계 (슈퍼세트, 스마트 과부하, 전환 기록, 자동 카운팅)",
+      "status": "done",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "기획"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "핵심 기능 설계 (슈퍼세트, 스마트 과부하, 전환 기록, 자동 카운팅)",
       "done": true,
       "tag": "맥스아웃",
@@ -304,6 +837,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w4",
+      "project": "maxout",
+      "title": "프로젝트 관리 체계 구축 (마스터보드, devlog, PROJECT_CONTEXT)",
+      "status": "done",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "관리"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "프로젝트 관리 체계 구축 (마스터보드, devlog, PROJECT_CONTEXT)",
       "done": true,
       "tag": "맥스아웃",
@@ -311,6 +855,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w5",
+      "project": "maxout",
+      "title": "[Phase 1] Xcode 프로젝트 셋업 (iOS + watchOS)",
+      "status": "next",
+      "priority": "high",
+      "phase": "Phase 1: 기반",
+      "tags": [
+        "기반"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 1] Xcode 프로젝트 셋업 (iOS + watchOS)",
       "done": false,
       "tag": "맥스아웃",
@@ -318,6 +873,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w6",
+      "project": "maxout",
+      "title": "[Phase 1] SwiftData 모델 정의",
+      "status": "later",
+      "priority": "mid",
+      "phase": "Phase 1: 기반",
+      "tags": [
+        "기반"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 1] SwiftData 모델 정의",
       "done": false,
       "tag": "맥스아웃",
@@ -325,6 +891,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w7",
+      "project": "maxout",
+      "title": "[Phase 1] 기본 화면 구조 (탭 네비게이션)",
+      "status": "later",
+      "priority": "mid",
+      "phase": "Phase 1: 기반",
+      "tags": [
+        "UI"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 1] 기본 화면 구조 (탭 네비게이션)",
       "done": false,
       "tag": "맥스아웃",
@@ -332,6 +909,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w8",
+      "project": "maxout",
+      "title": "[Phase 1] 홈 화면 + 캘린더 뷰",
+      "status": "later",
+      "priority": "mid",
+      "phase": "Phase 1: 기반",
+      "tags": [
+        "UI"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 1] 홈 화면 + 캘린더 뷰",
       "done": false,
       "tag": "맥스아웃",
@@ -339,6 +927,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w9",
+      "project": "maxout",
+      "title": "[Phase 1] 세트 구성 설정 화면",
+      "status": "later",
+      "priority": "mid",
+      "phase": "Phase 1: 기반",
+      "tags": [
+        "UI"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 1] 세트 구성 설정 화면",
       "done": false,
       "tag": "맥스아웃",
@@ -346,6 +945,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w10",
+      "project": "maxout",
+      "title": "[Phase 2] 대형 카운터 UI (iPhone + Apple Watch)",
+      "status": "later",
+      "priority": "mid",
+      "phase": "Phase 2: 핵심 기능",
+      "tags": [
+        "UI"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 2] 대형 카운터 UI (iPhone + Apple Watch)",
       "done": false,
       "tag": "맥스아웃",
@@ -353,6 +963,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w11",
+      "project": "maxout",
+      "title": "[Phase 2] 슈퍼세트 진행 로직",
+      "status": "later",
+      "priority": "mid",
+      "phase": "Phase 2: 핵심 기능",
+      "tags": [
+        "로직"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 2] 슈퍼세트 진행 로직",
       "done": false,
       "tag": "맥스아웃",
@@ -360,6 +981,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w12",
+      "project": "maxout",
+      "title": "[Phase 2] 탭 인터랙션 (1탭 전환 / 더블탭 정지+실패)",
+      "status": "later",
+      "priority": "mid",
+      "phase": "Phase 2: 핵심 기능",
+      "tags": [
+        "UX"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 2] 탭 인터랙션 (1탭 전환 / 더블탭 정지+실패)",
       "done": false,
       "tag": "맥스아웃",
@@ -367,6 +999,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w13",
+      "project": "maxout",
+      "title": "[Phase 2] 휴식 타이머 + 스마트 과부하 계산",
+      "status": "later",
+      "priority": "mid",
+      "phase": "Phase 2: 핵심 기능",
+      "tags": [
+        "로직"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 2] 휴식 타이머 + 스마트 과부하 계산",
       "done": false,
       "tag": "맥스아웃",
@@ -374,6 +1017,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w14",
+      "project": "maxout",
+      "title": "[Phase 3] Apple Watch 모션 감지 카운팅",
+      "status": "later",
+      "priority": "mid",
+      "phase": "Phase 3: 자동 카운팅",
+      "tags": [
+        "자동화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 3] Apple Watch 모션 감지 카운팅",
       "done": false,
       "tag": "맥스아웃",
@@ -381,6 +1035,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w15",
+      "project": "maxout",
+      "title": "[Phase 3] 음성 인식 / 카메라 포즈 감지",
+      "status": "later",
+      "priority": "mid",
+      "phase": "Phase 3: 자동 카운팅",
+      "tags": [
+        "자동화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 3] 음성 인식 / 카메라 포즈 감지",
       "done": false,
       "tag": "맥스아웃",
@@ -388,6 +1053,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w16",
+      "project": "maxout",
+      "title": "[Phase 3] iPhone ↔ Watch 실시간 동기화",
+      "status": "later",
+      "priority": "high",
+      "phase": "Phase 3: 자동 카운팅",
+      "tags": [
+        "동기화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 3] iPhone ↔ Watch 실시간 동기화",
       "done": false,
       "tag": "맥스아웃",
@@ -395,6 +1071,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w17",
+      "project": "maxout",
+      "title": "[Phase 4] 통계 차트 + 캘린더 뷰",
+      "status": "later",
+      "priority": "mid",
+      "phase": "Phase 4: 폴리싱 & 배포",
+      "tags": [
+        "통계"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 4] 통계 차트 + 캘린더 뷰",
       "done": false,
       "tag": "맥스아웃",
@@ -402,6 +1089,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w18",
+      "project": "maxout",
+      "title": "[Phase 4] CloudKit 동기화",
+      "status": "later",
+      "priority": "mid",
+      "phase": "Phase 4: 폴리싱 & 배포",
+      "tags": [
+        "동기화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 4] CloudKit 동기화",
       "done": false,
       "tag": "맥스아웃",
@@ -409,6 +1107,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "w19",
+      "project": "maxout",
+      "title": "[Phase 4] UI 폴리싱 & TestFlight 배포",
+      "status": "later",
+      "priority": "high",
+      "phase": "Phase 4: 폴리싱 & 배포",
+      "tags": [
+        "배포"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 4] UI 폴리싱 & TestFlight 배포",
       "done": false,
       "tag": "맥스아웃",
@@ -416,6 +1125,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n1",
+      "project": "nudge",
+      "title": "Nudge 앱 이름 확정 + 기획안(APP_PLAN.md) 작성",
+      "status": "done",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "기획"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "Nudge 앱 이름 확정 + 기획안(APP_PLAN.md) 작성",
       "done": true,
       "tag": "Nudge",
@@ -423,6 +1143,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n2",
+      "project": "nudge",
+      "title": "Nudge 프로젝트 관리 체계 구축 (PROJECT_CONTEXT, PROGRESS, 마스터보드 연동)",
+      "status": "done",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "관리"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "Nudge 프로젝트 관리 체계 구축 (PROJECT_CONTEXT, PROGRESS, 마스터보드 연동)",
       "done": true,
       "tag": "Nudge",
@@ -430,6 +1161,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n3",
+      "project": "nudge",
+      "title": "Nudge 아이콘 & 컬러 컨셉 스케치 (DESIGN.md + 4종 SVG, A안 가결정)",
+      "status": "done",
+      "priority": "mid",
+      "phase": null,
+      "tags": [
+        "디자인"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "Nudge 아이콘 & 컬러 컨셉 스케치 (DESIGN.md + 4종 SVG, A안 가결정)",
       "done": true,
       "tag": "Nudge",
@@ -437,6 +1179,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n4",
+      "project": "nudge",
+      "title": "[Phase 1] Xcode 프로젝트 셋업 (iOS 앱 + Widget Extension + watchOS)",
+      "status": "done",
+      "priority": "mid",
+      "phase": "Phase 1: 기반",
+      "tags": [
+        "기반"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 1] Xcode 프로젝트 셋업 (iOS 앱 + Widget Extension + watchOS)",
       "done": true,
       "tag": "Nudge",
@@ -444,6 +1197,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n5",
+      "project": "nudge",
+      "title": "[Phase 1] App Group 설정 + 공용 데이터 저장소(SharedStore) 구현",
+      "status": "done",
+      "priority": "mid",
+      "phase": "Phase 1: 기반",
+      "tags": [
+        "기반"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 1] App Group 설정 + 공용 데이터 저장소(SharedStore) 구현",
       "done": true,
       "tag": "Nudge",
@@ -451,6 +1215,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n6",
+      "project": "nudge",
+      "title": "[Phase 1] 활성 운동 선택 화면 + 기본 카운터 UI",
+      "status": "done",
+      "priority": "mid",
+      "phase": "Phase 1: 기반",
+      "tags": [
+        "UI"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 1] 활성 운동 선택 화면 + 기본 카운터 UI",
       "done": true,
       "tag": "Nudge",
@@ -458,6 +1233,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n7",
+      "project": "nudge",
+      "title": "[Phase 2] Widget Extension + 소형/중형 위젯 디자인",
+      "status": "done",
+      "priority": "mid",
+      "phase": "Phase 2: 위젯",
+      "tags": [
+        "위젯"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 2] Widget Extension + 소형/중형 위젯 디자인",
       "done": true,
       "tag": "Nudge",
@@ -465,6 +1251,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n8",
+      "project": "nudge",
+      "title": "[Phase 2] App Intents로 Interactive Widget 구현 (탭=+1)",
+      "status": "done",
+      "priority": "high",
+      "phase": "Phase 2: 위젯",
+      "tags": [
+        "위젯"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 2] App Intents로 Interactive Widget 구현 (탭=+1)",
       "done": true,
       "tag": "Nudge",
@@ -472,6 +1269,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n8b",
+      "project": "nudge",
+      "title": "[Phase 1~2] 시뮬레이터 실기 검증 (위젯 탭 → 숫자 반영, 앱↔위젯 동기화)",
+      "status": "done",
+      "priority": "mid",
+      "phase": "Phase 2: 위젯",
+      "tags": [
+        "검증"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 1~2] 시뮬레이터 실기 검증 (위젯 탭 → 숫자 반영, 앱↔위젯 동기화)",
       "done": true,
       "tag": "Nudge",
@@ -479,6 +1287,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n8c",
+      "project": "nudge",
+      "title": "[Phase 2] 위젯 꾹 눌러 편집 UI (ExerciseChoice AppEnum + WidgetConfigurationIntent, 소형=AppIntentConfig / 중형=Static 분리)",
+      "status": "done",
+      "priority": "mid",
+      "phase": "Phase 2: 위젯",
+      "tags": [
+        "위젯"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 2] 위젯 꾹 눌러 편집 UI (ExerciseChoice AppEnum + WidgetConfigurationIntent, 소형=AppIntentConfig / 중형=Static 분리)",
       "done": true,
       "tag": "Nudge",
@@ -486,6 +1305,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n8d",
+      "project": "nudge",
+      "title": "[Design] 앱 아이콘 A안(Ripple Tap) 적용 — light/dark/tinted 3종 1024 PNG",
+      "status": "done",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "디자인"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Design] 앱 아이콘 A안(Ripple Tap) 적용 — light/dark/tinted 3종 1024 PNG",
       "done": true,
       "tag": "Nudge",
@@ -493,6 +1323,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n8e",
+      "project": "nudge",
+      "title": "[Design/낮은 우선순위] 운동 아이콘 교체 — 현재 SF Symbols 톤 재검토 (Exercise.symbolName 한 곳 수정으로 앱/위젯/통계 동시 반영)",
+      "status": "later",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "디자인"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Design/낮은 우선순위] 운동 아이콘 교체 — 현재 SF Symbols 톤 재검토 (Exercise.symbolName 한 곳 수정으로 앱/위젯/통계 동시 반영)",
       "done": false,
       "tag": "Nudge",
@@ -500,6 +1341,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n9",
+      "project": "nudge",
+      "title": "[Phase 3] watchOS 메인 앱 (+1 버튼, 활성 운동 iPhone 전담) 구현 완료",
+      "status": "done",
+      "priority": "mid",
+      "phase": "Phase 3: Watch 동기화",
+      "tags": [
+        "Watch"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 3] watchOS 메인 앱 (+1 버튼, 활성 운동 iPhone 전담) 구현 완료",
       "done": true,
       "tag": "Nudge",
@@ -507,6 +1359,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n10",
+      "project": "nudge",
+      "title": "[Phase 3] iPhone ↔ Watch 동기화 — WC 단독 전략, NudgeSync/SharedStore 구현 완료, 실기기 양방향 검증 대기",
+      "status": "next",
+      "priority": "high",
+      "phase": "Phase 3: Watch 동기화",
+      "tags": [
+        "동기화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 3] iPhone ↔ Watch 동기화 — WC 단독 전략, NudgeSync/SharedStore 구현 완료, 실기기 양방향 검증 대기",
       "done": false,
       "tag": "Nudge",
@@ -514,6 +1377,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n10b",
+      "project": "nudge",
+      "title": "[Phase 3] 컴플리케이션 Widget Extension 타겟 추가 (3종 패밀리 Circular/Inline/Rectangular + Config Intent + 탭=+1 → reloadTimelines → WC push)",
+      "status": "done",
+      "priority": "mid",
+      "phase": "Phase 3: Watch 동기화",
+      "tags": [
+        "컴플리케이션"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 3] 컴플리케이션 Widget Extension 타겟 추가 (3종 패밀리 Circular/Inline/Rectangular + Config Intent + 탭=+1 → reloadTimelines → WC push)",
       "done": true,
       "tag": "Nudge",
@@ -521,6 +1395,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n10c",
+      "project": "nudge",
+      "title": "[Phase 3] 실기기에서 컴플리케이션 시계 화면 배치 & 탭 동작 확인",
+      "status": "later",
+      "priority": "mid",
+      "phase": "Phase 3: Watch 동기화",
+      "tags": [
+        "검증"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 3] 실기기에서 컴플리케이션 시계 화면 배치 & 탭 동작 확인",
       "done": false,
       "tag": "Nudge",
@@ -528,6 +1413,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n10d",
+      "project": "nudge",
+      "title": "[Phase 3/진단] NudgeSync 3-copy 드리프트 정합화 + Watch:recv/iPhone:push/Watch:push appendDebugLog 보강 (양방향 동기화 버그 진단 준비)",
+      "status": "done",
+      "priority": "mid",
+      "phase": "Phase 3: Watch 동기화",
+      "tags": [
+        "진단"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 3/진단] NudgeSync 3-copy 드리프트 정합화 + Watch:recv/iPhone:push/Watch:push appendDebugLog 보강 (양방향 동기화 버그 진단 준비)",
       "done": true,
       "tag": "Nudge",
@@ -535,6 +1431,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n10f",
+      "project": "nudge",
+      "title": "[Phase 3/수정] handleRemote WidgetCenter 가드 버그 수정 — #if os(iOS) 제거로 watchOS 에서도 컴플리케이션 타임라인 리로드 동작 (iPhone→Watch 방향 반영 불능의 유력 원인 선제 제거)",
+      "status": "done",
+      "priority": "mid",
+      "phase": "Phase 3: Watch 동기화",
+      "tags": [
+        "버그"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 3/수정] handleRemote WidgetCenter 가드 버그 수정 — #if os(iOS) 제거로 watchOS 에서도 컴플리케이션 타임라인 리로드 동작 (iPhone→Watch 방향 반영 불능의 유력 원인 선제 제거)",
       "done": true,
       "tag": "Nudge",
@@ -542,6 +1449,18 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n10e",
+      "project": "nudge",
+      "title": "[Phase 3/🔴최우선] iPhone ↔ Watch 스마트스택 컴플리케이션 양방향 동기화 불능 — 실기기 재현 + 🐜/🐞 로그 캡처 + 실패 스테이지 식별 + 패치",
+      "status": "now",
+      "priority": "high",
+      "phase": "Phase 3: Watch 동기화",
+      "tags": [
+        "버그",
+        "최우선"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 3/🔴최우선] iPhone ↔ Watch 스마트스택 컴플리케이션 양방향 동기화 불능 — 실기기 재현 + 🐜/🐞 로그 캡처 + 실패 스테이지 식별 + 패치",
       "done": false,
       "tag": "Nudge",
@@ -549,6 +1468,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n11",
+      "project": "nudge",
+      "title": "[Phase 4] 주/월/연 통계 화면 (Swift Charts 스택 바 + 12주 히트맵 + TabView)",
+      "status": "done",
+      "priority": "mid",
+      "phase": "Phase 4: 폴리싱 & 배포",
+      "tags": [
+        "통계"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 4] 주/월/연 통계 화면 (Swift Charts 스택 바 + 12주 히트맵 + TabView)",
       "done": true,
       "tag": "Nudge",
@@ -556,6 +1486,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n12",
+      "project": "nudge",
+      "title": "[Phase 4] 폴리싱 + TestFlight 배포",
+      "status": "later",
+      "priority": "high",
+      "phase": "Phase 4: 폴리싱 & 배포",
+      "tags": [
+        "배포"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Phase 4] 폴리싱 + TestFlight 배포",
       "done": false,
       "tag": "Nudge",
@@ -563,6 +1504,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n13",
+      "project": "nudge",
+      "title": "[Monetize] $0.99 '개발자 커피값 후원' Consumable IAP 구현 (StoreKit 2)",
+      "status": "later",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "수익화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Monetize] $0.99 '개발자 커피값 후원' Consumable IAP 구현 (StoreKit 2)",
       "done": false,
       "tag": "Nudge",
@@ -570,6 +1522,17 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n14",
+      "project": "nudge",
+      "title": "[Monetize] App Store Connect 팁 상품 등록 (site.salarykorea.nudge.tip.coffee) + Sandbox 테스트",
+      "status": "later",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "수익화"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Monetize] App Store Connect 팁 상품 등록 (site.salarykorea.nudge.tip.coffee) + Sandbox 테스트",
       "done": false,
       "tag": "Nudge",
@@ -577,12 +1540,30 @@ window.PROJECT_DATA = {
     },
     {
       "id": "n15",
+      "project": "nudge",
+      "title": "[Cross] 맥스아웃 크로스 프로모션 — 30일 연속 사용자 설정 화면 1회 노출 카드",
+      "status": "later",
+      "priority": "low",
+      "phase": null,
+      "tags": [
+        "연계"
+      ],
+      "createdAt": "2026-04-13",
+      "completedAt": null,
+      "notes": "",
       "text": "[Cross] 맥스아웃 크로스 프로모션 — 30일 연속 사용자 설정 화면 1회 노출 카드",
       "done": false,
       "tag": "Nudge",
       "tagColor": "#0d9488"
     }
   ],
+  "stats": {
+    "pages": 145,
+    "indexed": 104,
+    "blogUploaded": 10,
+    "blogTotal": 65,
+    "adsense": "거절 (재심사 대기)"
+  },
   "schedule": [
     {
       "date": "2026-04-12",
