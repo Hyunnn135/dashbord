@@ -1440,9 +1440,46 @@
         "버그"
       ],
       "createdAt": "2026-04-13",
-      "completedAt": null,
+      "completedAt": "2026-04-17",
       "notes": "",
       "text": "[Phase 3/수정] handleRemote WidgetCenter 가드 버그 수정 — #if os(iOS) 제거로 watchOS 에서도 컴플리케이션 타임라인 리로드 동작 (iPhone→Watch 방향 반영 불능의 유력 원인 선제 제거)",
+      "done": true,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n10g",
+      "project": "nudge",
+      "title": "[Phase 3/수정] Complication NudgeSync 3-copy 정합화 마무리 — 04-17 커밋이 'complication copy has no handleRemote' 오판으로 누락한 컴플리케이션 타깃까지 동일 구조로 맞춤 (import WidgetKit 가드 해제 / #if os(iOS) 가드 제거 / didReceiveUserInfo 추가 / Comp: 접두사 로그 보강)",
+      "status": "done",
+      "priority": "mid",
+      "phase": "Phase 3: Watch 동기화",
+      "tags": [
+        "드리프트정합화",
+        "진단"
+      ],
+      "createdAt": "2026-04-22",
+      "completedAt": "2026-04-22",
+      "notes": "",
+      "text": "[Phase 3/수정] Complication NudgeSync 3-copy 정합화 마무리 — 04-17 커밋이 'complication copy has no handleRemote' 오판으로 누락한 컴플리케이션 타깃까지 동일 구조로 맞춤 (import WidgetKit 가드 해제 / #if os(iOS) 가드 제거 / didReceiveUserInfo 추가 / Comp: 접두사 로그 보강)",
+      "done": true,
+      "tag": "Nudge",
+      "tagColor": "#0d9488"
+    },
+    {
+      "id": "n10h",
+      "project": "nudge",
+      "title": "[Phase 3/수정] Watch ContentView 에 WKApplication.didBecomeActiveNotification 훅 추가 — iOS 의 UIApplication.didBecomeActiveNotification 대칭. 포그라운드 복귀 시 refresh + pushLocalChange (컴플리케이션 탭 후 앱 복귀 경로에서 iPhone push 누락 가능성 제거)",
+      "status": "done",
+      "priority": "mid",
+      "phase": "Phase 3: Watch 동기화",
+      "tags": [
+        "버그"
+      ],
+      "createdAt": "2026-04-22",
+      "completedAt": "2026-04-22",
+      "notes": "",
+      "text": "[Phase 3/수정] Watch ContentView 에 WKApplication.didBecomeActiveNotification 훅 추가 — iOS 의 UIApplication.didBecomeActiveNotification 대칭. 포그라운드 복귀 시 refresh + pushLocalChange (컴플리케이션 탭 후 앱 복귀 경로에서 iPhone push 누락 가능성 제거)",
       "done": true,
       "tag": "Nudge",
       "tagColor": "#0d9488"

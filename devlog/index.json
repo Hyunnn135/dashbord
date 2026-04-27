@@ -1,5 +1,11 @@
 [
   {
+    "file": "2026-04-22-nudge.md",
+    "date": "2026-04-22",
+    "project": "nudge",
+    "title": "Complication NudgeSync 3-copy 정합화 마무리 + Watch ContentView didBecomeActive 훅 추가 (실기기 로그 캡처 직전 정리)"
+  },
+  {
     "file": "2026-04-18-masterboard-2.md",
     "date": "2026-04-18",
     "project": "masterboard",

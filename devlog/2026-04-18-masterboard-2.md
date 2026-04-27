@@ -34,9 +34,10 @@
 
 ## 🔍 검증 결과 (배포 시)
 
-- 로컬↔원격 일치 여부: _(push 후 확인)_
-- 실제 작동 확인: _(4개 slug 각각 project.html 열어 헤더·5아코디언·devlog 섹션 렌더 확인 필요. 404 케이스 `project.html?slug=없음` 도 확인)_
-- Phase 3 검증 스크립트: 24/24 체크 통과 (파일 구조·devlog 인덱스 정합·4 프로젝트 시뮬·하드코딩 제거·idempotent).
+- 로컬↔원격 일치: ✅ byte-exact. 커밋 `df83b7b` 의 6개 파일 blob hash 전수 비교 — `project.html 3074dbc`, `update-devlog-index.py d2d8685`, `devlog/index.js aaf75cd`, `devlog/index.json 27cfd0f`, `devlog/2026-04-18-masterboard-2.md 8bab3b3`, `index.html 0b29425` 모두 원격과 동일.
+- 원격 커밋 stat 확인: 6 files changed, 666 insertions(+), 20 deletions(-) — 로컬 `git show --stat HEAD` 결과와 일치.
+- 실제 작동: _(현태가 브라우저에서 확인 예정 — `index.html` Recent devlog 3줄 자동 반영, 4개 프로젝트 카드 클릭 → `project.html?slug=...` 렌더, 404 케이스 `?slug=없음`)_
+- Phase 3 정적 검증 스크립트: 24/24 체크 통과 (파일 구조·devlog 인덱스 정합·4 프로젝트 시뮬·하드코딩 제거·idempotent).
 
 ## 📅 다음에 할 일
 
