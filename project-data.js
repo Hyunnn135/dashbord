@@ -1,5 +1,5 @@
 window.PROJECT_DATA = {
-  "lastUpdated": "2026-04-18 — 스키마 v2 리팩토링 완료 (project/status/priority/phase/tags 필드 도입, legacy 필드는 Phase 4까지 유지)",
+  "lastUpdated": "2026-05-17 — Phase 4 완료 (구 보드 3개 + 백업 2개 + index.old 삭제, 레거시 필드 text/done/tag/tagColor 제거 → 데이터 25% 감축)",
   "schemaVersion": "2.0",
   "projects": [
     {
@@ -87,11 +87,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "🔴 [1순위] GA4 전 페이지 실설치 — 현재 gtag 0개 설치 (dns-prefetch만 존재). 측정 없이는 어떤 판단도 불가",
-      "done": false,
-      "tag": "🔴 리뷰 액션",
-      "tagColor": "#991b1b"
+      "notes": ""
     },
     {
       "id": "r2",
@@ -106,11 +102,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "🔴 [2순위] Search Console 실측 — 지난 30일 노출/클릭/상위 쿼리 확인 후 실제 유입 규모 파악",
-      "done": false,
-      "tag": "🔴 리뷰 액션",
-      "tagColor": "#991b1b"
+      "notes": ""
     },
     {
       "id": "r3",
@@ -125,11 +117,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "🔴 [3순위] i18n 33개(-en/-ja/-zh) noindex 처리 — AdSense 재심사 전 기계번역 리스크 제거 (현재 noindex 0개)",
-      "done": false,
-      "tag": "🔴 리뷰 액션",
-      "tagColor": "#991b1b"
+      "notes": ""
     },
     {
       "id": "r4",
@@ -144,11 +132,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "🟡 [4순위] 카카오 AdFit 등록 + 슬롯 삽입 — AdSense 재거절 대비 백업 광고 네트워크 (개인 승인 1~2일)",
-      "done": false,
-      "tag": "🔴 리뷰 액션",
-      "tagColor": "#991b1b"
+      "notes": ""
     },
     {
       "id": "r5",
@@ -163,11 +147,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "🟡 [5순위] 2026-05-18 ±3일 재판단 — GA/SC 30일 데이터로 유지/자동화/피벗 결정. 일50PV미만=자동화, 100~300PV=최소수익화, 500PV+=계속투자",
-      "done": false,
-      "tag": "🔴 리뷰 액션",
-      "tagColor": "#991b1b"
+      "notes": ""
     },
     {
       "id": "t1",
@@ -181,11 +161,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "사이트 68개 HTML 페이지 제작",
-      "done": true,
-      "tag": "사이트",
-      "tagColor": "#1e3a5f"
+      "notes": ""
     },
     {
       "id": "t2",
@@ -199,11 +175,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "OG 이미지 한국어 버전 교체",
-      "done": true,
-      "tag": "사이트",
-      "tagColor": "#1e3a5f"
+      "notes": ""
     },
     {
       "id": "t3",
@@ -217,11 +189,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "네비게이션 메뉴 업데이트 (3개 신규 페이지)",
-      "done": true,
-      "tag": "사이트",
-      "tagColor": "#1e3a5f"
+      "notes": ""
     },
     {
       "id": "t4",
@@ -235,11 +203,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "블로그 포스트 #001~#028 생성",
-      "done": true,
-      "tag": "블로그",
-      "tagColor": "#422006"
+      "notes": ""
     },
     {
       "id": "t5",
@@ -253,11 +217,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "블로그 포스트 #061~#065 생성",
-      "done": true,
-      "tag": "블로그",
-      "tagColor": "#422006"
+      "notes": ""
     },
     {
       "id": "t6",
@@ -271,11 +231,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "블로그 #001~#010 네이버 업로드 완료",
-      "done": true,
-      "tag": "블로그",
-      "tagColor": "#422006"
+      "notes": ""
     },
     {
       "id": "t7",
@@ -289,11 +245,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "블로그 업로드 마스터보드 HTML 제작",
-      "done": true,
-      "tag": "도구",
-      "tagColor": "#3b0764"
+      "notes": ""
     },
     {
       "id": "t8",
@@ -307,11 +259,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "블로그 이모지 제거 + 리치텍스트 복사 적용",
-      "done": true,
-      "tag": "블로그",
-      "tagColor": "#422006"
+      "notes": ""
     },
     {
       "id": "t9",
@@ -325,11 +273,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "내부 링크 강화 — 30개 페이지에 관련 콘텐츠 추가",
-      "done": true,
-      "tag": "SEO",
-      "tagColor": "#14532d"
+      "notes": ""
     },
     {
       "id": "t10",
@@ -343,11 +287,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "FAQ 스키마 — 11개 계산기 페이지에 추가",
-      "done": true,
-      "tag": "SEO",
-      "tagColor": "#14532d"
+      "notes": ""
     },
     {
       "id": "t11",
@@ -361,11 +301,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "구글 색인 요청 — 104개 URL 전체",
-      "done": true,
-      "tag": "SEO",
-      "tagColor": "#14532d"
+      "notes": ""
     },
     {
       "id": "t12",
@@ -379,11 +315,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "구글 색인 자동화 스크립트 구축",
-      "done": true,
-      "tag": "도구",
-      "tagColor": "#3b0764"
+      "notes": ""
     },
     {
       "id": "t13",
@@ -397,11 +329,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "수익화 단기/중기/장기 로드맵 수립",
-      "done": true,
-      "tag": "전략",
-      "tagColor": "#450a0a"
+      "notes": ""
     },
     {
       "id": "t14",
@@ -415,11 +343,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "블로그 포스트 #029~#060 생성 (32개) — ⏸ 2026-04-18 리뷰 결과 보류, 5/18 데이터 확인 후 재개 여부 결정",
-      "done": false,
-      "tag": "블로그",
-      "tagColor": "#422006"
+      "notes": ""
     },
     {
       "id": "t15",
@@ -433,11 +357,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "블로그 #011~#028 네이버 업로드 (매일 1개)",
-      "done": false,
-      "tag": "블로그",
-      "tagColor": "#422006"
+      "notes": ""
     },
     {
       "id": "t16",
@@ -451,11 +371,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "애드센스 승인 획득",
-      "done": false,
-      "tag": "수익화",
-      "tagColor": "#450a0a"
+      "notes": ""
     },
     {
       "id": "t17",
@@ -469,11 +385,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "구글 색인 현황 확인 (4/15)",
-      "done": false,
-      "tag": "SEO",
-      "tagColor": "#14532d"
+      "notes": ""
     },
     {
       "id": "t18",
@@ -487,11 +399,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "Selenium 네이버 업로더 디버깅",
-      "done": false,
-      "tag": "도구",
-      "tagColor": "#3b0764"
+      "notes": ""
     },
     {
       "id": "t19",
@@ -505,11 +413,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "제휴 마케팅 플랫폼 가입 (리더스CPA, 링크프라이스)",
-      "done": false,
-      "tag": "수익화",
-      "tagColor": "#450a0a"
+      "notes": ""
     },
     {
       "id": "t20",
@@ -523,11 +427,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "2번째 수익 사이트 기획 및 구축",
-      "done": true,
-      "tag": "전략",
-      "tagColor": "#450a0a"
+      "notes": ""
     },
     {
       "id": "t21",
@@ -541,11 +441,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "프리미엄 콘텐츠 PDF 3종 전략안 작성 (docs/premium-pdf/) → 본문 집필 대기",
-      "done": false,
-      "tag": "수익화",
-      "tagColor": "#450a0a"
+      "notes": ""
     },
     {
       "id": "t22",
@@ -559,11 +455,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "연말정산 계산기 (year-end-tax.html) 추가",
-      "done": true,
-      "tag": "사이트",
-      "tagColor": "#1e3a5f"
+      "notes": ""
     },
     {
       "id": "t23",
@@ -577,11 +469,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "부동산연구소 사이트 초기 구축 (5페이지)",
-      "done": true,
-      "tag": "전략",
-      "tagColor": "#450a0a"
+      "notes": ""
     },
     {
       "id": "t24",
@@ -595,11 +483,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "부동산 사이트 — 취득세 계산기 (acquisition-tax.html) 제작",
-      "done": false,
-      "tag": "부동산",
-      "tagColor": "#134e4a"
+      "notes": ""
     },
     {
       "id": "t25",
@@ -613,11 +497,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "부동산 사이트 — 전세가율 계산기 (rent-ratio.html) 제작",
-      "done": false,
-      "tag": "부동산",
-      "tagColor": "#134e4a"
+      "notes": ""
     },
     {
       "id": "t26",
@@ -631,11 +511,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "부동산 사이트 도메인 구매 및 배포",
-      "done": false,
-      "tag": "부동산",
-      "tagColor": "#134e4a"
+      "notes": ""
     },
     {
       "id": "t27",
@@ -649,11 +525,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "AI 내성 재포지셔닝 전략 수립 (docs/ai-resistance/)",
-      "done": true,
-      "tag": "전략",
-      "tagColor": "#450a0a"
+      "notes": ""
     },
     {
       "id": "t28",
@@ -667,11 +539,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "공통 컴포넌트 구현 (trust-layer.js + common.css 확장)",
-      "done": true,
-      "tag": "수익화",
-      "tagColor": "#450a0a"
+      "notes": ""
     },
     {
       "id": "t29",
@@ -685,11 +553,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "파일럿 페이지 income-tax.html 에 AI 내성 3축 적용 완료",
-      "done": true,
-      "tag": "수익화",
-      "tagColor": "#450a0a"
+      "notes": ""
     },
     {
       "id": "t32",
@@ -703,11 +567,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "income-tax 파일럿 PDF 결과물 풀패키지 강화 (부호버그 수정 + 캡처 헤더/메타/푸터 + Trust Badge 재구성 + 단일 긴 PDF 페이지)",
-      "done": true,
-      "tag": "수익화",
-      "tagColor": "#450a0a"
+      "notes": ""
     },
     {
       "id": "t33",
@@ -721,11 +581,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "계산기 3개 페이지 롤아웃 (freelancer-tax · year-end-tax · medical-tax) — AI 내성 레이어 + 캡처 풀패키지 + TrustLayer.bind + captureMeta",
-      "done": true,
-      "tag": "수익화",
-      "tagColor": "#450a0a"
+      "notes": ""
     },
     {
       "id": "t30",
@@ -739,11 +595,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "메인 계산기 14개 페이지 롤아웃 (AI 내성 레이어) — 4/14 진행 중 (4/14 완료: income-tax + freelancer-tax + year-end-tax + medical-tax)",
-      "done": false,
-      "tag": "수익화",
-      "tagColor": "#450a0a"
+      "notes": ""
     },
     {
       "id": "t34",
@@ -757,11 +609,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "남은 10개 계산기 페이지 롤아웃 (gift-tax · acquisition-tax · monthly-salary · salary-table · retirement · insurance · silbi · holiday-pay · unemployment · minimum-wage) — ⏸ 2026-04-18 리뷰 결과 보류, 데이터로 트래픽 증가 확인 후 재개 (매몰비용 방지)",
-      "done": false,
-      "tag": "수익화",
-      "tagColor": "#450a0a"
+      "notes": ""
     },
     {
       "id": "t31",
@@ -775,11 +623,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "PDF 기획안 v2 리라이트 (긴 글 → 워크시트/템플릿 중심)",
-      "done": false,
-      "tag": "수익화",
-      "tagColor": "#450a0a"
+      "notes": ""
     },
     {
       "id": "w1",
@@ -793,11 +637,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "맥스아웃 앱 기획안 작성 (APP_PLAN.md)",
-      "done": true,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w2",
@@ -811,11 +651,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "기술 스택 확정 (SwiftUI + CloudKit)",
-      "done": true,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w3",
@@ -829,11 +665,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "핵심 기능 설계 (슈퍼세트, 스마트 과부하, 전환 기록, 자동 카운팅)",
-      "done": true,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w4",
@@ -847,11 +679,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "프로젝트 관리 체계 구축 (마스터보드, devlog, PROJECT_CONTEXT)",
-      "done": true,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w5",
@@ -865,11 +693,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 1] Xcode 프로젝트 셋업 (iOS + watchOS)",
-      "done": false,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w6",
@@ -883,11 +707,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 1] SwiftData 모델 정의",
-      "done": false,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w7",
@@ -901,11 +721,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 1] 기본 화면 구조 (탭 네비게이션)",
-      "done": false,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w8",
@@ -919,11 +735,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 1] 홈 화면 + 캘린더 뷰",
-      "done": false,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w9",
@@ -937,11 +749,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 1] 세트 구성 설정 화면",
-      "done": false,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w10",
@@ -955,11 +763,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 2] 대형 카운터 UI (iPhone + Apple Watch)",
-      "done": false,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w11",
@@ -973,11 +777,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 2] 슈퍼세트 진행 로직",
-      "done": false,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w12",
@@ -991,11 +791,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 2] 탭 인터랙션 (1탭 전환 / 더블탭 정지+실패)",
-      "done": false,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w13",
@@ -1009,11 +805,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 2] 휴식 타이머 + 스마트 과부하 계산",
-      "done": false,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w14",
@@ -1027,11 +819,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 3] Apple Watch 모션 감지 카운팅",
-      "done": false,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w15",
@@ -1045,11 +833,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 3] 음성 인식 / 카메라 포즈 감지",
-      "done": false,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w16",
@@ -1063,11 +847,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 3] iPhone ↔ Watch 실시간 동기화",
-      "done": false,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w17",
@@ -1081,11 +861,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 4] 통계 차트 + 캘린더 뷰",
-      "done": false,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w18",
@@ -1099,11 +875,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 4] CloudKit 동기화",
-      "done": false,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "w19",
@@ -1117,11 +889,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 4] UI 폴리싱 & TestFlight 배포",
-      "done": false,
-      "tag": "맥스아웃",
-      "tagColor": "#7c2d12"
+      "notes": ""
     },
     {
       "id": "n1",
@@ -1135,11 +903,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "Nudge 앱 이름 확정 + 기획안(APP_PLAN.md) 작성",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n2",
@@ -1153,11 +917,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "Nudge 프로젝트 관리 체계 구축 (PROJECT_CONTEXT, PROGRESS, 마스터보드 연동)",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n3",
@@ -1171,11 +931,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "Nudge 아이콘 & 컬러 컨셉 스케치 (DESIGN.md + 4종 SVG, A안 가결정)",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n4",
@@ -1189,11 +945,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 1] Xcode 프로젝트 셋업 (iOS 앱 + Widget Extension + watchOS)",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n5",
@@ -1207,11 +959,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 1] App Group 설정 + 공용 데이터 저장소(SharedStore) 구현",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n6",
@@ -1225,11 +973,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 1] 활성 운동 선택 화면 + 기본 카운터 UI",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n7",
@@ -1243,11 +987,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 2] Widget Extension + 소형/중형 위젯 디자인",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n8",
@@ -1261,11 +1001,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 2] App Intents로 Interactive Widget 구현 (탭=+1)",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n8b",
@@ -1279,11 +1015,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 1~2] 시뮬레이터 실기 검증 (위젯 탭 → 숫자 반영, 앱↔위젯 동기화)",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n8c",
@@ -1297,11 +1029,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 2] 위젯 꾹 눌러 편집 UI (ExerciseChoice AppEnum + WidgetConfigurationIntent, 소형=AppIntentConfig / 중형=Static 분리)",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n8d",
@@ -1315,11 +1043,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Design] 앱 아이콘 A안(Ripple Tap) 적용 — light/dark/tinted 3종 1024 PNG",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n8e",
@@ -1333,11 +1057,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Design/낮은 우선순위] 운동 아이콘 교체 — 현재 SF Symbols 톤 재검토 (Exercise.symbolName 한 곳 수정으로 앱/위젯/통계 동시 반영)",
-      "done": false,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n9",
@@ -1351,11 +1071,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 3] watchOS 메인 앱 (+1 버튼, 활성 운동 iPhone 전담) 구현 완료",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n10",
@@ -1369,11 +1085,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 3] iPhone ↔ Watch 동기화 — WC 단독 전략, NudgeSync/SharedStore 구현 완료, 실기기 양방향 검증 대기",
-      "done": false,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n10b",
@@ -1387,11 +1099,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 3] 컴플리케이션 Widget Extension 타겟 추가 (3종 패밀리 Circular/Inline/Rectangular + Config Intent + 탭=+1 → reloadTimelines → WC push)",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n10c",
@@ -1405,11 +1113,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 3] 실기기에서 컴플리케이션 시계 화면 배치 & 탭 동작 확인",
-      "done": false,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n10d",
@@ -1423,11 +1127,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 3/진단] NudgeSync 3-copy 드리프트 정합화 + Watch:recv/iPhone:push/Watch:push appendDebugLog 보강 (양방향 동기화 버그 진단 준비)",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n10f",
@@ -1441,11 +1141,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": "2026-04-17",
-      "notes": "",
-      "text": "[Phase 3/수정] handleRemote WidgetCenter 가드 버그 수정 — #if os(iOS) 제거로 watchOS 에서도 컴플리케이션 타임라인 리로드 동작 (iPhone→Watch 방향 반영 불능의 유력 원인 선제 제거)",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n10g",
@@ -1460,11 +1156,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-22",
       "completedAt": "2026-04-22",
-      "notes": "",
-      "text": "[Phase 3/수정] Complication NudgeSync 3-copy 정합화 마무리 — 04-17 커밋이 'complication copy has no handleRemote' 오판으로 누락한 컴플리케이션 타깃까지 동일 구조로 맞춤 (import WidgetKit 가드 해제 / #if os(iOS) 가드 제거 / didReceiveUserInfo 추가 / Comp: 접두사 로그 보강)",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n10h",
@@ -1478,11 +1170,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-22",
       "completedAt": "2026-04-22",
-      "notes": "",
-      "text": "[Phase 3/수정] Watch ContentView 에 WKApplication.didBecomeActiveNotification 훅 추가 — iOS 의 UIApplication.didBecomeActiveNotification 대칭. 포그라운드 복귀 시 refresh + pushLocalChange (컴플리케이션 탭 후 앱 복귀 경로에서 iPhone push 누락 가능성 제거)",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n10e",
@@ -1497,11 +1185,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 3/🔴최우선] iPhone ↔ Watch 스마트스택 컴플리케이션 양방향 동기화 불능 — 실기기 재현 + 🐜/🐞 로그 캡처 + 실패 스테이지 식별 + 패치",
-      "done": false,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n11",
@@ -1515,11 +1199,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 4] 주/월/연 통계 화면 (Swift Charts 스택 바 + 12주 히트맵 + TabView)",
-      "done": true,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n12",
@@ -1533,11 +1213,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Phase 4] 폴리싱 + TestFlight 배포",
-      "done": false,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n13",
@@ -1551,11 +1227,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Monetize] $0.99 '개발자 커피값 후원' Consumable IAP 구현 (StoreKit 2)",
-      "done": false,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n14",
@@ -1569,11 +1241,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Monetize] App Store Connect 팁 상품 등록 (site.salarykorea.nudge.tip.coffee) + Sandbox 테스트",
-      "done": false,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     },
     {
       "id": "n15",
@@ -1587,11 +1255,7 @@ window.PROJECT_DATA = {
       ],
       "createdAt": "2026-04-13",
       "completedAt": null,
-      "notes": "",
-      "text": "[Cross] 맥스아웃 크로스 프로모션 — 30일 연속 사용자 설정 화면 1회 노출 카드",
-      "done": false,
-      "tag": "Nudge",
-      "tagColor": "#0d9488"
+      "notes": ""
     }
   ],
   "stats": {
